@@ -2,9 +2,9 @@
 permalink:           pretty
 
 # Setup
-title:               Z.W. Miller
+title:               A creative blog
 tagline:             A Moderately Okay Data Science Blog
-url:                 http://zwmiller.com
+url:                 http://xzhou110.github.io/
 paginate:            2
 baseurl:             ""
 
@@ -17,14 +17,14 @@ sass:
 
 # About/contact
 author:
-  name:              Zach Miller
-  url:               https://twitter.com/zaglamir
-  email:             zach@thisismetis.com
+  name:              Xu Zhou
+  url:               
+  email:             xzhou110@gmail.com
 
 # Custom vars
 version:             2.0.0
 github:
-  repo:              https://github.com/zwmiller
+  repo:              https://github.com/xzhou110
 
 # Gems
 gems:
