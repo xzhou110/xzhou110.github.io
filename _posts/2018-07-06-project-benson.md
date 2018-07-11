@@ -32,21 +32,21 @@ After thorough analysis, we believed following aspects have strong impact to the
 
 <ul>
 <li>Traffic around each station - analysis leveraging MTA traffic data</li>
-<li> How far each station is from surrounding top 20 high Tech firms in NY - analysis leveraging Google Maps API</li>
+<li> How far each station is from surrounding top High-Tech firms - analysis leveraging Google Maps API</li>
 <li>How far each station is from surrounding Starbucks - analysis leveraging Google Maps API </li>
-<li> Female relative percentage at each station- analysis leveraging US Census data</li>
+<li> Female percentage at each station- analysis leveraging US Census data</li>
 </ul>
 
-For each station, we assessed four aspects and assign a score on each aspect. Then we calculated weighted average of four scores to derive at final score of each station. The final scores were used for ranking purpose.
+For each MTA station, we assessed four aspects and assigned a score on each aspect. Then weighted average was calculated to derive at final score of each station. The final scores were used for ranking purpose.
 
 ### Results
 
-Stations were ranked based on the weighted average scores of above four factors. Top stations and optimal time windows were identified.
+MTA stations were ranked based on the weighted average scores of above four factors. Top stations and optimal time windows were identified.
 
 
 ### Conclusion and Next Steps
 
-Recommended top stations and time windows to optimize the placement of street teams:
+Recommended top MTA stations and time windows to optimize the placement of street teams:
 <ul>
 <li>Time Square, E14th Street, Herald Square Stations were identified as top 3 stations</li>
 <li>Friday and Saturday 7 p.m.-9 p.m. were identified as best time windows to maximize results</li>
