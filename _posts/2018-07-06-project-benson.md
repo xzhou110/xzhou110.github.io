@@ -1,10 +1,17 @@
 ---
 layout: post
-title: My super someone analysis of the cool MTA data, it's the best
+title: Placement Optimization for Marketing Street Teams
 ---
 
+### Problem Statement:
+<ul>
+<li>Limited resources</li>
+<li>Limited resources</li>
+<li>Limited resources</li>
 
-### Anaalysis
+
+</ul>
+### Analysis
 
 ### Results
 
