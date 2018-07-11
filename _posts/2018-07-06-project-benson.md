@@ -33,34 +33,34 @@ After thorough analysis, we believed following factors have strong impact to the
 <table>
   <thead>
     <tr>
-      <th style="text-align: center">Factors</th>
+      <th style="text-align: left">Factors</th>
       <th style="text-align: center">Data Source</th>
       <th style="text-align: center">Details </th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td style="text-align: center">Potential Market</td>
+      <td style="text-align: left">Potential Market</td>
       <td style="text-align: center">MTA Traffic Data</td>
-      <td style="text-align: center">Traffic around each MTA station</td>
+      <td style="text-align: left">Traffic around each MTA station</td>
 
     </tr>
     <tr>
-      <td style="text-align: center">Job - High Tech Related</td>
+      <td style="text-align: left">Job - High Tech Related</td>
       <td style="text-align: center">Google Maps API</td>
-      <td style="text-align: center">How far each station is from surrounding top High-Tech firms</td>
+      <td style="text-align: left">How far each station is from surrounding top High-Tech firms</td>
 
     </tr>
     <tr>
-      <td style="text-align: center">Lifestyle-Starbucks</td>
+      <td style="text-align: left">Lifestyle-Starbucks</td>
       <td style="text-align: center">Google Maps API</td>
-      <td style="text-align: center">How far each station is from surrounding Starbucks</td>
+      <td style="text-align: left">How far each station is from surrounding Starbucks</td>
 
     </tr>
     <tr>
-      <td style="text-align: center">Demographics-Female Percentage</td>
+      <td style="text-align:left">Demographics-Female Percentage</td>
       <td style="text-align: center">US Census Data</td>
-      <td style="text-align: center">How much  percentage of population are potential customers</td>
+      <td style="text-align: left">How much  percentage of population are potential customers</td>
 
     </tr>
   </tbody>
@@ -86,4 +86,4 @@ Next steps:
 <li>Other factors to consider: education, income level, and etc.</li>
 </ul>
 
-<img src="final_finding.jpg" height="400" width="300">
+<img src="final_finding.jpg" height="350" width="400">
