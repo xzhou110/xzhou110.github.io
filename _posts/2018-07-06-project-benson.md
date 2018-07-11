@@ -15,24 +15,40 @@ However, the organization is constrained by following factors:
 
 
 ### Goals:
-Optimizing the placement of Marketing team and maximize the effectiveness of the campaign are critical. Following goals should be achieved:
+Optimizing the placement of Marketing team and maximizing the effectiveness of the campaign are critical. Following goals should be achieved:
 <ul>
 
-<li>Increase the participation of women in technology </li>
-<li>Raise brand awareness and reach</li>
 <li>Raise fund</li>
+<li>Raise brand awareness and reach</li>
+<li>Increase the participation of women in technology </li>
 </ul>
 
 
 ### Analysis
-Decided key elements that can impact the result:
-MTA
+We believed following factors have strong impact to the street team marketing effectiveness:
+
+<ol>
+<li>Traffic. Traffic around each station - leverage MTA data</li>
+<li> How far each station is from surrending top 20 high Tech firms in NY - leveraging Google Maps API</li>
+<li>How far each station is from surrending Starbucks - leveraging Google Maps API </li>
+<li> Female relative percentage at each station- leveraging US Census data</li>
+</ol>
+
+Weights were assigned to each of the factor above to reach a final score for each MTA station.
 
 ### Results
 
-### Conclusion
+Stations were ranked based on the weighted average of score of above four factors
+Top 10 stations were identified
+Optimal time window was identified
 
-Go to Union station. Or Pen
+### Conclusion and Next Steps
+
+Recommended top stations and time window to place the street time to maximize marketing impact
+Time Square, E14th Street, Herald Square Stations were identified as top 3 stations
+Friday to Saturday 7 p.m.-9 p.m. were identified as best time window to maximize results
+Next steps:
+
 
 
 
