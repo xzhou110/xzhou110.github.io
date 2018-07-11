@@ -3,7 +3,8 @@ layout: post
 title: Harnessing Marketing Power of Street Teams Leveraging Data Science
 ---
 
-### Problem Statement
+## Problem Statement
+
 WomenTechWomenYes (WTWY) holds an annual gala every summer. For this year, they planned to place marketing street teams at various NY MTA stations to generate buzz and raise awareness.
 
 However, the organization is constrained by following factors:
@@ -14,7 +15,8 @@ However, the organization is constrained by following factors:
 </ul>
 
 
-### Goals
+## Goals
+
 Optimizing the placement of Marketing team and maximizing the effectiveness of the campaign are critical. Following goals should be achieved:
 <ul>
 
@@ -25,6 +27,7 @@ Optimizing the placement of Marketing team and maximizing the effectiveness of t
 
 
 ### Analysis
+
 After thorough analysis, we believed following factors have strong impact to the street team marketing effectiveness:
 
 <ol>
@@ -43,15 +46,15 @@ Stations were ranked based on the weighted average score of above four factors. 
 
 ### Conclusion and Next Steps
 
-Recommended top stations and time window to place the street time to maximize marketing impact
+Recommended top stations and time windows to optimize the placement of street teams
 <ul>
 <li>Time Square, E14th Street, Herald Square Stations were identified as top 3 stations</li>
 <li>Friday to Saturday 7 p.m.-9 p.m. were identified as best time window to maximize results</li>
 </ul>
 Next steps:
 <ul>
-<li>Tourist vs. Resident impact and short term vs. long term impact</li>
-<li>Other factors can consider: education and income level</li>
+<li>Tourist vs. Resident impact on engagement</li>
+<li>Other factors to consider: education, income level, and etc.</li>
 </ul>
 
 
