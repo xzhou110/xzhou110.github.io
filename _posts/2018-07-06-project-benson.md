@@ -58,20 +58,13 @@ After thorough analysis, we believed following factors have strong impact to the
 
     </tr>
     <tr>
-      <td style="text-align: center">Female Percentage</td>
-      <td style="text-align: center">US Census data</td>
-      <td style="text-align: center">How much  percentage of population are female, potential customers</td>
+      <td style="text-align: center">Demographics-Female Percentage</td>
+      <td style="text-align: center">US Census Data</td>
+      <td style="text-align: center">How much  percentage of population are potential customers</td>
 
     </tr>
   </tbody>
 </table>
-
-<ul>
-<li>Traffic around each station - analysis leveraging MTA traffic data</li>
-<li> How far each station is from surrounding top High-Tech firms - analysis leveraging Google Maps API</li>
-<li>How far each station is from surrounding Starbucks - analysis leveraging Google Maps API </li>
-<li> Female percentage at each station- analysis leveraging US Census data</li>
-</ul>
 
 We rated each MTA station on four factors respectively. Then weighted average was calculated to derive at final score of each station. The final scores were used for ranking purpose.
 
@@ -93,4 +86,4 @@ Next steps:
 <li>Other factors to consider: education, income level, and etc.</li>
 </ul>
 
-<img src="final_finding.jpg" height="42" width="42">
+<img src="final_finding.jpg" height="400" width="300">
