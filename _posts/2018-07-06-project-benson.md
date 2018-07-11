@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Using Data Science to Unleash Marketing Power of Street Teams
+title: Unleashing Marketing Power of Street Teams Using Data Science
 ---
 
 ### Problem Statement
