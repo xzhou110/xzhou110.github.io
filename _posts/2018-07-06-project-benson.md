@@ -28,35 +28,40 @@ Optimizing the placement of marketing team and effectiveness of the campaign. Fo
 
 ### Analysis
 
-After thorough analysis, we believed following aspects have strong impact to the street team marketing effectiveness:
+After thorough analysis, we believed following factors have strong impact to the street team marketing effectiveness:
 
 <table>
   <thead>
     <tr>
-      <th style="text-align: center">Parameter</th>
-      <th style="text-align: center">Corollary</th>
+      <th style="text-align: center">Factors</th>
       <th style="text-align: center">Data Source</th>
-      <th style="text-align: center">Scoring Metric</th>
+      <th style="text-align: center">Details </th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td style="text-align: center">Demographics</td>
-      <td style="text-align: center">Gender Distribution</td>
-      <td style="text-align: center">US Census 2010 Data</td>
-      <td style="text-align: center">Number of women living in area</td>
+      <td style="text-align: center">Potential Market</td>
+      <td style="text-align: center">MTA Traffic Data</td>
+      <td style="text-align: center">Traffic around each MTA station</td>
+
     </tr>
     <tr>
-      <td style="text-align: center">Interests</td>
-      <td style="text-align: center">Starbucks</td>
+      <td style="text-align: center">Job - High Tech Related</td>
       <td style="text-align: center">Google Maps API</td>
-      <td style="text-align: center">Aggregate inverse distance to Starbucks locations within walking distance</td>
+      <td style="text-align: center">How far each station is from surrounding top High-Tech firms</td>
+
     </tr>
     <tr>
-      <td style="text-align: center">Work</td>
-      <td style="text-align: center">Tech Companies</td>
+      <td style="text-align: center">Lifestyle-Starbucks</td>
       <td style="text-align: center">Google Maps API</td>
-      <td style="text-align: center">Aggregate inverse distance to top 21 tech companies</td>
+      <td style="text-align: center">How far each station is from surrounding Starbucks</td>
+
+    </tr>
+    <tr>
+      <td style="text-align: center">Female Percentage</td>
+      <td style="text-align: center">US Census data</td>
+      <td style="text-align: center">How much  percentage of population are female, potential customers</td>
+
     </tr>
   </tbody>
 </table>
@@ -68,7 +73,7 @@ After thorough analysis, we believed following aspects have strong impact to the
 <li> Female percentage at each station- analysis leveraging US Census data</li>
 </ul>
 
-For each MTA station, we assessed four aspects and assigned a score on each aspect. Then weighted average was calculated to derive at final score of each station. The final scores were used for ranking purpose.
+We rated each MTA station on four factors respectively. Then weighted average was calculated to derive at final score of each station. The final scores were used for ranking purpose.
 
 ### Results
 
