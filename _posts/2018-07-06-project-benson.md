@@ -28,7 +28,7 @@ Optimizing the placement of Marketing team and maximizing the effectiveness of t
 
 ### Analysis
 
-After thorough analysis, we believed following factors have strong impact to the street team marketing effectiveness:
+After thorough analysis, we believed following aspects have strong impact to the street team marketing effectiveness:
 
 <ol>
 <li>Traffic around each station - leveraging MTA traffic data</li>
@@ -37,27 +37,22 @@ After thorough analysis, we believed following factors have strong impact to the
 <li> Female relative percentage at each station- leveraging US Census data</li>
 </ol>
 
-Promixity score were derived for each of four factors for each station. Weights were assigned to each of the factor above to reach a final score for final ranking purpose.
+For each station, we assessed four aspects and assign a score on each aspect. Then we calculated weighted average of 4 scores to derive at final score for each station. The final scores were used for ranking purpose.
 
 ### Results
 
-Stations were ranked based on the weighted average score of above four factors. Top 10 stations and optimal time windows were identified
+Stations were ranked based on the weighted average score of above four factors. Top stations and optimal time windows were identified.
 
 
 ### Conclusion and Next Steps
 
-Recommended top stations and time windows to optimize the placement of street teams
+Recommended top stations and time windows to optimize the placement of street teams:
 <ul>
 <li>Time Square, E14th Street, Herald Square Stations were identified as top 3 stations</li>
-<li>Friday to Saturday 7 p.m.-9 p.m. were identified as best time window to maximize results</li>
+<li>Friday and Saturday 7 p.m.-9 p.m. were identified as best time windows to maximize results</li>
 </ul>
 Next steps:
 <ul>
-<li>Tourist vs. Resident impact on engagement</li>
+<li>Evaluate tourist vs. resident impact on engagement</li>
 <li>Other factors to consider: education, income level, and etc.</li>
 </ul>
-
-
-
-
-### Recommendations
