@@ -30,12 +30,12 @@ Optimizing the placement of Marketing team and maximizing the effectiveness of t
 
 After thorough analysis, we believed following aspects have strong impact to the street team marketing effectiveness:
 
-<ol>
+<ul>
 <li>Traffic around each station - leveraging MTA traffic data</li>
 <li> How far each station is from surrounding top 20 high Tech firms in NY - leveraging Google Maps API</li>
 <li>How far each station is from surrounding Starbucks - leveraging Google Maps API </li>
 <li> Female relative percentage at each station- leveraging US Census data</li>
-</ol>
+</ul>
 
 For each station, we assessed four aspects and assign a score on each aspect. Then we calculated weighted average of 4 scores to derive at final score for each station. The final scores were used for ranking purpose.
 
