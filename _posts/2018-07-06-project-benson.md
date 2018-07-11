@@ -3,21 +3,21 @@ layout: post
 title: Harnessing Marketing Power of Street Teams Leveraging Data Science
 ---
 
-## Problem Statement
+### Problem Statement
 
-WomenTechWomenYes (WTWY) holds an annual gala every summer. For this year, they planned to place marketing street teams at various NY MTA stations to generate buzz and raise awareness.
+WomenTechWomenYes (WTWY) holds an annual gala every summer. For this year, the organization planned to place marketing street teams at various NY MTA stations to generate buzz and raise awareness.
 
-However, the organization is constrained by following factors:
+However, the organization was constrained by following factors:
 <ul>
 <li>Time constraint. Short timeline prior to the event </li>
-<li>Funding constraint</li>
+<li>Funding constraint. Limited funding available</li>
 <li>Labor constraint. Limited number of teams available. </li>
 </ul>
 
 
-## Goals
+### Goals
 
-Optimizing the placement of Marketing team and maximizing the effectiveness of the campaign are critical. Following goals should be achieved:
+Optimizing the placement of marketing team and effectiveness of the campaign. Following goals should be achieved:
 <ul>
 
 <li>Raise fund</li>
@@ -31,17 +31,17 @@ Optimizing the placement of Marketing team and maximizing the effectiveness of t
 After thorough analysis, we believed following aspects have strong impact to the street team marketing effectiveness:
 
 <ul>
-<li>Traffic around each station - leveraging MTA traffic data</li>
-<li> How far each station is from surrounding top 20 high Tech firms in NY - leveraging Google Maps API</li>
-<li>How far each station is from surrounding Starbucks - leveraging Google Maps API </li>
-<li> Female relative percentage at each station- leveraging US Census data</li>
+<li>Traffic around each station - analysis leveraging MTA traffic data</li>
+<li> How far each station is from surrounding top 20 high Tech firms in NY - analysis leveraging Google Maps API</li>
+<li>How far each station is from surrounding Starbucks - analysis leveraging Google Maps API </li>
+<li> Female relative percentage at each station- analysis leveraging US Census data</li>
 </ul>
 
-For each station, we assessed four aspects and assign a score on each aspect. Then we calculated weighted average of 4 scores to derive at final score for each station. The final scores were used for ranking purpose.
+For each station, we assessed four aspects and assign a score on each aspect. Then we calculated weighted average of four scores to derive at final score of each station. The final scores were used for ranking purpose.
 
 ### Results
 
-Stations were ranked based on the weighted average score of above four factors. Top stations and optimal time windows were identified.
+Stations were ranked based on the weighted average scores of above four factors. Top stations and optimal time windows were identified.
 
 
 ### Conclusion and Next Steps
@@ -53,6 +53,6 @@ Recommended top stations and time windows to optimize the placement of street te
 </ul>
 Next steps:
 <ul>
-<li>Evaluate tourist vs. resident impact on engagement</li>
+<li>Evaluate tourist vs. resident impact</li>
 <li>Other factors to consider: education, income level, and etc.</li>
 </ul>
