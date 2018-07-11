@@ -56,3 +56,5 @@ Next steps:
 <li>Evaluate tourist vs. resident impact</li>
 <li>Other factors to consider: education, income level, and etc.</li>
 </ul>
+
+<img src="/final_finding.jpg" height="42" width="42">
