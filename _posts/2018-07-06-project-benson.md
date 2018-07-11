@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Leveraging Data Science to Harnessing Marketing Power of Street Teams
+title: Using Data Science to Unleash Marketing Power of Street Teams
 ---
 
 ### Problem Statement
@@ -86,4 +86,4 @@ Next steps:
 <li>Other factors to consider: education, income level, and etc.</li>
 </ul>
 
-<img src="final_finding.jpg" height="350" width="500">
+<img src="final_finding.jpg" height="350" width="550">
