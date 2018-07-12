@@ -88,4 +88,4 @@ Next steps:
 <li>Other factors to consider: related organizations, education, income level, and etc.</li>
 </ul>
 
-<img src="recommendation.png" height="300" width="900">
+<img src="recommendation.png" height="240" width="900">
