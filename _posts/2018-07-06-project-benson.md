@@ -5,19 +5,19 @@ title: Unleashing Marketing Power of Street Teams Using Data Science
 
 ### Problem Statement
 
-WomenTechWomenYes (WTWY) holds an annual gala every summer. For this year, the organization planned to place marketing street teams at various NY MTA stations to generate buzz and raise awareness.
+WomenTechWomenYes (WTWY) holds an annual gala every summer. For this year, the organization planned to place marketing street teams at multiple NY MTA stations to generate buzz and raise awareness.
 
 However, the organization was constrained by following factors:
 <ul>
 <li>Time constraint. Short timeline prior to the event </li>
 <li>Funding constraint. Limited funding available</li>
-<li>Labor constraint. Limited number of teams available. </li>
+<li>Labor constraint. Limited number of teams available </li>
 </ul>
 
 
 ### Goals
 
-Optimizing the placement of marketing team and effectiveness of the campaign. Following goals should be achieved:
+Optimizing the placement of marketing team and effectiveness of the campaign. Following goals need to be achieved:
 <ul>
 
 <li>Raise fund</li>
@@ -28,12 +28,13 @@ Optimizing the placement of marketing team and effectiveness of the campaign. Fo
 
 ### Analysis
 
-After thorough analysis, we believed following factors have strong impact to the street team marketing effectiveness:
+After thorough analysis, we believed following factors have strong impact to the street team marketing effectiveness (see table below).
 
+We rated each MTA station on each of four factors, and calculated weighted average of four ratings to derive at overall rating of a station. The final ratings were used for ranking and recommendation purposes.
 <table>
   <thead>
     <tr>
-      <th style="text-align: left">Factors</th>
+      <th style="text-align: left">Factor</th>
       <th style="text-align: center">Data Source</th>
       <th style="text-align: center">Details </th>
     </tr>
@@ -46,44 +47,45 @@ After thorough analysis, we believed following factors have strong impact to the
 
     </tr>
     <tr>
-      <td style="text-align: left">Job - High Tech Related</td>
+      <td style="text-align: left">Professionals - High Tech Related</td>
       <td style="text-align: center">Google Maps API</td>
       <td style="text-align: left">How far each station is from surrounding top High-Tech firms</td>
 
     </tr>
     <tr>
-      <td style="text-align: left">Lifestyle-Starbucks</td>
+      <td style="text-align: left">Lifestyle - Starbucks</td>
       <td style="text-align: center">Google Maps API</td>
       <td style="text-align: left">How far each station is from surrounding Starbucks</td>
 
     </tr>
     <tr>
-      <td style="text-align:left">Demographics-Female Percentage</td>
+      <td style="text-align:left">Demographics - Female Percentage</td>
       <td style="text-align: center">US Census Data</td>
-      <td style="text-align: left">How much  percentage of population are potential customers</td>
+      <td style="text-align: left">Female percentage around each MTA station</td>
 
     </tr>
   </tbody>
 </table>
 
-We rated each MTA station on four factors respectively. Then weighted average was calculated to derive at final score of each station. The final scores were used for ranking purpose.
+
 
 ### Results
 
-MTA stations were ranked based on the weighted average scores of above four factors. Top stations and optimal time windows were identified.
+MTA stations were ranked based on the weighted average ratings of above four factors. Top stations and optimal time windows were identified as a result.
 
 
 ### Conclusion and Next Steps
 
 Recommended top MTA stations and time windows to optimize the placement of street teams:
 <ul>
-<li>Time Square, E14th Street, Herald Square Stations were identified as top 3 stations</li>
+<li>Time Square, E14th Street, Herald Square Stations were identified as top 3 stations to place street teams</li>
 <li>Friday and Saturday 7 p.m.-9 p.m. were identified as best time windows to maximize results</li>
 </ul>
 Next steps:
 <ul>
 <li>Evaluate tourist vs. resident impact</li>
-<li>Other factors to consider: education, income level, and etc.</li>
+<li>Feedback and continuous improvement of rating system</li>
+<li>Other factors to consider: related organizations, education, income level, and etc.</li>
 </ul>
 
-<img src="final_finding.jpg" height="350" width="550">
+<img src="recommendation.png" height="500" width="750">
