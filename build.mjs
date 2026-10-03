@@ -1,4 +1,4 @@
-// portfolio/build.mjs — generates the public portfolio page (xzhou110.github.io). Node ≥ 20, no dependencies.
+// project-portfolio/build.mjs — generates the public portfolio page (xzhou110.github.io). Node ≥ 20, no dependencies.
 //
 // Declared content (curated, employer-facing) lives in content/portfolio.json. Observed facts (live URL
 // status, repo language / last push / stars) come from a facts snapshot passed with --facts <path> —
