@@ -5,7 +5,8 @@ summary: Public portfolio page for future employers at xzhou110.github.io — cu
 status: live
 live: https://xzhou110.github.io/
 repo: https://github.com/xzhou110/xzhou110.github.io
-updated: 2026-10-02
+updated: 2026-10-05
+started: 2026-10-01
 category: products
 phase: polishing
 next: repo hygiene pass (descriptions, topics, licenses on garage and apartment-shopping, AI-disclosure line in the comparator README, archive tutorial repos, profile bio and pins)
