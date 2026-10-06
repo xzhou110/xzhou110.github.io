@@ -5,7 +5,7 @@ summary: Public portfolio page for future employers at xzhou110.github.io — cu
 status: live
 live: https://xzhou110.github.io/
 repo: https://github.com/xzhou110/xzhou110.github.io
-updated: 2026-10-05
+updated: 2026-10-06
 started: 2026-10-01
 category: products
 phase: polishing
@@ -20,6 +20,7 @@ xzhou's GitHub user site (`xzhou110.github.io`) had been an untouched Jekyll "Po
 ## 2. Key facts
 | | |
 |---|---|
+| **Local Path** | `D:/Meaningful/AI/project-portfolio` |
 | **Kind** | web page (static, one file + assets) · generator script |
 | **Stack** | Node 24 generator (`build.mjs`, no deps), headless Chrome for screenshots, vanilla HTML/CSS; GitHub Pages serves `master` root (legacy build; `.nojekyll` once published) |
 | **Run** | `node build.mjs --facts <snapshot.json>` (`--no-shots` reuses screenshots) · preview: any static server on the folder (launch config `project-portfolio` → http://localhost:8141/) |
