@@ -9,7 +9,7 @@ updated: 2026-10-06
 started: 2026-10-01
 category: products
 phase: polishing
-next: repo hygiene pass (descriptions, topics, licenses on garage and apartment-shopping, AI-disclosure line in the comparator README, archive tutorial repos, profile bio and pins)
+next: repo hygiene pass (descriptions, topics, licenses on car-shopping and apartment-shopping, AI-disclosure line in the comparator README, archive tutorial repos, profile bio and pins)
 ---
 
 # project-portfolio — the public page for employers
@@ -26,7 +26,7 @@ xzhou's GitHub user site (`xzhou110.github.io`) had been an untouched Jekyll "Po
 | **Run** | `node build.mjs --facts <snapshot.json>` (`--no-shots` reuses screenshots) · preview: any static server on the folder (launch config `project-portfolio` → http://localhost:8141/) |
 | **Deploy** | commit `index.html` + `assets/` to `master` and push → live at https://xzhou110.github.io/ within ~1 min. **Publishing is a human gate** — never push without xzhou's explicit go. |
 | **Data / backends** | `content/portfolio.json` (declared) · a facts snapshot passed with `--facts` (observed: live status, language, last push; public repos only; never committed) · headless Chrome. $0. |
-| **Related** | garage, apartment-shopping, car-tco-compare (the featured products) · the GitHub profile (bio, pinned repos, descriptions — part of the same first impression) |
+| **Related** | car-shopping, apartment-shopping, car-tco-compare (the featured products) · the GitHub profile (bio, pinned repos, descriptions — part of the same first impression) |
 | **Started · last major change** | 2026-10-01 · 2026-10-01 |
 
 ## 3. Key things to know
@@ -53,9 +53,10 @@ project-portfolio/         (= the xzhou110.github.io repo, branch master)
 Edit content → `node build.mjs` → open the `project-portfolio` launch config → check both themes, mobile width, every link, the screenshots → show xzhou → on explicit go: commit + push `master` → verify https://xzhou110.github.io/ returns the new page (curl 200 + title).
 
 ### Current state & open items
-Published 2026-10-01 after a research pass (repo tiers, app deep-reads, a judged positioning panel, hiring-manager criteria, a privacy and employment-risk review) and three owner revisions. Open: GitHub profile hygiene (bio, pinned repos, missing descriptions on 7 repos, profile README); LICENSE files for garage and apartment-shopping; an AI-disclosure line in the comparator README; archiving the tutorial repos; optional privacy-friendly analytics; whether to add a LinkedIn link once titles and dates match.
+Published 2026-10-01 after a research pass (repo tiers, app deep-reads, a judged positioning panel, hiring-manager criteria, a privacy and employment-risk review) and three owner revisions. Open: GitHub profile hygiene (bio, pinned repos, missing descriptions on 7 repos, profile README); LICENSE files for car-shopping and apartment-shopping; an AI-disclosure line in the comparator README; archiving the tutorial repos; optional privacy-friendly analytics; whether to add a LinkedIn link once titles and dates match.
 
 ### Change highlights
+- 2026-10-06 — Updated the featured Car Shopping name and links after its repository rename; `/garage/` redirects to `/car-shopping/` while preserving query strings and shared-car hashes.
 - 2026-10-02 — Local folder and project renamed `portfolio` → `project-portfolio`; `formerly: [portfolio]` keeps history recorded under the old name with this project. The GitHub repo keeps its name, which Pages requires for a user site.
 - 2026-10-01 — Published: the 2018 Poole template replaced by the generated page; three content revisions with the owner; the facts source became a `--facts` argument so the public repo names nothing private.
 

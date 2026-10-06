@@ -43,8 +43,8 @@
       "screenshot": true
     },
     {
-      "id": "garage",
-      "title": "Garage",
+      "id": "car-shopping",
+      "title": "Car Shopping",
       "oneLiner": "A used-car shortlist that raises risk flags, tracks features honestly, and ranks candidates by estimated cost of ownership instead of sticker price.",
       "problem": "Shopping for a used hybrid SUV with a deadline, I had listings scattered across five sites with inconsistent wording. Sticker price is a poor way to rank near-identical cars: the cheaper one can depreciate faster, carry rental-fleet mileage, or hide an accident.",
       "built": "A private, static board for every candidate: photo, price and estimated out-the-door, an estimated N-year cost to own, a ten-feature row that is explicitly has / confirmed absent / unknown, and automatic flags such as branded title, accidents, prior theft, high miles per year, no service records and over-market price. Filter, sort by cost of ownership, compare side by side, and push the shortlist straight to a Google Sheet. Listings were captured from screenshots with an AI assistant into a typed seed file; the app itself does no scraping.",
@@ -52,7 +52,7 @@
       "outcome": "Built for my own 18-car search. Single-user by design, with state in the browser. Next: package the shared TCO engine instead of vendoring it.",
       "honest": [
         "211 Vitest tests lock the flag rules, derived math, the Sheets export matrix and the TCO engine; a type-check gates every build.",
-        "The build left its receipts in the repo: [RUN_LOG](https://github.com/xzhou110/garage/blob/main/RUN_LOG.md), [DECISIONS](https://github.com/xzhou110/garage/blob/main/DECISIONS.md), [STATE](https://github.com/xzhou110/garage/blob/main/STATE.md) and a pre-ship [review](https://github.com/xzhou110/garage/blob/main/review-findings.md).",
+        "The build left its receipts in the repo: [RUN_LOG](https://github.com/xzhou110/car-shopping/blob/main/RUN_LOG.md), [DECISIONS](https://github.com/xzhou110/car-shopping/blob/main/DECISIONS.md), [STATE](https://github.com/xzhou110/car-shopping/blob/main/STATE.md) and a pre-ship [review](https://github.com/xzhou110/car-shopping/blob/main/review-findings.md).",
         "Cost figures are estimates and labelled Est. in the app; the value is in the relative ranking."
       ],
       "stack": [
@@ -63,8 +63,8 @@
         "Google Apps Script",
         "GitHub Actions"
       ],
-      "live": "https://xzhou110.github.io/garage/",
-      "repo": "https://github.com/xzhou110/garage",
+      "live": "https://xzhou110.github.io/car-shopping/",
+      "repo": "https://github.com/xzhou110/car-shopping",
       "screenshot": true,
       "shot": {
         "height": 470
@@ -76,7 +76,7 @@
       "oneLiner": "A rental shortlist that geocodes every listing, flags possible scams and lease fit, ranks by distance from the places that matter, and tracks each one through a status pipeline.",
       "problem": "Hunting a short-term Bay Area lease across Zillow, Craigslist, Apartments.com and building sites, browser tabs and spreadsheets lost context: no photos, no distance to what mattered, no record of what had been contacted, toured or ruled out.",
       "built": "One board for candidates. Each listing shows rent against an estimated market comp, beds, baths, square feet, availability and lease term, with flags for possible scam, income restriction, lease fit against the goal, over- or under-market rent and stale listings. Red flags always sort first. Distance from a chosen anchor is resolved offline for 429 Bay Area ZIPs and 106 neighborhoods. Compare side by side, export to Google Sheets. Listings are hand-curated into a seed file; there is no automated import.",
-      "how": "The same architecture as Garage, matured: all domain logic (flags, distance, geocoding, filters, export) is pure functions with an injectable clock. Persistence is a committed seed catalog plus a localStorage overlay with migration-safe stable ids, so retiring a listing never wipes the user's notes. Deployed by GitHub Actions to Pages. Built with the same agent crew and the same approval gates.",
+      "how": "The same architecture as Car Shopping, matured: all domain logic (flags, distance, geocoding, filters, export) is pure functions with an injectable clock. Persistence is a committed seed catalog plus a localStorage overlay with migration-safe stable ids, so retiring a listing never wipes the user's notes. Deployed by GitHub Actions to Pages. Built with the same agent crew and the same approval gates.",
       "outcome": "Built for my own search. Single-user by design. Next: component tests (the suite covers the engine, not the UI) and driving-time distance instead of straight-line.",
       "honest": [
         "300 Vitest tests across the flag, distance, derive, format and export modules, plus a written [test report](https://github.com/xzhou110/apartment-shopping/blob/main/docs/test-report.md) and [review findings](https://github.com/xzhou110/apartment-shopping/blob/main/docs/review-findings.md).",
@@ -102,12 +102,12 @@
   "howIBuild": {
     "heading": "How I build",
     "paragraphs": [
-      "All three apps were built with AI coding agents, and from Garage onward through an orchestrated crew I designed. The main session acts as product manager (intake, a build brief I confirm, acceptance, a final report) and spawns nine role agents in dependency order: research, design, tech lead, frontend, backend, data, QA, review and release, with approval gates I sign off on between them. Garage and Apartment Shopping carry their run logs, decision records, state files and pre-ship reviews in the repo; Car TCO Compare's alerts backend has its run log and review findings.",
+      "All three apps were built with AI coding agents, and from Car Shopping onward through an orchestrated crew I designed. The main session acts as product manager (intake, a build brief I confirm, acceptance, a final report) and spawns nine role agents in dependency order: research, design, tech lead, frontend, backend, data, QA, review and release, with approval gates I sign off on between them. Car Shopping and Apartment Shopping carry their run logs, decision records, state files and pre-ship reviews in the repo; Car TCO Compare's alerts backend has its run log and review findings.",
       "What makes the output trustworthy is ordinary engineering, enforced on the agents: a frozen types contract, a pure domain engine with no UI imports, hundreds of unit tests, a type-check gating every build, decision records for the trade-offs, and a local ship gate I run before deploying: tests, a type-check build, DOM checks, and a check that the live URL serves the new build. The deploy workflows themselves only build and publish. The review stage earns its place: the pre-ship review of the alerts backend found that an unpaged database read would silently drop matches past 1,000 rows, and that an email send and its state write were not atomic. Those findings are public in the repo.",
       "Around that I run a small learning system: a dependency-free ledger turns every coding session into a redacted journal, a daily pass distills candidate learnings, and a weekly review promotes the ones worth keeping into the rules the agents follow next time. A personal dashboard reads all of it and briefs each new session on what needs attention. Those tools are private repos; I am happy to walk through them."
     ],
     "bullets": [
-      "Tests: 42 (Car TCO Compare), 211 (Garage), 300 (Apartment Shopping), all on pure-function engines.",
+      "Tests: 42 (Car TCO Compare), 211 (Car Shopping), 300 (Apartment Shopping), all on pure-function engines.",
       "Zero-backend by default: static hosting, snapshot data, Apps Script and Supabase only where a server is unavoidable.",
       "Agents never touch secrets, spending or publishing unsupervised: those steps sit behind human approval gates, and no credential is ever committed, with a scanner on every commit and push.",
       "Every estimate is labelled; nothing on this page claims users, revenue or impact that was not measured.",
