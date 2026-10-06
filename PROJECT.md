@@ -1,7 +1,7 @@
 ---
 name: project-portfolio
 formerly: [portfolio]
-summary: Public portfolio page for future employers at xzhou110.github.io — curated, employer-facing content merged with observed public facts into one static page, with a privacy gate before every build
+summary: Public employer-facing portfolio with compact visual product cards, expandable case studies, categorized history, and a full candidate publication gate
 status: live
 live: https://xzhou110.github.io/
 repo: https://github.com/xzhou110/xzhou110.github.io
@@ -9,56 +9,66 @@ updated: 2026-10-06
 started: 2026-10-01
 category: products
 phase: polishing
-next: repo hygiene pass (descriptions, topics, licenses on car-shopping and apartment-shopping, AI-disclosure line in the comparator README, archive tutorial repos, profile bio and pins)
+next: Owner feedback on the refreshed portfolio
 ---
 
-# project-portfolio — the public page for employers
+# Project Portfolio
 
-## 1. Summary
-xzhou's GitHub user site (`xzhou110.github.io`) had been an untouched Jekyll "Poole" template since 2018 while three real consumer products shipped under it as project Pages. This project turns the user site into a one-page portfolio aimed at hiring managers: who he is, the shipped products with live demos and screenshots, how he builds (AI-agent crews with real engineering discipline), skills, and a decade of history by era. Content is curated by hand in `content/portfolio.json`; a generator merges observed public facts and screenshots and refuses to write anything that trips the privacy gate.
+## Summary
 
-## 2. Key facts
-| | |
+Lukas's public portfolio: shipped consumer products, product judgment, AI-assisted building, data science, and earlier experiments. Curated public content generates a static site with no runtime dependencies or private data integration.
+
+## Key Facts
+
+| Item | Value |
 |---|---|
-| **Local Path** | `D:/Meaningful/AI/project-portfolio` |
-| **Kind** | web page (static, one file + assets) · generator script |
-| **Stack** | Node 24 generator (`build.mjs`, no deps), headless Chrome for screenshots, vanilla HTML/CSS; GitHub Pages serves `master` root (legacy build; `.nojekyll` once published) |
-| **Run** | `node build.mjs --facts <snapshot.json>` (`--no-shots` reuses screenshots) · preview: any static server on the folder (launch config `project-portfolio` → http://localhost:8141/) |
-| **Deploy** | commit `index.html` + `assets/` to `master` and push → live at https://xzhou110.github.io/ within ~1 min. **Publishing is a human gate** — never push without xzhou's explicit go. |
-| **Data / backends** | `content/portfolio.json` (declared) · a facts snapshot passed with `--facts` (observed: live status, language, last push; public repos only; never committed) · headless Chrome. $0. |
-| **Related** | car-shopping, apartment-shopping, car-tco-compare (the featured products) · the GitHub profile (bio, pinned repos, descriptions — part of the same first impression) |
-| **Started · last major change** | 2026-10-01 · 2026-10-01 |
+| App Title | Xu Zhou (Lukas) — Project Portfolio |
+| Folder / Launch Configuration | `project-portfolio` |
+| Stack | Node 20+ generator; HTML, CSS, JavaScript |
+| Preview | Existing `project-portfolio` launch configuration, port 8141 |
+| Build | `node build.mjs` (reuses reviewed screenshots) |
+| Tests | `node --test` |
+| Deployment | GitHub Pages, `master` branch, repository root |
+| Public URL | https://xzhou110.github.io/ |
+| Cost | Static GitHub Pages hosting; no paid service required |
 
-## 3. Key things to know
-- **Public by intent.** Nothing goes on this page that isn't already public or explicitly written for it. The generator never reads learnings, sessions or private project data; it links only to repos the facts snapshot marks public.
-- **The privacy gate is a build failure, not a warning.** `build.mjs` refuses to write if the HTML contains the employer name, a local path, vault internals, a private repo name or link, or any `forbiddenWords`; then the global secret scanner runs on the output. A failed gate leaves the previous `index.html` untouched.
-- **Site-specific gate patterns live in `gate.local.json`** (gitignored, never published): the names that must never appear on the page. Without it the build still runs the generic rules and prints a warning, so a fresh clone gets a weaker gate — recreate the file before publishing from another machine.
-- **Facts only, no invented metrics.** No user counts, revenue or impact numbers unless measured. Placeholder cost rates stay labelled "Est."; the noncommercial license and third-party data sources are stated, not hidden.
-- **Employment hygiene.** The day job is at most a title line; no "open to work" banner while employed; employer material never appears (see the global rule). Side-project IP/moonlighting clauses are xzhou's to check.
-- **Screenshots are observed facts too.** They are taken from the live URLs at build time (1280×800, headless Chrome with an isolated profile — Edge hands off to a running instance and writes nothing). Re-run the build after an app changes.
-- Declared content changes = edit `content/portfolio.json` → `node build.mjs` → preview → commit. Observed facts refresh from the snapshot passed at build time.
+## Key Things to Know
 
-## 4. Details
-### How it works
-`build.mjs` reads `content/portfolio.json`, loads the public subset of the facts snapshot (language, last push, live status), screenshots each featured app, renders the page from a template function, runs the privacy gate and the secret scanner, and writes `index.html` atomically.
-```
-project-portfolio/         (= the xzhou110.github.io repo, branch master)
-├─ build.mjs               generator + template + privacy gate
-├─ content/portfolio.json  curated content (headline, bio, featured cards, how-I-build, skills, history)
-├─ assets/                 favicon.svg · shots/<app>.png (generated)
-├─ index.html              generated — the page GitHub Pages serves
-└─ PROJECT.md
-```
-### How to work on it
-Edit content → `node build.mjs` → open the `project-portfolio` launch config → check both themes, mobile width, every link, the screenshots → show xzhou → on explicit go: commit + push `master` → verify https://xzhou110.github.io/ returns the new page (curl 200 + title).
+- Edit wording in `content/portfolio.json`, layout in `render.mjs`, presentation in `assets/site.css`, and interactions in `assets/site.js`. Generated HTML is not an editing source.
+- Calm light surfaces, charcoal dark mode, restrained teal, system fonts, readable headings, and thin card borders adapt the owner's shared design preferences without importing private dashboard data or code.
+- Product previews, purpose, and app/source links stay visible. Case studies and history categories start collapsed. Light/Dark controls are labelled and persist the visitor's choice.
+- Skills describe Lukas's capabilities; product stacks describe the software. Do not imply independent mastery of every framework used by coding agents.
+- Historical evidence has its own date. Updating the design does not refresh test counts, costs, or product claims.
+- Existing screenshots are reviewed public previews. Changed PNG bytes require a fresh visual privacy review and an updated `assets/reviewed-images.json` digest. Text scanning does not inspect pixels.
+- `gate.local.json` and `facts.local.json` are private, ignored files. Missing/invalid policy or missing scanner coverage blocks builds. Never commit either file or disable hooks.
+- `publication-gate.mjs` checks the entire candidate public file set, including sources and assets, before replacing generated pages. Findings reveal only file and rule.
+- Optional `--facts <public-snapshot.json>` reads only explicit public repository update facts (`private: false`). Default builds read no snapshot. Curated links are intentionally public; adding a new link requires checking its visibility.
+- `/garage/` intentionally redirects to `/car-shopping/`, preserving search and hash.
 
-### Current state & open items
-Published 2026-10-01 after a research pass (repo tiers, app deep-reads, a judged positioning panel, hiring-manager criteria, a privacy and employment-risk review) and three owner revisions. Open: GitHub profile hygiene (bio, pinned repos, missing descriptions on 7 repos, profile README); LICENSE files for car-shopping and apartment-shopping; an AI-disclosure line in the comparator README; archiving the tutorial repos; optional privacy-friendly analytics; whether to add a LinkedIn link once titles and dates match.
+## Details
 
-### Change highlights
-- 2026-10-06 — Updated the featured Car Shopping name and links after its repository rename; `/garage/` redirects to `/car-shopping/` while preserving query strings and shared-car hashes.
-- 2026-10-02 — Local folder and project renamed `portfolio` → `project-portfolio`; `formerly: [portfolio]` keeps history recorded under the old name with this project. The GitHub repo keeps its name, which Pages requires for a user site.
-- 2026-10-01 — Published: the 2018 Poole template replaced by the generated page; three content revisions with the owner; the facts source became a `--facts` argument so the public repo names nothing private.
+### Build and Publish
 
-## 5. Pointers
-- The synthesized content lives in `content/portfolio.json`; the page's wording was checked against a completeness critic before the first publish (facts only, no overclaims).
+1. Update source and review any changed imagery.
+2. Run `node --test`, then `node build.mjs` on the configured owner machine. A fresh clone needs the owner's local policy and protected scanner configuration; it must not silently use weaker checks.
+3. Check desktop/mobile, both themes, keyboard disclosures, product links, and the generated 404 page.
+4. Stage the intended final files, then run `node build.mjs --check-staged`. This checks the exact index bytes and requires them to match the approved build. Commit and push with global hooks enabled. All committed sources are public, even when not linked from the homepage.
+5. Wait for Pages and verify the live page and deployed assets match the approved build.
+
+The generator retains `--no-shots` compatibility as a harmless argument. Screenshots are never fetched or overwritten automatically. A conservative street-address pattern check supplements the identity-backed scanner, including when an identity profile has no street address configured; manual content and image review remain necessary.
+
+### Dependencies and References
+
+The workspace project index, shared launch configuration, and personal project registry reference this folder. The public repository keeps the user-site name required by GitHub Pages. No path, port, repository, or deployment change accompanied this redesign.
+
+### Change Highlights
+
+- 2026-10-06: Refreshed hierarchy, light/charcoal themes, compact cards, accessible disclosures, concise approach/skills, categorized history, and matching 404. Removed the coursework skill and stale pipeline claims. Expanded checks to the full candidate tree with required policy/scanner coverage and reviewed image hashes.
+- 2026-10-06: Featured Car Shopping name and links updated; legacy redirect retained.
+- 2026-10-02: Local project renamed from `portfolio`; historical alias preserved.
+- 2026-10-01: Replaced the old template with the public portfolio.
+
+## Pointers
+
+- [README](README.md) — source map and build requirements.
+- [Design](docs/DESIGN.md) — reusable design decisions and portfolio adaptations.

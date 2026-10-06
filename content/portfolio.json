@@ -3,10 +3,11 @@
   "name": "Xu Zhou (Lukas)",
   "handle": "xzhou110",
   "siteUrl": "https://xzhou110.github.io/",
-  "updated": "2026-10-01",
+  "updated": "2026-10-06",
+  "evidenceAsOf": "2026-10-01",
   "headline": "I turn ideas into live products, end to end.",
-  "tagline": "Three consumer web apps shipped in 2026 alone: the product decisions, the data, the backend and the launch, all mine. Built with AI coding agents I direct, verified by tested engines and a ship gate before every deploy.",
-  "bio": "I build consumer products on my own from end to end: the product decisions, the data model, the backend, the deploy pipeline, and the monetization call, including when not to launch one. In 2026 alone I shipped three live web apps; one runs its own email backend on scheduled jobs. I came to this from data science and now build with AI coding agents daily, with the tests and gates that make that trustworthy.",
+  "tagline": "Xu Zhou (Lukas) builds consumer products from idea to launch, combining product judgment, data science, and AI-assisted engineering. Explore three shipped apps and the decisions behind them.",
+  "bio": "I combine product judgment, data science, and AI-assisted engineering to build useful consumer apps. I own the journey from the first product decision to the data model, the experience, and the launch.",
   "links": {
     "github": "https://github.com/xzhou110",
     "email": "xzhou110@gmail.com"
@@ -15,6 +16,8 @@
     {
       "id": "car-tco-compare",
       "title": "Car TCO Compare",
+      "category": "Cost Modeling & Email Alerts",
+      "highlights": ["Editable Cost Model", "Real Listings", "Email Backend"],
       "oneLiner": "A free calculator that compares up to six cars on five-year total cost of ownership, loads real listings, and emails TCO-ranked deal alerts.",
       "problem": "Car buyers anchor on sticker price or monthly payment, but total cost of ownership decides the real bill. Existing TCO tools are black boxes locked to specific trims; they will not put arbitrary cars side by side under your own holding period, mileage and financing.",
       "built": "A no-sign-up static app: 1 to 6 new or used cars (gas, hybrid, EV) on a fully editable 7-line TCO, answer-first output with a winner banner, a stacked cost breakdown per car and a cumulative-cost chart. \"Load a real car\" pulls from a bundled snapshot of 1,420 real 2020-and-newer listings (dated 2026-06-22, refreshed annually). A \"Deal Alerts\" email backend watches new listings and sends a TCO-ranked digest.",
@@ -45,6 +48,8 @@
     {
       "id": "car-shopping",
       "title": "Car Shopping",
+      "category": "Comparison & Decision Support",
+      "highlights": ["Risk Flags", "Cost Ranking", "Google Sheets Sync"],
       "oneLiner": "A used-car shortlist that raises risk flags, tracks features honestly, and ranks candidates by estimated cost of ownership instead of sticker price.",
       "problem": "Shopping for a used hybrid SUV with a deadline, I had listings scattered across five sites with inconsistent wording. Sticker price is a poor way to rank near-identical cars: the cheaper one can depreciate faster, carry rental-fleet mileage, or hide an accident.",
       "built": "A private, static board for every candidate: photo, price and estimated out-the-door, an estimated N-year cost to own, a ten-feature row that is explicitly has / confirmed absent / unknown, and automatic flags such as branded title, accidents, prior theft, high miles per year, no service records and over-market price. Filter, sort by cost of ownership, compare side by side, and push the shortlist straight to a Google Sheet. Listings were captured from screenshots with an AI assistant into a typed seed file; the app itself does no scraping.",
@@ -73,7 +78,9 @@
     {
       "id": "apartment-shopping",
       "title": "Apartment Shopping",
-      "oneLiner": "A rental shortlist that geocodes every listing, flags possible scams and lease fit, ranks by distance from the places that matter, and tracks each one through a status pipeline.",
+      "category": "Geospatial Data & Search Workflow",
+      "highlights": ["Offline Geocoding", "Lease Fit", "Status Tracking"],
+      "oneLiner": "A rental shortlist that brings lease fit, distance, risk flags, and search progress into one place, from first look to final decision.",
       "problem": "Hunting a short-term Bay Area lease across Zillow, Craigslist, Apartments.com and building sites, browser tabs and spreadsheets lost context: no photos, no distance to what mattered, no record of what had been contacted, toured or ruled out.",
       "built": "One board for candidates. Each listing shows rent against an estimated market comp, beds, baths, square feet, availability and lease term, with flags for possible scam, income restriction, lease fit against the goal, over- or under-market rent and stale listings. Red flags always sort first. Distance from a chosen anchor is resolved offline for 429 Bay Area ZIPs and 106 neighborhoods. Compare side by side, export to Google Sheets. Listings are hand-curated into a seed file; there is no automated import.",
       "how": "The same architecture as Car Shopping, matured: all domain logic (flags, distance, geocoding, filters, export) is pure functions with an injectable clock. Persistence is a committed seed catalog plus a localStorage overlay with migration-safe stable ids, so retiring a listing never wipes the user's notes. Deployed by GitHub Actions to Pages. Built with the same agent crew and the same approval gates.",
@@ -100,107 +107,103 @@
     }
   ],
   "howIBuild": {
-    "heading": "How I build",
-    "paragraphs": [
-      "All three apps were built with AI coding agents, and from Car Shopping onward through an orchestrated crew I designed. The main session acts as product manager (intake, a build brief I confirm, acceptance, a final report) and spawns nine role agents in dependency order: research, design, tech lead, frontend, backend, data, QA, review and release, with approval gates I sign off on between them. Car Shopping and Apartment Shopping carry their run logs, decision records, state files and pre-ship reviews in the repo; Car TCO Compare's alerts backend has its run log and review findings.",
-      "What makes the output trustworthy is ordinary engineering, enforced on the agents: a frozen types contract, a pure domain engine with no UI imports, hundreds of unit tests, a type-check gating every build, decision records for the trade-offs, and a local ship gate I run before deploying: tests, a type-check build, DOM checks, and a check that the live URL serves the new build. The deploy workflows themselves only build and publish. The review stage earns its place: the pre-ship review of the alerts backend found that an unpaged database read would silently drop matches past 1,000 rows, and that an email send and its state write were not atomic. Those findings are public in the repo.",
-      "Around that I run a small learning system: a dependency-free ledger turns every coding session into a redacted journal, a daily pass distills candidate learnings, and a weekly review promotes the ones worth keeping into the rules the agents follow next time. A personal dashboard reads all of it and briefs each new session on what needs attention. Those tools are private repos; I am happy to walk through them."
-    ],
-    "bullets": [
-      "Tests: 42 (Car TCO Compare), 211 (Car Shopping), 300 (Apartment Shopping), all on pure-function engines.",
-      "Zero-backend by default: static hosting, snapshot data, Apps Script and Supabase only where a server is unavoidable.",
-      "Agents never touch secrets, spending or publishing unsupervised: those steps sit behind human approval gates, and no credential is ever committed, with a scanner on every commit and push.",
-      "Every estimate is labelled; nothing on this page claims users, revenue or impact that was not measured.",
-      "This page went through the same local gate: no tracking, light and dark, no console errors, every link checked."
+    "intro": "AI agents help me execute. The product decisions, trade-offs, and standard of evidence stay with me.",
+    "steps": [
+      {"title": "Frame the Decision", "body": "Start with a real problem. Define who it serves, what they need to decide, and the smallest useful product. Make cost, data, and architecture trade-offs explicit."},
+      {"title": "Direct the Build", "body": "Turn the brief into clear contracts for specialized AI agents. Keep core calculations separate from the interface, review the code, and document the decisions."},
+      {"title": "Verify and Learn", "body": "Test the logic, check the experience, and verify the deployed app. Label estimates, record limitations, and turn useful lessons into reusable workflows."}
     ]
   },
   "skills": {
-    "Product and data": [
-      "Turning a fuzzy decision into a clear number: total-cost-of-ownership and pricing models",
-      "Risk and quality flags with explicit priority, so the red ones always surface first",
-      "Market comps, geospatial ranking, offline reference data",
-      "Experimentation mindset: measure, label estimates, never overclaim"
+    "Product and Data": [
+      "Product scoping, prioritization, and explicit trade-offs",
+      "Cost models, pricing comparisons, and decision tools",
+      "Risk signals, geospatial ranking, and data quality"
     ],
-    "Building and shipping": [
-      "Web apps and sites, end to end: idea, PRD, data model, app, backend, live URL",
-      "Architecture calls: pure tested engines separate from UI, zero-backend by default",
-      "Serverless backends when unavoidable: database with row-level security, transactional email, scheduled jobs",
-      "Deployment and operations on free tiers; a ship gate before every release",
-      "Reading, reviewing and rejecting the code the agents write"
+    "Building and Shipping": [
+      "Apps and websites from brief to launch",
+      "Data models, tested engines, and serverless architecture",
+      "Code review, deployment, and release verification"
     ],
-    "Working with AI agents": [
-      "Claude Code plugins and skills",
-      "Multi-agent orchestration with human approval gates",
-      "Session ledgers, learning distillation, rule promotion",
-      "Secret scanning and privacy gates in the pipeline"
+    "Working with AI Agents": [
+      "Directing specialized agents with clear contracts",
+      "Reusable skills, plugins, and build workflows",
+      "Review gates, secret scanning, and documented decisions"
     ],
-    "Data science": [
+    "Data Science": [
       "Python, pandas, scikit-learn, XGBoost",
-      "NLP: topic modeling, clustering",
-      "PyTorch (coursework)"
+      "NLP: topic modeling, clustering"
     ]
   },
   "history": [
     {
-      "era": "Products and tooling",
+      "era": "Products and Tooling",
       "years": "2026",
       "note": "The three live apps above, plus the private build, learning and dashboard tooling described in How I build.",
       "items": []
     },
     {
-      "era": "AI agents and LLM apps",
+      "era": "AI Agents and LLM Apps",
       "years": "",
       "note": "Learning in public: experiments, not products.",
       "items": [
         {
           "repo": "ai-agent-project",
+          "name": "AI Agent Experiments",
           "line": "ML and reinforcement-learning experiments (a DQN Lunar Lander, a config-driven ML pipeline, an agent chat app) built with an AI coding agent."
         },
         {
           "repo": "ai_projects",
+          "name": "AI Builder Mini-Projects",
           "line": "Five Python mini-projects from an AI-builder course: crypto price plots, a CVPR paper scraper, GUI automation, image analysis."
         },
         {
           "repo": "chatgpt_apps",
+          "name": "Search-Grounded Chat Apps",
           "line": "Early-2023 Streamlit experiment: ChatGPT answers grounded in Google search results, plus a scheduled news-summary emailer."
         }
       ]
     },
     {
-      "era": "Finance experiments",
+      "era": "Finance Experiments",
       "years": "",
       "items": [
         {
           "repo": "stock_options_trading",
+          "name": "Options Strategy Modeling",
           "line": "Python classes and a notebook that model multi-leg option strategies and plot their payoff curves."
         }
       ]
     },
     {
-      "era": "Data science",
+      "era": "Data Science",
       "years": "",
-      "note": "Earlier data-science work. Notebooks of their time; the ML credential lives here, not in the 2026 apps, which are deterministic decision models.",
+      "note": "Earlier notebooks exploring prediction and the patterns behind real decisions.",
       "items": [
         {
           "repo": "lending_club_loans_default_prediction",
+          "name": "Loan Default Prediction",
           "line": "Loan-default classifier on about 890K Lending Club records: cleaning, feature selection, an sklearn and XGBoost pipeline. Reworked in 2023."
         },
         {
           "repo": "amazon_echo_customer_review_insights",
+          "name": "Customer Review Insights",
           "line": "Clustering and LDA topic modeling of about 10K Amazon Echo reviews to find what drives positive and negative experiences."
         },
         {
           "repo": "airbnb_host_income_enhancement",
+          "name": "Airbnb Pricing and Guest Reviews",
           "line": "Airbnb listing price regression plus topic modeling of guest reviews."
         },
         {
           "repo": "ratemyprofessorsdotcom_rating_prediction",
+          "name": "Professor Rating Prediction",
           "line": "Scraped RateMyProfessors for three universities and fit a regression on what drives professor ratings."
         }
       ]
     }
   ],
-  "footer": "Email: [xzhou110@gmail.com](mailto:xzhou110@gmail.com) · GitHub: [xzhou110](https://github.com/xzhou110). Static page, no tracking, generated from a curated content file plus live facts; screenshots are taken from the live apps at build time. App source is public on GitHub; Car TCO Compare is PolyForm Noncommercial. Listings data: Auto.dev (free tier); not affiliated with Auto.dev or any carmaker. Deal Alerts is a free-tier proof of concept with double opt-in and one-click unsubscribe.",
+  "footer": "Built as a lightweight static site. No analytics, cookies, or external fonts. Theme preference is saved on your device.",
   "forbiddenWords": [
     "PLACEHOLDER",
     "TODO",

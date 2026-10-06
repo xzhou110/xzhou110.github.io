@@ -1,10 +1,27 @@
-# xzhou110.github.io
+# Lukas's Project Portfolio
 
-Source of [xzhou110.github.io](https://xzhou110.github.io/), a one-page portfolio: shipped products, how they were built, skills, history.
+Source of [xzhou110.github.io](https://xzhou110.github.io/): shipped products, how I build, skills, and categorized earlier work.
 
-- `content/portfolio.json` — the curated content (the only file to edit for wording).
-- `build.mjs` — generates `index.html`: merges the content with a facts snapshot (live status, language, last push of public repos, passed with `--facts`), takes screenshots of the live apps with headless Chrome, and refuses to write if a privacy gate trips (local paths, private repo names, forbidden words) or a secret scanner flags the output.
-- `assets/` — favicon and the generated screenshots.
-- `index.html`, `404.html`, `robots.txt`, `sitemap.xml`, `.nojekyll` — what GitHub Pages serves.
+| File | Purpose |
+|---|---|
+| `content/portfolio.json` | Curated public wording and approved public links |
+| `render.mjs` | Semantic static HTML and metadata |
+| `assets/site.css` | Tokens, responsive layout, light/charcoal themes |
+| `assets/site.js` | Theme preference, case-study bulk control, section navigation |
+| `assets/shots/` | Reviewed product previews |
+| `assets/reviewed-images.json` | Hashes of visually reviewed public image bytes |
+| `publication-gate.mjs` | Full candidate privacy checks; no sensitive diagnostics |
+| `build.mjs` | Validate the complete candidate, then write generated pages |
 
-Build: `node build.mjs --facts <snapshot.json>` (`--no-shots` reuses existing screenshots). No dependencies beyond Node 20+ and Chrome.
+Requires Node 20+ and the owner's configured privacy policy and global scanner. No package installation, external fonts, analytics, or runtime framework.
+
+```sh
+node --test
+node build.mjs
+```
+
+The build stops when local protection is unavailable. `gate.local.json` is private and never checked in. Optional `--facts <public-snapshot.json>` adds only explicit public repository update facts; the default build reads no snapshot. `--no-shots` remains compatible, but screenshots are always reused. A changed image needs a fresh visual review before its digest is approved.
+
+Preview using a static server or the existing `project-portfolio` launch configuration. Check themes, narrow screens, disclosures, and app/source links. Stage the final files and run `node build.mjs --check-staged` to check the exact index against the approved build. Authorized publication is a normal commit and push to `master` with hooks enabled; GitHub Pages serves the root. Verify the live result after publishing. The `garage/` redirect preserves older bookmarks.
+
+See [Project Map](PROJECT.md) and [Design](docs/DESIGN.md).
