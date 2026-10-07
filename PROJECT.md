@@ -37,13 +37,16 @@ Lukas's public portfolio: selected consumer apps, AI workflows, local tools, dat
 - Edit wording in `content/portfolio.json`, layout in `render.mjs`, presentation in `assets/site.css`, and interactions in `assets/site.js`. Generated HTML is not an editing source.
 - Calm light surfaces, charcoal dark mode, restrained teal, system fonts, readable headings, and thin card borders adapt the owner's shared design preferences without importing private dashboard data or code.
 - Product previews, purpose, and app/source links stay visible. Case studies and history categories start collapsed. Light/Dark controls are labelled and persist the visitor's choice.
-- Selected Work includes three public web apps plus owner-authorized case studies for Multi-Agent Build Orchestrator and AI Usage Tracker. Those two use labelled capability illustrations, no repository/live-app links, and no imported account data, private source, or prompts. Each case study retains its own evidence date; incomplete integrations are explicit.
+- Selected Work includes three public web apps plus owner-authorized case studies for Multi-Agent Build Orchestrator, AI Usage Tracker, X Command Center, and Wisdom & Knowledge Base. These four use labelled capability illustrations, no repository/live-app links, and no imported accounts, project snapshots, notes, private source, or prompts. Each case study retains its own evidence date; incomplete integrations are explicit.
+- Category filters group work into Consumer Apps, AI Tools, and Knowledge & Productivity. All seven projects appear by default. Jump to Project reveals the chosen card, including across filters; Expand All affects only visible case studies. The URL preserves category and project destinations for reload, sharing, and browser history. Without JavaScript, every card remains readable.
+- The sticky section menu links Work, Approach, Skills, History, and Contact, with a measured header offset that keeps anchor targets visible on narrow screens. Back to Top follows the contact section.
 - Skills describe Lukas's capabilities; product stacks describe the software. Do not imply independent mastery of every framework used by coding agents.
 - Positioning order is Product, AI, then Data, reflected in the introduction and descriptions. The short positioning label lives in the curated content file.
 - Historical evidence has its own date. Updating the design does not refresh test counts, costs, or product claims.
 - Existing screenshots are reviewed public previews. Changed PNG bytes require a fresh visual privacy review and an updated `assets/reviewed-images.json` digest. Text scanning does not inspect pixels.
 - `gate.local.json` and `facts.local.json` are private, ignored files. Missing/invalid policy or missing scanner coverage blocks builds. Never commit either file or disable hooks.
 - `publication-gate.mjs` checks the entire candidate public file set, including sources and assets, before replacing generated pages. Findings reveal only file and rule.
+- The existing private-name rule stays enabled. The owner's explicit approval to name X Command Center is recorded in ignored local policy as `nameReviews`: the exact name, public file, and SHA-256 of its reviewed text (LF line endings). Only a standalone name rule can qualify, never combined or broader expressions. A changed file invalidates the exception. It never exempts other pattern matches, credentials, personal values, paths, or images. Refresh this narrow review only after reviewing the changed public text; never remove the underlying rule.
 - Optional `--facts <public-snapshot.json>` reads only explicit public repository update facts (`private: false`). Default builds read no snapshot. Curated links are intentionally public; adding a new link requires checking its visibility.
 - `/garage/` intentionally redirects to `/car-shopping/`, preserving search and hash.
 
@@ -53,7 +56,7 @@ Lukas's public portfolio: selected consumer apps, AI workflows, local tools, dat
 
 1. Update source and review any changed imagery.
 2. Run `node --test`, then `node build.mjs` on the configured owner machine. A fresh clone needs the owner's local policy and protected scanner configuration; it must not silently use weaker checks.
-3. Check desktop/mobile, both themes, keyboard disclosures, product links, and the generated 404 page.
+3. Check desktop/mobile, both themes, keyboard disclosures, category filters, project jumps, browser back/reload, sticky navigation, product links, and the generated 404 page.
 4. Stage the intended final files, then run `node build.mjs --check-staged`. This checks the exact index bytes and requires them to match the approved build. Commit and push with global hooks enabled. All committed sources are public, even when not linked from the homepage.
 5. Wait for Pages and verify the live page and deployed assets match the approved build.
 
@@ -65,6 +68,7 @@ The workspace project index, shared launch configuration, and personal project r
 
 ### Change Highlights
 
+- 2026-10-06: Added approved X Command Center and Wisdom & Knowledge Base case studies; grouped seven projects by purpose with category filters, cross-category jumps, sticky section navigation, and Back to Top.
 - 2026-10-06: Renamed the showcase Selected Work and added two sanitized tooling case studies, conditional app/source links, labelled illustrations, and per-project evidence dates.
 - 2026-10-06: Refreshed hierarchy, light/charcoal themes, compact cards, accessible disclosures, concise approach/skills, categorized history, and matching 404. Removed the coursework skill and stale pipeline claims. Expanded checks to the full candidate tree with required policy/scanner coverage and reviewed image hashes.
 - 2026-10-06: Featured Car Shopping name and links updated; legacy redirect retained.

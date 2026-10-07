@@ -17,12 +17,31 @@ export function parsePatterns(text) {
   if (!Array.isArray(patterns) || !patterns.length || patterns.some((p) => typeof p !== 'string' || !p.trim())) throw new Error('Invalid local policy');
   return patterns.map((p) => new RegExp(p, 'i'));
 }
+export function parseNameReviews(text) {
+  const reviews = JSON.parse(text).nameReviews ?? [];
+  if (!Array.isArray(reviews) || reviews.some((review) => !review ||
+    typeof review.file !== 'string' || !review.file ||
+    typeof review.name !== 'string' || !review.name.trim() || /[\r\n]/.test(review.name) ||
+    typeof review.sha256 !== 'string' || !/^[a-f0-9]{64}$/.test(review.sha256))) throw new Error('Invalid public name reviews');
+  return reviews;
+}
+function isNameOnlyPattern(pattern, name) {
+  const literal = name.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  // Only standalone name rules qualify. Combined or broader regexes never get
+  // exceptions, including alternatives whose matches overlap an approved name.
+  return [literal, literal.toLowerCase()].some((value) =>
+    [value, value.replaceAll(' ', '[ -]')].some((source) => pattern === source || pattern === `\\b${source}\\b`));
+}
 export function assertCoverage(status) {
   if (!/[1-9]\d* credential rules/.test(status) || !/[1-9]\d* file-name rules/.test(status) || !/[1-9]\d* never-commit paths/.test(status) || !/personal phone number/.test(status) || !/\([1-9]\d* identity file/.test(status)) throw new Error('Required scanner coverage is unavailable');
 }
 export async function loadPolicy(here) {
-  let patterns;
-  try { patterns = parsePatterns(fs.readFileSync(path.join(here, 'gate.local.json'), 'utf8')); }
+  let patterns, nameReviews;
+  try {
+    const localPolicy = fs.readFileSync(path.join(here, 'gate.local.json'), 'utf8');
+    patterns = parsePatterns(localPolicy);
+    nameReviews = parseNameReviews(localPolicy);
+  }
   catch { fail('gate.local.json', 'missing-or-invalid-policy'); }
   const candidates = ['.claude', '.codex'].map((folder) => path.join(os.homedir(), folder, 'git-hooks/secret-scan.mjs'));
   const scannerPath = candidates.find((candidate) => fs.existsSync(candidate));
@@ -34,7 +53,7 @@ export async function loadPolicy(here) {
     scanner = await import(pathToFileURL(scannerPath).href);
     if (!scanner.PERSONAL_RULES?.length || typeof scanner.scanPath !== 'function' || typeof scanner.scanText !== 'function') throw new Error('Scanner unavailable');
   } catch { fail('publication-gate.mjs', 'required-scanner-coverage'); }
-  return { patterns, scanner };
+  return { patterns, nameReviews, scanner };
 }
 export function publicFiles(here, policy) {
   const names = execFileSync('git', ['-c', `safe.directory=${here.replaceAll('\\', '/')}`, 'ls-files', '--cached', '--others', '--exclude-standard', '-z'], { cwd: here, encoding: 'utf8' }).split('\0').filter(Boolean);
@@ -72,7 +91,14 @@ export function validateCandidate(files, policy, forbiddenWords = []) {
     }
     if (bytes.includes(0)) fail(name, 'unreviewed-binary');
     const text = bytes.toString('utf8');
-    if (policy.patterns.some((re) => re.test(text))) fail(name, 'local-privacy-pattern');
+    // A name review covers one literal in one exact text revision. Keep every rule
+    // and scan the original text with all other protections below, without exemptions.
+    const digest = sha256(Buffer.from(text.replaceAll('\r\n', '\n')));
+    const nameReviews = (policy.nameReviews || []).filter((review) => review.file === name && review.sha256 === digest);
+    for (const re of policy.patterns) {
+      const matches = [...text.matchAll(new RegExp(re.source, 'gi'))];
+      if (matches.some((match) => !nameReviews.some((review) => review.name === match[0] && isNameOnlyPattern(re.source, review.name)))) fail(name, 'local-privacy-pattern');
+    }
     if (streetAddress.test(text)) fail(name, 'street-address-pattern');
     if (/\b[A-Za-z]:[\\/]|file:\/\/\//.test(text)) fail(name, 'machine-path');
     if (policy.scanner.scanText(text, name).length) fail(name, 'credential-or-personal-value');

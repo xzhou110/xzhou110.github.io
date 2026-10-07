@@ -7,6 +7,11 @@
   "evidenceAsOf": "2026-10-01",
   "headline": "I turn ideas into live products, end to end.",
   "positioning": "Product, AI & Data",
+  "workGroups": [
+    {"id": "consumer", "label": "Consumer Apps"},
+    {"id": "ai-tools", "label": "AI Tools"},
+    {"id": "knowledge", "label": "Knowledge & Productivity"}
+  ],
   "tagline": "Xu Zhou (Lukas) builds products from idea to launch, combining product judgment, AI-assisted engineering, and data science. Explore selected apps, AI workflows, and the decisions behind them.",
   "bio": "I combine product judgment, AI-assisted engineering, and data science to build useful consumer apps. I own the journey from the first product decision to the data model, the experience, and the launch.",
   "links": {
@@ -16,6 +21,7 @@
   "featured": [
     {
       "id": "car-tco-compare",
+      "group": "consumer",
       "title": "Car TCO Compare",
       "category": "Cost Modeling & Email Alerts",
       "highlights": ["Editable Cost Model", "Real Listings", "Email Backend"],
@@ -48,6 +54,7 @@
     },
     {
       "id": "multi-agent-build-orchestrator",
+      "group": "ai-tools",
       "title": "Multi-Agent Build Orchestrator",
       "category": "AI Orchestration & Delivery",
       "highlights": ["Specialized Agents", "Shared Contracts", "Review Gates"],
@@ -74,6 +81,7 @@
     },
     {
       "id": "ai-usage-tracker",
+      "group": "ai-tools",
       "title": "AI Usage Tracker",
       "category": "AI Tools & Desktop Integration",
       "highlights": ["Windows Sidebar", "Quota Windows", "Explicit Freshness"],
@@ -104,7 +112,68 @@
       "screenshot": false
     },
     {
+      "id": "project-workspace",
+      "group": "knowledge",
+      "title": "X Command Center",
+      "category": "Product Organization & Desktop Experience",
+      "highlights": ["Project Overview", "Shared Desktop UI", "Service Recovery"],
+      "oneLiner": "A private workspace that brings projects, scheduled work, next steps, and reusable lessons into one clear view, with a Windows app for everyday access.",
+      "format": "Private Local App · Case Study",
+      "evidenceAsOf": "2026-10-06",
+      "visual": {
+        "kind": "connections",
+        "title": "One Place to Find the Next Step",
+        "rows": [
+          {"name": "Projects", "state": "Purpose and Progress"},
+          {"name": "Automations", "state": "Schedules and Attention"},
+          {"name": "Learning", "state": "Principles and History"}
+        ],
+        "caption": "Capability illustration · no workspace or project data"
+      },
+      "problem": "As personal projects grew, the context needed to resume work was scattered across folders, repositories, notes, and schedules. Finding what was unfinished or needed attention became a task of its own.",
+      "built": "A private project workspace with focused views for projects, automations, attention, learning, and history. Clear project cards connect purpose, status, next steps, and app launch actions. The same interface runs in the browser and a Windows desktop window.",
+      "how": "A deterministic collector reads an explicit personal-project allowlist and builds one shared snapshot from project documentation, version-control metadata, site checks, and schedules. The interface reads that snapshot. A coordinated local service supports refresh, recovery, and desktop launch; opening the installed app again restores the existing window.",
+      "outcome": "Available as a local browser and Windows app with Start and Desktop launchers. The design establishes a consistent visual language across related tools while keeping project facts close to their source. The public case study uses a capability illustration instead of a real workspace screenshot.",
+      "honest": [
+        "The collector makes no AI calls; this is a product built with AI assistance, not an AI inference service.",
+        "Status and next steps come from project records. They are not an automatic measure of completion or productivity.",
+        "Historical visibility depends on the records available. The interface does not claim to reconstruct a complete activity history.",
+        "Private project names, schedules, notes, and runtime snapshots are excluded from this portfolio."
+      ],
+      "stack": ["Node.js", "JavaScript", "HTML and CSS", "Electron", "Local Service", "Structured Project Metadata"],
+      "screenshot": false
+    },
+    {
+      "id": "knowledge-learning-system",
+      "group": "knowledge",
+      "title": "Wisdom & Knowledge Base",
+      "category": "AI-Assisted Knowledge & Learning",
+      "highlights": ["Source Ingestion", "Bilingual Synthesis", "Review and Practice"],
+      "oneLiner": "A personal knowledge system that turns captured sources into organized bilingual topic pages, with review workflows and language practice that make the material easier to use again.",
+      "format": "Private Content · Case Study",
+      "evidenceAsOf": "2026-10-06",
+      "visual": {
+        "kind": "workflow",
+        "title": "From Capture to Understanding",
+        "steps": ["Capture Sources", "Organize and Synthesize", "Review in Context", "Read and Practice"],
+        "caption": "Workflow illustration · no personal notes or source excerpts"
+      },
+      "problem": "Capturing useful ideas is easier than turning them into a coherent body of knowledge. Notes accumulate across sources, while related ideas, important highlights, and material worth practicing stay disconnected.",
+      "built": "A source-ingestion pipeline and reader with bilingual topic pages, themed sections, highlighted passages, dated digests, and language practice decks. Review flows let the owner internalize external material, approve assistant proposals by topic, and undo an import.",
+      "how": "Configured OneNote sources are exported locally and mirrored into structured text. An assistant workflow incrementally folds captures into living topic pages, preserving source relationships and review state. A shared reader presents the material locally and as an encrypted hosted copy; publishing checks screen content before sync.",
+      "outcome": "The reader and learning workflows are implemented for personal use, with a local editing path and an encrypted reading copy. This portfolio describes the system and its design decisions without exposing the notebook, personal topics, study material, or access details.",
+      "honest": [
+        "AI-assisted synthesis runs through an explicit assistant workflow; the reader is not an autonomous research or fact-checking service.",
+        "A source's claims remain claims. Organization and synthesis do not establish that they are correct.",
+        "Review and edits happen locally; the encrypted hosted reader does not offer the same editing controls.",
+        "No measured learning improvement, retention gain, or usage metric is claimed."
+      ],
+      "stack": ["React", "TypeScript", "Node.js", "PowerShell", "Markdown", "Assistant Skills", "Encrypted Static Publishing"],
+      "screenshot": false
+    },
+    {
       "id": "car-shopping",
+      "group": "consumer",
       "title": "Car Shopping",
       "category": "Comparison & Decision Support",
       "highlights": ["Risk Flags", "Cost Ranking", "Google Sheets Sync"],
@@ -135,6 +204,7 @@
     },
     {
       "id": "apartment-shopping",
+      "group": "consumer",
       "title": "Apartment Shopping",
       "category": "Geospatial Data & Search Workflow",
       "highlights": ["Offline Geocoding", "Lease Fit", "Status Tracking"],

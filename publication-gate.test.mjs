@@ -5,7 +5,7 @@ import os from 'node:os';
 import path from 'node:path';
 import { createHash } from 'node:crypto';
 import { execFileSync, spawnSync } from 'node:child_process';
-import { parsePatterns, assertCoverage, validateCandidate, publicFiles, stagedFiles } from './publication-gate.mjs';
+import { parsePatterns, parseNameReviews, assertCoverage, validateCandidate, publicFiles, stagedFiles } from './publication-gate.mjs';
 
 const policy = {
   patterns: [/SYNTHETIC_PRIVATE_MARKER/i],
@@ -29,6 +29,39 @@ test('coverage requires credentials, paths, and armed personal protection', () =
   const valid = '11 credential rules, 3 file-name rules, 1 never-commit paths; personal values: personal phone number (1 identity file)';
   assert.doesNotThrow(() => assertCoverage(valid));
   for (const [before, after] of [['11 credential', '0 credential'], ['1 never-commit', '0 never-commit'], ['personal phone number', 'none armed'], ['1 identity', '0 identity']]) assert.throws(() => assertCoverage(valid.replace(before, after)));
+});
+
+test('public name reviews apply only to one exact literal, file, and text revision', () => {
+  const text = 'Approved Public Name\nA reviewed case study.';
+  const namePolicy = { ...policy, patterns: [...policy.patterns, /approved[ -]public[ -]name/i], nameReviews: [{
+    file: 'index.html', name: 'Approved Public Name', sha256: createHash('sha256').update(text).digest('hex'),
+  }] };
+  assert.doesNotThrow(() => validateCandidate(files({ 'index.html': text }), namePolicy));
+  assert.doesNotThrow(() => validateCandidate(files({ 'index.html': text.replaceAll('\n', '\r\n') }), namePolicy));
+  for (const candidate of [files({ 'notes.md': text }), files({ 'index.html': text + ' Changed.' }), files({ 'index.html': text.toLowerCase() })]) {
+    assert.throws(() => validateCandidate(candidate, namePolicy));
+  }
+  for (const addition of ['SYNTHETIC_PRIVATE_MARKER', 'SYNTHETIC_SECRET_MARKER', 'approved-public-name', ['123', 'Example', 'Street'].join(' '), ['D:', '/', 'private-location'].join('')]) {
+    const changed = text + '\n' + addition;
+    const exactReview = { ...namePolicy, nameReviews: [{ ...namePolicy.nameReviews[0], sha256: createHash('sha256').update(changed).digest('hex') }] };
+    assert.throws(() => validateCandidate(files({ 'index.html': changed }), exactReview));
+  }
+  assert.throws(() => validateCandidate(files({ 'restricted/notes.md': text }), { ...namePolicy, nameReviews: [{ ...namePolicy.nameReviews[0], file: 'restricted/notes.md' }] }));
+});
+
+test('malformed public name reviews fail closed', () => {
+  assert.deepEqual(parseNameReviews('{}'), []);
+  for (const nameReviews of [{}, [null], [{ file: 'index.html', name: 'Approved', sha256: 'bad' }], [{ file: 'index.html', name: 'two\nlines', sha256: 'a'.repeat(64) }]]) {
+    assert.throws(() => parseNameReviews(JSON.stringify({ nameReviews })));
+  }
+});
+
+test('name reviews cannot exempt combined rules with overlapping alternatives', () => {
+  const text = 'Approved Public Name Restricted';
+  const review = { file: 'index.html', name: 'Approved Public Name', sha256: createHash('sha256').update(text).digest('hex') };
+  for (const pattern of [/approved public name|name restricted/i, /approved public name|approved public name restricted/i, /approved.*name/i]) {
+    assert.throws(() => validateCandidate(files({ 'index.html': text }), { ...policy, patterns: [pattern], nameReviews: [review] }));
+  }
 });
 test('public sources, companion pages, and scripts receive privacy checks', () => {
   for (const name of ['README.md', '404.html', 'assets/site.js']) {
