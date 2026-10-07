@@ -6,8 +6,9 @@
   "updated": "2026-10-06",
   "evidenceAsOf": "2026-10-01",
   "headline": "I turn ideas into live products, end to end.",
-  "tagline": "Xu Zhou (Lukas) builds consumer products from idea to launch, combining product judgment, data science, and AI-assisted engineering. Explore three shipped apps and the decisions behind them.",
-  "bio": "I combine product judgment, data science, and AI-assisted engineering to build useful consumer apps. I own the journey from the first product decision to the data model, the experience, and the launch.",
+  "positioning": "Product, AI & Data",
+  "tagline": "Xu Zhou (Lukas) builds consumer products from idea to launch, combining product judgment, AI-assisted engineering, and data science. Explore three shipped apps and the decisions behind them.",
+  "bio": "I combine product judgment, AI-assisted engineering, and data science to build useful consumer apps. I own the journey from the first product decision to the data model, the experience, and the launch.",
   "links": {
     "github": "https://github.com/xzhou110",
     "email": "xzhou110@gmail.com"

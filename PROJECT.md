@@ -38,6 +38,7 @@ Lukas's public portfolio: shipped consumer products, product judgment, AI-assist
 - Calm light surfaces, charcoal dark mode, restrained teal, system fonts, readable headings, and thin card borders adapt the owner's shared design preferences without importing private dashboard data or code.
 - Product previews, purpose, and app/source links stay visible. Case studies and history categories start collapsed. Light/Dark controls are labelled and persist the visitor's choice.
 - Skills describe Lukas's capabilities; product stacks describe the software. Do not imply independent mastery of every framework used by coding agents.
+- Positioning order is Product, AI, then Data, reflected in the introduction and descriptions. The short positioning label lives in the curated content file.
 - Historical evidence has its own date. Updating the design does not refresh test counts, costs, or product claims.
 - Existing screenshots are reviewed public previews. Changed PNG bytes require a fresh visual privacy review and an updated `assets/reviewed-images.json` digest. Text scanning does not inspect pixels.
 - `gate.local.json` and `facts.local.json` are private, ignored files. Missing/invalid policy or missing scanner coverage blocks builds. Never commit either file or disable hooks.
