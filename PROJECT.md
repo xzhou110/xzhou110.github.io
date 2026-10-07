@@ -5,7 +5,7 @@ summary: Public employer-facing portfolio with seven categorized case studies, s
 status: live
 live: https://xzhou110.github.io/
 repo: https://github.com/xzhou110/xzhou110.github.io
-updated: 2026-10-06
+updated: 2026-10-07
 started: 2026-10-01
 category: products
 phase: polishing
@@ -41,7 +41,7 @@ Lukas's public portfolio: selected consumer apps, AI workflows, local tools, dat
 - Category filters group work into Consumer Apps, AI Tools, and Knowledge & Productivity. All seven projects appear by default. Jump to Project uses a selector plus Go: choosing an option preserves keyboard focus until submission, which reveals and focuses the chosen card, including across filters. Expand All affects only visible case studies. The URL preserves category and project destinations for reload, sharing, and browser history. Without JavaScript, every card remains readable.
 - The sticky section menu links Work, Approach, Skills, History, and Contact, with a measured header offset that keeps anchor targets visible on narrow screens. Back to Top follows the contact section.
 - Skills describe Lukas's capabilities; product stacks describe the software. Do not imply independent mastery of every framework used by coding agents.
-- Positioning order is Product, AI, then Data, reflected in the introduction and descriptions. The short positioning label lives in the curated content file.
+- Positioning is AI, Data Science & Product, chosen by the owner for the employer-facing portfolio. Use that order in the introduction, descriptions, and capability groups, with delivery skills following them. Keep purpose-based project categories separate. The short positioning label lives in the curated content file.
 - Historical evidence has its own date. Updating the design does not refresh test counts, costs, or product claims.
 - Existing screenshots are reviewed public previews. Changed PNG bytes require a fresh visual privacy review and an updated `assets/reviewed-images.json` digest. Text scanning does not inspect pixels.
 - `gate.local.json` and `facts.local.json` are private, ignored files. Missing/invalid policy or missing scanner coverage blocks builds. Never commit either file or disable hooks.

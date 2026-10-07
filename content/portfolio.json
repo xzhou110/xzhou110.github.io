@@ -3,17 +3,17 @@
   "name": "Xu Zhou (Lukas)",
   "handle": "xzhou110",
   "siteUrl": "https://xzhou110.github.io/",
-  "updated": "2026-10-06",
+  "updated": "2026-10-07",
   "evidenceAsOf": "2026-10-01",
   "headline": "I turn ideas into live products, end to end.",
-  "positioning": "Product, AI & Data",
+  "positioning": "AI, Data Science & Product",
   "workGroups": [
     {"id": "consumer", "label": "Consumer Apps"},
     {"id": "ai-tools", "label": "AI Tools"},
     {"id": "knowledge", "label": "Knowledge & Productivity"}
   ],
-  "tagline": "Xu Zhou (Lukas) builds products from idea to launch, combining product judgment, AI-assisted engineering, and data science. Explore selected apps, AI workflows, and the decisions behind them.",
-  "bio": "I combine product judgment, AI-assisted engineering, and data science to build useful consumer apps. I own the journey from the first product decision to the data model, the experience, and the launch.",
+  "tagline": "Xu Zhou (Lukas) works across AI, data science, and product to build useful products from idea to launch. Explore selected projects and the decisions behind them.",
+  "bio": "I combine AI-assisted engineering, data science, and product judgment to turn complex problems into useful products. I take ideas from the first question and data model through design, development, and launch.",
   "links": {
     "github": "https://github.com/xzhou110",
     "email": "xzhou110@gmail.com"
@@ -243,6 +243,15 @@
     ]
   },
   "skills": {
+    "Working with AI Agents": [
+      "Directing specialized agents with clear contracts",
+      "Reusable skills, plugins, and build workflows",
+      "Review gates, secret scanning, and documented decisions"
+    ],
+    "Data Science": [
+      "Python, pandas, scikit-learn, XGBoost",
+      "NLP: topic modeling, clustering"
+    ],
     "Product and Data": [
       "Product scoping, prioritization, and explicit trade-offs",
       "Cost models, pricing comparisons, and decision tools",
@@ -252,15 +261,6 @@
       "Apps and websites from brief to launch",
       "Data models, tested engines, and serverless architecture",
       "Code review, deployment, and release verification"
-    ],
-    "Working with AI Agents": [
-      "Directing specialized agents with clear contracts",
-      "Reusable skills, plugins, and build workflows",
-      "Review gates, secret scanning, and documented decisions"
-    ],
-    "Data Science": [
-      "Python, pandas, scikit-learn, XGBoost",
-      "NLP: topic modeling, clustering"
     ]
   },
   "history": [
