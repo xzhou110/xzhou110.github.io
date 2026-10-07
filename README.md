@@ -24,4 +24,6 @@ The build stops when local protection is unavailable. `gate.local.json` is priva
 
 Preview using a static server or the existing `project-portfolio` launch configuration. Check themes, narrow screens, disclosures, filters, project jumps, browser back/reload, section navigation, and app/source links. Stage the final files and run `node build.mjs --check-staged` to check the exact index against the approved build. Authorized publication is a normal commit and push to `master` with hooks enabled; GitHub Pages serves the root. Verify the live result after publishing. The `garage/` redirect preserves older bookmarks.
 
-See [Project Map](PROJECT.md) and [Design](docs/DESIGN.md).
+The showcase includes seven projects in Consumer Apps, AI Tools, and Knowledge & Productivity. Its sticky section menu provides page-level navigation; filters shorten the project list, and Jump to Project plus Go provides a direct destination without interrupting keyboard selection.
+
+See [Project Map](PROJECT.md), [Design](docs/DESIGN.md), [Publishing](docs/PUBLISHING.md), and [Release Verification](docs/RELEASE-VERIFICATION.md).

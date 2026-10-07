@@ -1,7 +1,7 @@
 ---
 name: project-portfolio
 formerly: [portfolio]
-summary: Public employer-facing portfolio with compact visual product cards, expandable case studies, categorized history, and a full candidate publication gate
+summary: Public employer-facing portfolio with seven categorized case studies, sticky navigation, project jumps, and a full candidate publication gate
 status: live
 live: https://xzhou110.github.io/
 repo: https://github.com/xzhou110/xzhou110.github.io
@@ -38,7 +38,7 @@ Lukas's public portfolio: selected consumer apps, AI workflows, local tools, dat
 - Calm light surfaces, charcoal dark mode, restrained teal, system fonts, readable headings, and thin card borders adapt the owner's shared design preferences without importing private dashboard data or code.
 - Product previews, purpose, and app/source links stay visible. Case studies and history categories start collapsed. Light/Dark controls are labelled and persist the visitor's choice.
 - Selected Work includes three public web apps plus owner-authorized case studies for Multi-Agent Build Orchestrator, AI Usage Tracker, X Command Center, and Wisdom & Knowledge Base. These four use labelled capability illustrations, no repository/live-app links, and no imported accounts, project snapshots, notes, private source, or prompts. Each case study retains its own evidence date; incomplete integrations are explicit.
-- Category filters group work into Consumer Apps, AI Tools, and Knowledge & Productivity. All seven projects appear by default. Jump to Project reveals the chosen card, including across filters; Expand All affects only visible case studies. The URL preserves category and project destinations for reload, sharing, and browser history. Without JavaScript, every card remains readable.
+- Category filters group work into Consumer Apps, AI Tools, and Knowledge & Productivity. All seven projects appear by default. Jump to Project uses a selector plus Go: choosing an option preserves keyboard focus until submission, which reveals and focuses the chosen card, including across filters. Expand All affects only visible case studies. The URL preserves category and project destinations for reload, sharing, and browser history. Without JavaScript, every card remains readable.
 - The sticky section menu links Work, Approach, Skills, History, and Contact, with a measured header offset that keeps anchor targets visible on narrow screens. Back to Top follows the contact section.
 - Skills describe Lukas's capabilities; product stacks describe the software. Do not imply independent mastery of every framework used by coding agents.
 - Positioning order is Product, AI, then Data, reflected in the introduction and descriptions. The short positioning label lives in the curated content file.
@@ -66,6 +66,8 @@ The generator retains `--no-shots` compatibility as a harmless argument. Screens
 
 The workspace project index, shared launch configuration, and personal project registry reference this folder. The public repository keeps the user-site name required by GitHub Pages. No path, port, repository, or deployment change accompanied this redesign.
 
+These references were checked for the October 6 navigation release. The workspace index describes the seven categorized case studies; existing launch and collector registrations remain valid. Generated workspace snapshots are refreshed by their collector, never edited as documentation.
+
 ### Change Highlights
 
 - 2026-10-06: Added approved X Command Center and Wisdom & Knowledge Base case studies; grouped seven projects by purpose with category filters, cross-category jumps, sticky section navigation, and Back to Top.
@@ -79,3 +81,5 @@ The workspace project index, shared launch configuration, and personal project r
 
 - [README](README.md) — source map and build requirements.
 - [Design](docs/DESIGN.md) — reusable design decisions and portfolio adaptations.
+- [Publishing](docs/PUBLISHING.md) — maintain exact-content name reviews without weakening privacy checks.
+- [Release Verification](docs/RELEASE-VERIFICATION.md) — dated evidence for the deployed navigation release.
