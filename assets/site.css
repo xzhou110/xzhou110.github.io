@@ -153,6 +153,7 @@ footer p + p { margin-top: 8px; }
 @media (max-width: 680px) {
   .shell { width: calc(100% - 32px); }
   .topbar { padding-block: 8px; }
+  .brand { font-size: 16px; }
   .topbar nav { justify-content: space-between; gap: 8px 12px; }
   .topbar nav a { font-size: 13px; }
   .work-filters { gap: 8px; }

@@ -56,7 +56,7 @@ export function render(c, here, repoFact = () => null) {
 <meta property="og:title" content="${esc(c.name)} — ${esc(c.headline)}"><meta property="og:description" content="${esc(c.tagline)}">
 <meta property="og:image" content="${esc(c.siteUrl)}assets/shots/car-tco-compare.png"><meta property="og:type" content="website"><meta property="og:url" content="${esc(c.siteUrl)}"><link rel="canonical" href="${esc(c.siteUrl)}">
 </head><body id="top"><a class="skip" href="#main">Skip to Content</a>
-<header class="site-header"><div class="shell topbar"><a class="brand" href="#top" aria-label="Lukas, Back to Top">Lukas<span aria-hidden="true">.</span></a>
+<header class="site-header"><div class="shell topbar"><a class="brand" href="#top" aria-label="${esc(c.name)}, Back to Top">${esc(c.name)}</a>
 <nav aria-label="Portfolio Sections"><a href="#work">Work</a><a href="#how">Approach</a><a href="#skills">Skills</a><a href="#history">History</a><a href="#contact">Contact</a></nav>
 <div class="theme-picker" role="group" aria-label="Color Theme"><button type="button" data-set-theme="light" aria-pressed="false">Light</button><button type="button" data-set-theme="dark" aria-pressed="false">Dark</button></div></div></header>
 <div class="shell hero"><div><p class="eyebrow">${esc(c.name)} · ${esc(c.positioning)}</p><h1>${esc(c.headline)}</h1><p class="bio">${md(c.bio)}</p><div class="actions"><a class="button primary" href="#work">Explore My Work <span aria-hidden="true">&nbsp;↓</span></a><a class="button" href="mailto:${esc(c.links.email)}">Get in Touch</a></div></div>

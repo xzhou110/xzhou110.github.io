@@ -6,6 +6,7 @@ The owner's approved preferences provide a reusable visual language: calm light 
 
 ## Public Audience Adaptation
 
+- The header wordmark uses the full curated name, Xu Zhou (Lukas), matching the page identity and linking back to the top. It is separate from the browser favicon. Avoid an unexplained nickname-only brand or decorative trailing punctuation.
 - Lead with the value Lukas brings, followed immediately by shipped work.
 - Keep each product's image, purpose, capabilities, and live/source links visible. Detailed evidence lives in a native, keyboard-accessible disclosure, collapsed initially.
 - Selected Work can include public apps and private/local tooling. Use a labelled workflow or capability illustration where a real screenshot would expose private content. Omit unavailable app/source links and preserve a useful native case-study control. Status is stated without inventing a public demo or complete integration.
