@@ -67,6 +67,17 @@ h3 { font-size: 22px; letter-spacing: -.015em; margin-bottom: 10px; }
 .project-number { color: var(--muted); font-size: 12px; font-variant-numeric: tabular-nums; }
 .project .tag { color: var(--muted); }
 .project .category { font-size: 13px; font-weight: 600; color: var(--accent-ink); margin-bottom: 8px; }
+.project-format { color: var(--muted); font-size: 13px; margin-top: 18px; }
+.illustration { margin: 0; padding: 24px; background: var(--surface-2); border: 1px solid var(--line); border-radius: 10px; }
+.illustration-heading { display: flex; gap: 12px; align-items: center; color: var(--ink-2); margin-bottom: 18px; }
+.illustration-mark { display: grid; place-items: center; flex: 0 0 36px; height: 36px; border-radius: 10px; background: var(--accent-soft); color: var(--accent-ink); font-size: 24px; }
+.workflow-steps, .connection-rows { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+.workflow-steps li, .connection-rows li { padding: 9px 12px; border: 1px solid var(--line); border-radius: 7px; background: var(--surface); font-size: 14px; }
+.workflow-steps li { display: flex; align-items: center; gap: 14px; }
+.workflow-steps li span { color: var(--accent-ink); font-variant-numeric: tabular-nums; font-size: 12px; }
+.connection-rows li { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px 12px; padding-block: 16px; }
+.connection-rows li span { color: var(--muted); font-size: 12px; }
+.illustration figcaption { margin-top: 16px; font-size: 12px; color: var(--muted); }
 .project .actions { margin-top: 18px; }
 .project .source { font-size: 14px; font-weight: 600; padding: 10px 4px; }
 .chips { display: flex; flex-wrap: wrap; gap: 6px; padding: 0; margin: 16px 0 0; list-style: none; }

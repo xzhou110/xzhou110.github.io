@@ -1,5 +1,5 @@
 {
-  "_about": "Curated, employer-facing content for xzhou110.github.io. Everything here is public by intent. Observed facts (live status, language, last push) are merged in by build.mjs from a facts snapshot (public repos only) passed with --facts. Facts only: no user counts, revenue or impact claims; estimates stay labelled; private tooling is described, never named or linked.",
+  "_about": "Curated, employer-facing content for xzhou110.github.io. Everything here is public by intent. Optional public repository dates come from an explicitly supplied facts snapshot. Named private-tool case studies require owner authorization; their source repositories, runtime data, prompts, and account details are never imported. Facts only: no invented user counts, revenue, or impact claims; estimates stay labelled.",
   "name": "Xu Zhou (Lukas)",
   "handle": "xzhou110",
   "siteUrl": "https://xzhou110.github.io/",
@@ -7,7 +7,7 @@
   "evidenceAsOf": "2026-10-01",
   "headline": "I turn ideas into live products, end to end.",
   "positioning": "Product, AI & Data",
-  "tagline": "Xu Zhou (Lukas) builds consumer products from idea to launch, combining product judgment, AI-assisted engineering, and data science. Explore three shipped apps and the decisions behind them.",
+  "tagline": "Xu Zhou (Lukas) builds products from idea to launch, combining product judgment, AI-assisted engineering, and data science. Explore selected apps, AI workflows, and the decisions behind them.",
   "bio": "I combine product judgment, AI-assisted engineering, and data science to build useful consumer apps. I own the journey from the first product decision to the data model, the experience, and the launch.",
   "links": {
     "github": "https://github.com/xzhou110",
@@ -45,6 +45,63 @@
       "live": "https://xzhou110.github.io/car-tco-compare/",
       "repo": "https://github.com/xzhou110/car-tco-compare",
       "screenshot": true
+    },
+    {
+      "id": "multi-agent-build-orchestrator",
+      "title": "Multi-Agent Build Orchestrator",
+      "category": "AI Orchestration & Delivery",
+      "highlights": ["Specialized Agents", "Shared Contracts", "Review Gates"],
+      "oneLiner": "A reusable workflow that turns a product brief into coordinated work for specialized AI agents, with integration checks, decision records, and release verification.",
+      "format": "Private Tool · Case Study",
+      "evidenceAsOf": "2026-10-06",
+      "visual": {
+        "kind": "workflow",
+        "title": "From Brief to Release",
+        "steps": ["Define the Brief", "Plan and Assign", "Build and Integrate", "Review and Verify", "Release"],
+        "caption": "Workflow illustration · human direction and review"
+      },
+      "problem": "Building with several AI agents creates coordination work: agreeing on interfaces, managing dependencies, resolving conflicting changes, and deciding whether the result actually meets the brief.",
+      "built": "A reusable orchestration workflow with a product-manager session, nine specialist roles, shared artifact templates, and explicit acceptance criteria. The main session scopes the work and chooses which specialists are needed; it does not launch a full crew for every small change.",
+      "how": "The orchestrator sequences dependent tasks and assigns separate implementation areas to parallel agents. Shared contracts guide the build, integration checks connect the parts, and reviewers inspect the result before release. Run logs, decision records, and project state make the work traceable. I direct the brief and the consequential decisions.",
+      "outcome": "Used to build Car Shopping and Apartment Shopping and support the Car TCO Compare alerts backend. The workflow is reusable across projects; this public case study describes the approach while the implementation remains private.",
+      "honest": [
+        "The public Car Shopping and Apartment Shopping repositories include build logs, decision records, and review findings linked in their case studies below.",
+        "Agents assist implementation; the workflow does not remove the need for product judgment, code review, or live verification.",
+        "No measured claim of time saved, quality improvement, or fully autonomous delivery is made here."
+      ],
+      "stack": ["Agent Skills", "Role Definitions", "Structured Briefs", "Shared Contracts", "Review and Release Workflows"],
+      "screenshot": false
+    },
+    {
+      "id": "ai-usage-tracker",
+      "title": "AI Usage Tracker",
+      "category": "AI Tools & Desktop Integration",
+      "highlights": ["Windows Sidebar", "Quota Windows", "Explicit Freshness"],
+      "oneLiner": "A local Windows dashboard for AI subscription usage and reset times, designed to make remaining allowance, stale readings, and connection status clear at a glance.",
+      "format": "Local App · Case Study",
+      "evidenceAsOf": "2026-10-06",
+      "visual": {
+        "kind": "connections",
+        "title": "AI Usage Tracker",
+        "rows": [
+          {"name": "Codex", "state": "Live Reading Verified"},
+          {"name": "Claude", "state": "Awaiting Live Data"},
+          {"name": "Cursor", "state": "Setup Pending"}
+        ],
+        "caption": "Capability illustration · no account or usage data"
+      },
+      "problem": "Working across AI tools means checking separate usage limits, reset windows, and dashboards. A missing or stale reading can easily look like available capacity unless the interface makes uncertainty explicit.",
+      "built": "A Windows sidebar and browser dashboard with separate quota windows, reset countdowns, usage history, connection details, and settings. The desktop launcher starts the local service and restores the existing app when opened again.",
+      "how": "Provider adapters normalize observations into a common model while preserving source timestamps and units. A local server stores account usage on the device, and the Electron shell hosts the same interface as the browser. Codex uses its installed account interface; Claude has a status-line bridge; Cursor uses a paired browser extension. Unknown and expired values remain explicit.",
+      "outcome": "The local app is usable and Codex readings have been reconciled against the provider source. Claude still awaits a live quota event, and Cursor extension installation and live reconciliation remain pending. This case study shows capabilities without exposing account data or linking to the source repository.",
+      "honest": [
+        "Codex has a verified live reading. Claude and Cursor are incomplete integrations, not confirmed live connections.",
+        "Subscription names and prices are user-entered; they do not establish quota size or change billing.",
+        "The visual is a capability illustration, not a screenshot of a connected account. No real percentages, identifiers, or reset times are published.",
+        "This is a tool for managing AI usage; its dashboard does not run an AI model."
+      ],
+      "stack": ["React", "TypeScript", "Electron", "Node.js", "Zod", "Provider Adapters", "Browser Extension"],
+      "screenshot": false
     },
     {
       "id": "car-shopping",
@@ -140,7 +197,7 @@
     {
       "era": "Products and Tooling",
       "years": "2026",
-      "note": "The three live apps above, plus the private build, learning and dashboard tooling described in How I build.",
+      "note": "Selected apps and tools are featured above.",
       "items": []
     },
     {

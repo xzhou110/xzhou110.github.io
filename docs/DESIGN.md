@@ -8,6 +8,7 @@ The owner's approved preferences provide a reusable visual language: calm light 
 
 - Lead with the value Lukas brings, followed immediately by shipped work.
 - Keep each product's image, purpose, capabilities, and live/source links visible. Detailed evidence lives in a native, keyboard-accessible disclosure, collapsed initially.
+- Selected Work can include public apps and private/local tooling. Use a labelled workflow or capability illustration where a real screenshot would expose private content. Omit unavailable app/source links and preserve a useful native case-study control. Status is stated without inventing a public demo or complete integration.
 - Present a short three-step approach and four capability groups. Keep framework lists within the product evidence and supporting stack sentence.
 - Group historical experiments by subject in collapsed categories with readable project names.
 - Label both Light and Dark choices. Respect the OS initially, persist explicit choices, preserve visible focus, and respect reduced motion.

@@ -16,7 +16,7 @@ next: Owner feedback on the refreshed portfolio
 
 ## Summary
 
-Lukas's public portfolio: shipped consumer products, product judgment, AI-assisted building, data science, and earlier experiments. Curated public content generates a static site with no runtime dependencies or private data integration.
+Lukas's public portfolio: selected consumer apps, AI workflows, local tools, data science, and earlier experiments. Curated public content generates a static site with no runtime dependencies or private data integration.
 
 ## Key Facts
 
@@ -37,6 +37,7 @@ Lukas's public portfolio: shipped consumer products, product judgment, AI-assist
 - Edit wording in `content/portfolio.json`, layout in `render.mjs`, presentation in `assets/site.css`, and interactions in `assets/site.js`. Generated HTML is not an editing source.
 - Calm light surfaces, charcoal dark mode, restrained teal, system fonts, readable headings, and thin card borders adapt the owner's shared design preferences without importing private dashboard data or code.
 - Product previews, purpose, and app/source links stay visible. Case studies and history categories start collapsed. Light/Dark controls are labelled and persist the visitor's choice.
+- Selected Work includes three public web apps plus owner-authorized case studies for Multi-Agent Build Orchestrator and AI Usage Tracker. Those two use labelled capability illustrations, no repository/live-app links, and no imported account data, private source, or prompts. Each case study retains its own evidence date; incomplete integrations are explicit.
 - Skills describe Lukas's capabilities; product stacks describe the software. Do not imply independent mastery of every framework used by coding agents.
 - Positioning order is Product, AI, then Data, reflected in the introduction and descriptions. The short positioning label lives in the curated content file.
 - Historical evidence has its own date. Updating the design does not refresh test counts, costs, or product claims.
@@ -64,6 +65,7 @@ The workspace project index, shared launch configuration, and personal project r
 
 ### Change Highlights
 
+- 2026-10-06: Renamed the showcase Selected Work and added two sanitized tooling case studies, conditional app/source links, labelled illustrations, and per-project evidence dates.
 - 2026-10-06: Refreshed hierarchy, light/charcoal themes, compact cards, accessible disclosures, concise approach/skills, categorized history, and matching 404. Removed the coursework skill and stale pipeline claims. Expanded checks to the full candidate tree with required policy/scanner coverage and reviewed image hashes.
 - 2026-10-06: Featured Car Shopping name and links updated; legacy redirect retained.
 - 2026-10-02: Local project renamed from `portfolio`; historical alias preserved.

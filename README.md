@@ -1,6 +1,6 @@
 # Lukas's Project Portfolio
 
-Source of [xzhou110.github.io](https://xzhou110.github.io/): shipped products, how I build, skills, and categorized earlier work.
+Source of [xzhou110.github.io](https://xzhou110.github.io/): Selected Work, how I build, skills, and categorized earlier work. Public apps have demo/source links; owner-approved tooling case studies use labelled illustrations and omit repository links and account data.
 
 | File | Purpose |
 |---|---|
