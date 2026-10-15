@@ -49,6 +49,7 @@ Lukas's public portfolio: selected consumer apps, AI workflows, local tools, dat
 - The existing private-name rule stays enabled. The owner's explicit approval to name X Command Center is recorded in ignored local policy as `nameReviews`: the exact name, public file, and SHA-256 of its reviewed text (LF line endings). Only a standalone name rule can qualify, never combined or broader expressions. A changed file invalidates the exception. It never exempts other pattern matches, credentials, personal values, paths, or images. Refresh this narrow review only after reviewing the changed public text; never remove the underlying rule.
 - Optional `--facts <public-snapshot.json>` reads only explicit public repository update facts (`private: false`). Default builds read no snapshot. Curated links are intentionally public; adding a new link requires checking its visibility.
 - `/garage/` intentionally redirects to `/car-shopping/`, preserving search and hash.
+- Disclose AI use together with the verification: every "built with AI" claim pairs with one concrete thing that was rejected or caught and the check that caught it. Employers assume AI is in the loop and grade judgment; hiding it is the red flag.
 
 ## Details
 
