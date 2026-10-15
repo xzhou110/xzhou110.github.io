@@ -50,6 +50,7 @@ Lukas's public portfolio: selected consumer apps, AI workflows, local tools, dat
 - Optional `--facts <public-snapshot.json>` reads only explicit public repository update facts (`private: false`). Default builds read no snapshot. Curated links are intentionally public; adding a new link requires checking its visibility.
 - `/garage/` intentionally redirects to `/car-shopping/`, preserving search and hash.
 - Disclose AI use together with the verification: every "built with AI" claim pairs with one concrete thing that was rejected or caught and the check that caught it. Employers assume AI is in the loop and grade judgment; hiding it is the red flag.
+- Public proof does not require public source: a case study shows the problem, the decisions, an illustrative visual and dated limitations, reviewed independently of the private project. Repository visibility and the public description are separate decisions.
 
 ## Details
 
