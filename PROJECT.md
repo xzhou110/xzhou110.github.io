@@ -49,6 +49,9 @@ Lukas's public portfolio: selected consumer apps, AI workflows, local tools, dat
 - The existing private-name rule stays enabled. The owner's explicit approval to name X Command Center is recorded in ignored local policy as `nameReviews`: the exact name, public file, and SHA-256 of its reviewed text (LF line endings). Only a standalone name rule can qualify, never combined or broader expressions. A changed file invalidates the exception. It never exempts other pattern matches, credentials, personal values, paths, or images. Refresh this narrow review only after reviewing the changed public text; never remove the underlying rule.
 - Optional `--facts <public-snapshot.json>` reads only explicit public repository update facts (`private: false`). Default builds read no snapshot. Curated links are intentionally public; adding a new link requires checking its visibility.
 - `/garage/` intentionally redirects to `/car-shopping/`, preserving search and hash.
+- `/xuseak-todo/` hosts XuSeak To-Do's privacy policy and support pages (`xuseak-todo/privacy/`, `xuseak-todo/support/`, hand-written, self-contained HTML; source text in the app's `docs/store/`): the addresses in the app's Settings › About and its App Store listing. Owner-approved and published 2026-10-25. A brand domain may take them over later; these stay as forwarders because installed apps keep the links.
+- `.claude/launch.json` is ignored (2026-10-25): it holds machine paths and names a private project, and the preview and the X Command Center read it from disk, never from GitHub. The gate held it; it had been tracked in this public repository since 2026-10-22 by a session that never ran the gate.
+- `package.json` holds scripts only (`test`, `check` = tests plus the full candidate gate), so the machine's global pre-push hook runs the gate before every push; a push can no longer go around it by mistake.
 - Disclose AI use together with the verification: every "built with AI" claim pairs with one concrete thing that was rejected or caught and the check that caught it. Employers assume AI is in the loop and grade judgment; hiding it is the red flag.
 - Public proof does not require public source: a case study shows the problem, the decisions, an illustrative visual and dated limitations, reviewed independently of the private project. Repository visibility and the public description are separate decisions.
 
@@ -72,6 +75,7 @@ These references were checked for the October 6 navigation release. The workspac
 
 ### Change Highlights
 
+- 2026-10-25: Published XuSeak To-Do's privacy policy and support pages under `xuseak-todo/`. The gate held `.claude/launch.json`, which is now untracked and ignored, and `package.json` opts the repository into the pre-push `check` gate.
 - 2026-10-06: Added approved X Command Center and Wisdom & Knowledge Base case studies; grouped seven projects by purpose with category filters, cross-category jumps, sticky section navigation, and Back to Top.
 - 2026-10-06: Renamed the showcase Selected Work and added two sanitized tooling case studies, conditional app/source links, labelled illustrations, and per-project evidence dates.
 - 2026-10-06: Refreshed hierarchy, light/charcoal themes, compact cards, accessible disclosures, concise approach/skills, categorized history, and matching 404. Removed the coursework skill and stale pipeline claims. Expanded checks to the full candidate tree with required policy/scanner coverage and reviewed image hashes.

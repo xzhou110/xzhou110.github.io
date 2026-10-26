@@ -3,3 +3,4 @@ facts.local.json
 .DS_Store
 Thumbs.db
 gate.local.json
+.claude/

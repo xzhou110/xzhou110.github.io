@@ -1,0 +1,10 @@
+{
+  "name": "project-portfolio",
+  "private": true,
+  "type": "module",
+  "description": "Scripts only: the global pre-push hook runs `check`, so the full candidate publication gate runs before every push. No dependencies.",
+  "scripts": {
+    "test": "node --test",
+    "check": "node --test && node build.mjs"
+  }
+}
