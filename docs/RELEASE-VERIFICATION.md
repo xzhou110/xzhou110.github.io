@@ -1,5 +1,18 @@
 # Release Verification
 
+## October 27, 2026: Original Project Icons
+
+The owner accepted the editorial build and requested each project's existing icon. Application commit `af674a78053e2098aab1095dd17e4e4b6093a3af` adds nine original product icons beside names, in the relevant previews, and in the suggested starting links. Two projects without dedicated artwork remain text-led. [Project Icon Sources](ICON-SOURCES.md) records the intake method and source inventory; `assets/icons/sources.json` preserves the source and imported hashes.
+
+- Verified each icon against its configured source asset. Reviewed raster pixels and SVG source before publication. Metadata intake found no removable metadata; all nine imported files matched their originals exactly.
+- Checked 1280px desktop and 360px/320px phone layouts across light and dark themes. All seventeen icon placements loaded, no horizontal overflow or clipped project titles was observed, and the longest mobile title remained readable. Adjacent icons are decorative to screen readers; project names remain visible.
+- All seventeen existing portfolio tests passed, as did the full candidate publication gate and exact staged-tree check. The normal pre-push hook reran the tests and candidate gate successfully. Captured browser warning/error logs were empty during the exercised views.
+- Updated the project map, README, design record, refresh brief, and icon source inventory. Shared frontend preferences, the product brand guide, and provenance record preserve the accepted lesson; all 296 existing shared-guidance checks passed. Source apps, release statuses, project identities, launchers, and workspace registrations were unchanged.
+
+GitHub Pages reported the application commit above built successfully. The live homepage, 404, CSS, JavaScript, legacy redirect, mobile privacy/help pages, and all nine icons matched the reviewed local files byte for byte. The live browser loaded all seventeen icon placements, and project navigation reached the selected case without overflow or captured warning/error logs. This documentation-only follow-up records those observed deployment results.
+
+This is a presentation and documentation follow-up. Native app behavior and release acceptance were not retested.
+
 ## October 27, 2026: Editorial Showcase
 
 This refresh adds four case studies and changes presentation and wording while retaining the existing navigation and publication architecture. The owner selected the editorial direction after reviewing a comparison mockup.
