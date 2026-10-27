@@ -11,7 +11,9 @@ This refresh adds four case studies and changes presentation and wording while r
 - All three public app links returned 200 with the expected app titles. Repository metadata verified the public status of the five linked featured sources and the eight earlier-work destinations.
 - Workspace references, the launcher, collector registrations, existing support/privacy pages, and legacy redirect were inspected. The project map and workspace index describe the same eleven-project showcase.
 
-Publication and exact live-asset verification are recorded below after deployment. Underlying app tests and native-device acceptance were not rerun for this portfolio refresh.
+Publication passed the full candidate gate and exact staged-tree check. The normal pre-push hook reran the seventeen tests and publication gate. GitHub Pages reported application commit `19e2935b9b5bb0bafd024e49c98ef3c285954459` built successfully. The live homepage, 404, CSS, JavaScript, legacy redirect, and mobile privacy/help pages matched the local files byte for byte. Live filtering, cross-category Go, and a newly added case-study disclosure were exercised successfully; the deployed page contains eleven cases and the expected versioned assets.
+
+Underlying app tests and native-device acceptance were not rerun for this portfolio refresh. This record describes the application commit above; a subsequent documentation-only commit records these observed deployment results.
 
 ## October 6, 2026: Categorized Work and Navigation
 
