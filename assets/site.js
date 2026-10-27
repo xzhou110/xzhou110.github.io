@@ -2,7 +2,7 @@ const root = document.documentElement;
 const themeButtons = document.querySelectorAll('[data-set-theme]');
 function syncTheme() {
   themeButtons.forEach((button) => button.setAttribute('aria-pressed', String(button.dataset.setTheme === root.dataset.theme)));
-  document.querySelector('meta[name="theme-color"]')?.setAttribute('content', root.dataset.theme === 'dark' ? '#16181c' : '#f4f5f2');
+  document.querySelector('meta[name="theme-color"]')?.setAttribute('content', root.dataset.theme === 'dark' ? '#171a1b' : '#f7f7f2');
 }
 themeButtons.forEach((button) => button.addEventListener('click', () => {
   root.dataset.theme = button.dataset.setTheme;

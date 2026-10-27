@@ -1,5 +1,18 @@
 # Release Verification
 
+## October 27, 2026: Editorial Showcase
+
+This refresh adds four case studies and changes presentation and wording while retaining the existing navigation and publication architecture. The owner selected the editorial direction after reviewing a comparison mockup.
+
+- Seventeen Node tests passed, covering render destinations, category integrity, incomplete integrations, and publication protections. Expected masked rejection messages in the privacy tests are test fixtures, not release holds.
+- Browser checks covered 1280px desktop, 800px tablet, and 360px/320px phone viewports. Checked both themes, reload persistence, visible-only bulk expansion, keyboard disclosure activation, keyboard selection retaining focus, cross-category Go, direct hero links, browser Back, and settled sticky-header offsets. No horizontal overflow or illustration overflow was found at the tested widths.
+- All three retained screenshot assets loaded. Their bytes were unchanged. Product/game illustrations are labelled and use fictional content. Captured browser error/warning logs were empty during the exercised flows.
+- Independent semantic review of the four new case studies found no material status, privacy, or attribution issue. It checked the separation of TestFlight/App Review from public release and the absence of private source and unlisted tester links.
+- All three public app links returned 200 with the expected app titles. Repository metadata verified the public status of the five linked featured sources and the eight earlier-work destinations.
+- Workspace references, the launcher, collector registrations, existing support/privacy pages, and legacy redirect were inspected. The project map and workspace index describe the same eleven-project showcase.
+
+Publication and exact live-asset verification are recorded below after deployment. Underlying app tests and native-device acceptance were not rerun for this portfolio refresh.
+
 ## October 6, 2026: Categorized Work and Navigation
 
 Deployed implementation: `7177d00cebf59d78f6eebed869c4f7a1c1b0489a` on the existing GitHub Pages user site. This is evidence for that revision, not a claim about future edits.
