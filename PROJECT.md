@@ -9,7 +9,7 @@ updated: 2026-10-27
 started: 2026-10-01
 category: products
 phase: polishing
-next: Owner feedback on the refreshed portfolio
+next: Keep project evidence and original product icons current as the apps evolve
 ---
 
 # Project Portfolio
@@ -37,6 +37,7 @@ Lukas's public portfolio: selected consumer apps, AI workflows, local tools, dat
 - Edit wording in `content/portfolio.json`, layout in `render.mjs`, presentation in `assets/site.css`, and interactions in `assets/site.js`. Generated HTML is not an editing source.
 - Owner-selected editorial direction: a deep green introduction, warm light surfaces, charcoal dark mode, three suggested starting points, and a two-column project gallery with a leading mobile case study. System fonts and restrained accents keep it readable.
 - Product previews, purpose, and app/source links stay visible. Case studies and history categories start collapsed. Light/Dark controls are labelled and persist the visitor's choice.
+- Owner accepted the editorial build on October 27 and requested each project's own icon. Nine projects use their existing product marks beside the name and in applicable starting links/illustrations. Two tools without dedicated artwork remain text-led. Sources and exact imported hashes are recorded in `assets/icons/sources.json`; see [Icon Sources](docs/ICON-SOURCES.md) before updating them. Builds use reviewed local copies only, never sibling repositories or remote hotlinks.
 - Selected Work has eleven case studies: five Consumer Apps, three AI Tools, and three Knowledge & Productivity projects. New entries are XuSeak To-Do, Dream Laws, Local App Kit, and Creator Advisors. The three starting points emphasize mobile delivery, data-driven decisions, and AI workflow design. Every card shows its release state and one consequential decision.
 - Public app links remain limited to the three released web apps. Public source links also include Local App Kit and AI Usage Tracker, whose visibility was verified. Private cases use labelled concept or workflow illustrations, without account data, private source, personal notes, or the unlisted game tester link. TestFlight and App Review are explicitly separate from a public store release.
 - Category filters group work into Consumer Apps, AI Tools, and Knowledge & Productivity. All eleven projects appear by default. Jump to Project uses a selector plus Go: choosing an option preserves keyboard focus until submission, which reveals and focuses the chosen card, including across filters. Expand All affects only visible case studies. The URL preserves category and project destinations for reload, sharing, and browser history. Without JavaScript, every card remains readable.
@@ -76,6 +77,7 @@ The workspace index, launcher, collector registrations, repository-name exceptio
 
 ### Change Highlights
 
+- 2026-10-27: Added nine original project icons after source, image, and metadata review; retained the accepted layout. Recorded the source inventory and the owner's icon-reuse preference.
 - 2026-10-27: Owner chose the editorial showcase direction. Added four evidence-based case studies, refreshed project framing and release states, added two verified public source links, and replaced the long uniform list with a lead project and visual gallery. Removed stale metric and operating-cost claims. See the refresh brief and verification record.
 - 2026-10-25: Published XuSeak To-Do's privacy policy and support pages under `xuseak-todo/`. The gate held `.claude/launch.json`, which is now untracked and ignored, and `package.json` opts the repository into the pre-push `check` gate.
 - 2026-10-06: Added approved X Command Center and Wisdom & Knowledge Base case studies; grouped seven projects by purpose with category filters, cross-category jumps, sticky section navigation, and Back to Top.

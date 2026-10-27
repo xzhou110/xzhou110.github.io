@@ -27,6 +27,8 @@ Release states and one key decision are visible before opening a case study. New
 
 The useful journey is: understand Lukas's focus, choose one of three relevant projects, inspect a decision and its evidence, then open public proof or get in touch. See [Refresh Brief](REFRESH-2026-10-27.md) for the reproducible method and selection rationale.
 
+The owner accepted this build on October 27 and requested the projects' original icons. Use the configured product assets beside project names, in relevant starting links, and within applicable concept/workflow previews. Preserve their colors and proportions; keep text labels visible and icon alt text empty when the adjacent name already labels the project. Nine original marks are available; two unbranded tools remain text-led. See [Icon Sources](ICON-SOURCES.md) for source paths, exact hashes, intake review, and update procedure.
+
 ## Content and Privacy
 
 No private operational status, dashboard content, invented traction, or inferred availability badges. Project evidence keeps its original date. Images remain reviewed previews, and estimates stay labelled. Only the visitor's theme preference is stored locally.

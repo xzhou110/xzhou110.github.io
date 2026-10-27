@@ -11,7 +11,7 @@ test('case-study-only projects do not fabricate source or demo destinations', ()
   for (const id of ['xuseak-to-do', 'dream-laws', 'creator-advisors', 'multi-agent-build-orchestrator', 'project-workspace', 'knowledge-learning-system']) {
     const card = html.match(new RegExp(`<article class="project" id="${id}"[\\s\\S]+?</article>`))?.[0];
     assert(card);
-    assert.doesNotMatch(card, /href=|<img|undefined|null/);
+    assert.doesNotMatch(card, /href=|assets\/shots\/|undefined|null/);
     assert.match(card, /<details class="case-study"><summary>Read Case Study/);
     assert.match(card, /illustration/i);
     assert.match(card, /2026-10-27/);

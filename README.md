@@ -9,6 +9,7 @@ Source of [xzhou110.github.io](https://xzhou110.github.io/): Selected Work, how 
 | `assets/site.css` | Tokens, responsive layout, light/charcoal themes |
 | `assets/site.js` | Theme preference, category filters, project jumps, visible case-study bulk control, sticky section navigation |
 | `assets/shots/` | Reviewed product previews |
+| `assets/icons/` | Original product icons and a source/hash inventory; see `docs/ICON-SOURCES.md` |
 | `assets/reviewed-images.json` | Hashes of visually reviewed public image bytes |
 | `publication-gate.mjs` | Full candidate privacy checks; no sensitive diagnostics |
 | `build.mjs` | Validate the complete candidate, then write generated pages |
