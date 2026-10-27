@@ -1,7 +1,7 @@
 ---
 name: project-portfolio
 formerly: [portfolio]
-summary: Public employer-facing portfolio with eleven case studies, an editorial showcase, visible decisions and release states, and a full candidate publication gate
+summary: Public employer-facing portfolio with three visual highlights, an eleven-project searchable library, full case studies, and a full candidate publication gate
 status: live
 live: https://xzhou110.github.io/
 repo: https://github.com/xzhou110/xzhou110.github.io
@@ -9,7 +9,7 @@ updated: 2026-10-27
 started: 2026-10-01
 category: products
 phase: polishing
-next: Keep project evidence and original product icons current as the apps evolve
+next: Keep curated highlights, project evidence, visuals, and original product icons current as the collection grows
 ---
 
 # Project Portfolio
@@ -34,13 +34,13 @@ Lukas's public portfolio: selected consumer apps, AI workflows, local tools, dat
 
 ## Key Things to Know
 
-- Edit wording in `content/portfolio.json`, layout in `render.mjs`, presentation in `assets/site.css`, and interactions in `assets/site.js`. Generated HTML is not an editing source.
-- Owner-selected editorial direction: a deep green introduction, warm light surfaces, charcoal dark mode, three suggested starting points, and a two-column project gallery with a leading mobile case study. System fonts and restrained accents keep it readable.
-- Product previews, purpose, and app/source links stay visible. Case studies and history categories start collapsed. Light/Dark controls are labelled and persist the visitor's choice.
+- Edit wording and the three `startHere` selections in `content/portfolio.json`; layout in `render.mjs` and `render-projects.mjs`; presentation in `assets/site.css` and `assets/projects.css`. The pure library engine is `assets/project-library.mjs`, with browser adaptation in `assets/library.js`. Generated HTML and `assets/project-catalog.json` are not editing sources.
+- Owner-selected Curated Highlights builds on the editorial direction: deep green introduction, warm light surfaces, charcoal dark mode, and three visual cards. Those same three projects appear in the suggested starting links. System fonts and restrained accents keep it readable.
+- Every highlight and library card retains a rich screenshot or labelled illustration, its original icon where available, a short purpose, and release state. Full visuals, decisions, evidence, limitations, and available app/source links live on static case-study pages. History categories remain collapsed. Light/Dark controls are labelled and persist the visitor's choice.
 - Owner accepted the editorial build on October 27 and requested each project's own icon. Nine projects use their existing product marks beside the name and in applicable starting links/illustrations. Two tools without dedicated artwork remain text-led. Sources and exact imported hashes are recorded in `assets/icons/sources.json`; see [Icon Sources](docs/ICON-SOURCES.md) before updating them. Builds use reviewed local copies only, never sibling repositories or remote hotlinks.
-- Selected Work has eleven case studies: five Consumer Apps, three AI Tools, and three Knowledge & Productivity projects. New entries are XuSeak To-Do, Dream Laws, Local App Kit, and Creator Advisors. The three starting points emphasize mobile delivery, data-driven decisions, and AI workflow design. Every card shows its release state and one consequential decision.
+- Selected Work shows three curated highlights: XuSeak To-Do, Car TCO Compare, and Multi-Agent Build Orchestrator. Explore All Projects opens the complete eleven-case library: five Consumer Apps, three AI Tools, and three Knowledge & Productivity projects. The homepage height stays bounded as the library grows.
 - Public app links remain limited to the three released web apps. Public source links also include Local App Kit and AI Usage Tracker, whose visibility was verified. Private cases use labelled concept or workflow illustrations, without account data, private source, personal notes, or the unlisted game tester link. TestFlight and App Review are explicitly separate from a public store release.
-- Category filters group work into Consumer Apps, AI Tools, and Knowledge & Productivity. All eleven projects appear by default. Jump to Project uses a selector plus Go: choosing an option preserves keyboard focus until submission, which reveals and focuses the chosen card, including across filters. Expand All affects only visible case studies. The URL preserves category and project destinations for reload, sharing, and browser history. Without JavaScript, every card remains readable.
+- `/projects/` provides search, category filtering, result counts, and six cards per page. Six is a display batch, never a collection cap. Filtering runs across the full catalog before pagination. Query/category/page URLs survive reload and history; a case study's Back to All Projects link restores the collection context. Static `/projects/page/<n>/` pages and `/projects/<id>/` cases remain browseable without JavaScript. Legacy homepage project/filter links redirect to the new destinations.
 - The sticky section menu links Work, Approach, Skills, History, and Contact, with a measured header offset that keeps anchor targets visible on narrow screens. Back to Top follows the contact section.
 - Skills describe Lukas's capabilities; product stacks describe the software. Do not imply independent mastery of every framework used by coding agents.
 - Positioning is AI, Data Science & Product, chosen by the owner for the employer-facing portfolio. Use that order in the introduction, descriptions, and capability groups, with delivery skills following them. Keep purpose-based project categories separate. The short positioning label lives in the curated content file.
@@ -63,7 +63,7 @@ Lukas's public portfolio: selected consumer apps, AI workflows, local tools, dat
 
 1. Update source and review any changed imagery.
 2. Run `node --test`, then `node build.mjs` on the configured owner machine. A fresh clone needs the owner's local policy and protected scanner configuration; it must not silently use weaker checks.
-3. Check desktop/mobile, both themes, keyboard disclosures, category filters, project jumps, browser back/reload, sticky navigation, product links, and the generated 404 page.
+3. Check desktop/mobile visuals, both themes, keyboard search/category controls, pagination, empty results and Clear, case-study return links, browser back/reload, old project URLs, sticky navigation, product links, and the generated 404 page.
 4. Stage the intended final files, then run `node build.mjs --check-staged`. This checks the exact index bytes and requires them to match the approved build. Commit and push with global hooks enabled. All committed sources are public, even when not linked from the homepage.
 5. Wait for Pages and verify the live page and deployed assets match the approved build.
 
@@ -73,9 +73,11 @@ The generator retains `--no-shots` compatibility as a harmless argument. Screens
 
 The workspace project index, shared launch configuration, and personal project registry reference this folder. The public repository keeps the user-site name required by GitHub Pages. No path, port, repository, or deployment change accompanied this redesign.
 
-The workspace index, launcher, collector registrations, repository-name exception, support/privacy page paths, and legacy redirect were checked during the October 27 refresh. Only the index description needed updating. Generated workspace snapshots remain the collector's output.
+The workspace index, launcher, collector registrations, repository-name exception, support/privacy page paths, and legacy redirect were checked during the October 27 refresh. The index description now reflects the bounded homepage and full library. The ignored launcher uses this project's `serve.mjs` on the existing port so nested cases and static library pages are served; it exposes only public output and assets. Generated workspace snapshots remain the collector's output.
 
 ### Change Highlights
+
+- 2026-10-27: Owner selected Curated Highlights and required a rich visual on every highlight and library card. Added a three-card homepage, searchable paginated library, and full static case studies; retained original icons, evidence, and legacy destinations. See [Curated Highlights](docs/CURATED-HIGHLIGHTS.md) for the method, scaling checks, and future removal workflow.
 
 - 2026-10-27: Added nine original project icons after source, image, and metadata review; retained the accepted layout. Recorded the source inventory and the owner's icon-reuse preference.
 - 2026-10-27: Owner chose the editorial showcase direction. Added four evidence-based case studies, refreshed project framing and release states, added two verified public source links, and replaced the long uniform list with a lead project and visual gallery. Removed stale metric and operating-cost claims. See the refresh brief and verification record.
@@ -91,6 +93,7 @@ The workspace index, launcher, collector registrations, repository-name exceptio
 
 - [README](README.md) — source map and build requirements.
 - [Design](docs/DESIGN.md) — reusable design decisions and portfolio adaptations.
+- [Curated Highlights](docs/CURATED-HIGHLIGHTS.md) — accepted layout, visual requirements, source map, scaling, and maintenance.
 - [Publishing](docs/PUBLISHING.md) — maintain exact-content name reviews without weakening privacy checks.
 - [Release Verification](docs/RELEASE-VERIFICATION.md) — dated evidence for the deployed navigation release.
 - [October Refresh](docs/REFRESH-2026-10-27.md) — request, design choice, selection rationale, reproduction brief, and quality bar.

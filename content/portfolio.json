@@ -71,7 +71,8 @@
         "WidgetKit",
         "EAS"
       ],
-      "icon": "assets/icons/xuseak-to-do.png"
+      "icon": "assets/icons/xuseak-to-do.png",
+      "summary": "Tasks, habits, and ideas in one daily workflow."
     },
     {
       "id": "car-tco-compare",
@@ -111,7 +112,8 @@
       "status": "Live Web App",
       "evidenceAsOf": "2026-10-27",
       "decision": "Make the assumptions editable so the ranking can be challenged.",
-      "icon": "assets/icons/car-tco-compare.svg"
+      "icon": "assets/icons/car-tco-compare.svg",
+      "summary": "Compare cars by estimated cost of ownership."
     },
     {
       "id": "multi-agent-build-orchestrator",
@@ -156,7 +158,8 @@
       ],
       "screenshot": false,
       "status": "Reusable Workflow",
-      "decision": "Match the team and checks to the risk of the task."
+      "decision": "Match the team and checks to the risk of the task.",
+      "summary": "A repeatable workflow for AI-assisted delivery."
     },
     {
       "id": "dream-laws",
@@ -200,7 +203,8 @@
         "Seeded Simulation",
         "EAS"
       ],
-      "icon": "assets/icons/dream-laws.png"
+      "icon": "assets/icons/dream-laws.png",
+      "summary": "A deckbuilder with changing dream rules."
     },
     {
       "id": "local-app-kit",
@@ -253,7 +257,8 @@
         "ETags",
         "Server-Sent Events"
       ],
-      "repo": "https://github.com/xzhou110/local-app-kit"
+      "repo": "https://github.com/xzhou110/local-app-kit",
+      "summary": "Shared foundations for reliable local apps."
     },
     {
       "id": "creator-advisors",
@@ -298,7 +303,8 @@
         "Transcript Processing",
         "Markdown"
       ],
-      "icon": "assets/icons/creator-advisors.svg"
+      "icon": "assets/icons/creator-advisors.svg",
+      "summary": "Connected ideas with traceable source citations."
     },
     {
       "id": "car-shopping",
@@ -337,7 +343,8 @@
       "status": "Live Web App",
       "evidenceAsOf": "2026-10-27",
       "decision": "Treat an unknown vehicle feature as unknown, not as absent.",
-      "icon": "assets/icons/car-shopping.svg"
+      "icon": "assets/icons/car-shopping.svg",
+      "summary": "Compare used cars, costs, and risk flags."
     },
     {
       "id": "apartment-shopping",
@@ -376,7 +383,8 @@
       "status": "Live Web App",
       "evidenceAsOf": "2026-10-27",
       "decision": "Keep personal notes intact when the listing catalog changes.",
-      "icon": "assets/icons/apartment-shopping.svg"
+      "icon": "assets/icons/apartment-shopping.svg",
+      "summary": "Organize and compare a rental shortlist."
     },
     {
       "id": "ai-usage-tracker",
@@ -432,7 +440,8 @@
       "status": "Local App · Partial Integrations",
       "decision": "Keep a missing or stale reading visibly different from available quota.",
       "repo": "https://github.com/xzhou110/ai-usage-tracker",
-      "icon": "assets/icons/ai-usage-tracker.svg"
+      "icon": "assets/icons/ai-usage-tracker.svg",
+      "summary": "See AI allowances and connection freshness."
     },
     {
       "id": "project-workspace",
@@ -486,7 +495,8 @@
       "screenshot": false,
       "status": "Private Desktop App",
       "decision": "Keep one shared snapshot behind the desktop and browser views.",
-      "icon": "assets/icons/project-workspace.svg"
+      "icon": "assets/icons/project-workspace.svg",
+      "summary": "One place for projects, schedules, and next steps."
     },
     {
       "id": "knowledge-learning-system",
@@ -533,7 +543,8 @@
       "screenshot": false,
       "status": "Private Learning System",
       "decision": "Keep source relationships and review state alongside the synthesis.",
-      "icon": "assets/icons/knowledge-learning-system.svg"
+      "icon": "assets/icons/knowledge-learning-system.svg",
+      "summary": "Connect captured sources with learning and practice."
     }
   ],
   "howIBuild": {
@@ -661,7 +672,7 @@
     "shotBudgetMs": 8000
   },
   "stacks": "Project stacks describe the software used in each build. The case studies explain my decisions, AI’s role, and the checks behind the result.",
-  "workIntro": "A selection of products and systems I’ve built with AI assistance. Open a case study for the problem, my decisions, and what the evidence supports.",
+  "workIntro": "Three highlighted builds introduce the work. Explore the full project library for more products, tools, and case studies.",
   "contactIntro": "Interested in working together? I’d welcome a conversation about AI, data science, or product work. Pick a project and I can walk you through the decisions behind it.",
   "startHere": [
     {

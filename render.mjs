@@ -2,18 +2,11 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { createHash } from 'node:crypto';
 
-export const esc = (s) => String(s ?? '').replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
-const md = (s) => esc(s).replace(/\*\*(.+?)\*\*/g, '<b>$1</b>').replace(/`([^`]+)`/g, '<code>$1</code>').replace(/\[([^\]]+)\]\((https?:[^)]+|mailto:[^)]+)\)/g, '<a href="$2">$1</a>');
+import { esc, md } from './render-utils.mjs';
+import { projectRenderer, renderLibrary } from './render-projects.mjs';
+import { PAGE_SIZE } from './assets/project-library.mjs';
+export { esc } from './render-utils.mjs';
 const themeInit = `(function(){var t;try{t=localStorage.getItem('theme')}catch(e){}if(t!=='light'&&t!=='dark')t=matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';document.documentElement.dataset.theme=t})();`;
-function illustration(visual, icon) {
-  if (!visual) return '';
-  if (visual.kind === 'product') return `<figure class="illustration product-illustration"><div class="phone-preview"><div class="phone-top"><span class="phone-brand">${icon}<span>XuSeak To-Do</span></span><span aria-hidden="true">◌</span></div><p class="phone-date">A Little Space for What Matters</p><strong class="phone-title">Today</strong><div class="sample-tasks">${visual.items.map((item, i) => `<div><span class="task-circle${i === 0 ? ' completed' : ''}" aria-hidden="true">${i === 0 ? '✓' : ''}</span>${esc(item)}</div>`).join('')}</div><div class="phone-tabs"><span>Today</span><span>To-Do</span><span>Habits</span><span>Ideas</span></div></div><div class="product-annotation"><span class="small-label">Designed Around the Day</span><strong>${esc(visual.title)}</strong><p>Plan. Act. Make Room.</p><span class="annotation-pill">Works Offline</span></div><figcaption>${esc(visual.caption)}</figcaption></figure>`;
-  if (visual.kind === 'game') return `<figure class="illustration game-illustration"><div class="game-brand">${icon}<p class="small-label">Dream Laws</p></div><strong>${esc(visual.title)}</strong><div class="game-cards">${visual.steps.map((step, i) => `<div><span aria-hidden="true">${['I', 'II', 'III'][i]}</span><b>${esc(step)}</b></div>`).join('')}</div><figcaption>${esc(visual.caption)}</figcaption></figure>`;
-  const body = visual.kind === 'workflow'
-    ? `<ol class="workflow-steps">${visual.steps.map((step, i) => `<li><span aria-hidden="true">${String(i + 1).padStart(2, '0')}</span>${esc(step)}</li>`).join('')}</ol>`
-    : `<ul class="connection-rows">${visual.rows.map((row) => `<li><strong>${esc(row.name)}</strong><span>${esc(row.state)}</span></li>`).join('')}</ul>`;
-  return `<figure class="illustration"><div class="illustration-heading">${icon || `<span class="illustration-mark" aria-hidden="true">${visual.kind === 'workflow' ? '↳' : '◷'}</span>`}<strong>${esc(visual.title)}</strong></div>${body}<figcaption>${esc(visual.caption)}</figcaption></figure>`;
-}
 
 export function render(c, here, repoFact = () => null) {
   const groups = c.workGroups;
@@ -22,38 +15,18 @@ export function render(c, here, repoFact = () => null) {
   const styles = `assets/site.css?v=${version('assets/site.css')}`;
   const script = `assets/site.js?v=${version('assets/site.js')}`;
   const projectIcon = (project, size = 44) => project?.icon ? `<img class="project-icon" src="${esc(project.icon)}?v=${version(project.icon)}" width="${size}" height="${size}" alt="" decoding="async">` : '';
-  const head = (title, description, prefix = '') => `<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  const head = (title, description, prefix = '/') => `<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
 <title>${esc(title)}</title><meta name="description" content="${esc(description)}">
 <meta name="theme-color" content="#f7f7f2"><link rel="icon" href="${prefix}assets/favicon.svg" type="image/svg+xml">
-<script>${themeInit}</script><link rel="stylesheet" href="${prefix}${styles}"><script src="${prefix}${script}" defer></script>`;
-  const cards = c.featured.map((p, i) => {
-    if (!p.screenshot && !p.visual) throw new Error('Every selected project needs a reviewed visual.');
-    const shot = `assets/shots/${p.id}.png`;
-    if (p.screenshot && !fs.existsSync(path.join(here, shot))) throw new Error(`Missing reviewed screenshot: ${shot}`);
-    const dims = { width: 1280, height: 800, ...p.shot };
-    const f = repoFact(p.id);
-    return `<article class="project" id="${esc(p.id)}" data-group="${esc(p.group)}" tabindex="-1" aria-labelledby="title-${esc(p.id)}">
-  <div class="project-top">
-    ${p.screenshot ? `<figure class="shot"><img src="${shot}" alt="${esc(p.title)} interface preview" width="${dims.width}" height="${dims.height}" ${i ? 'loading="lazy"' : 'fetchpriority="high"'}></figure>` : illustration(p.visual, projectIcon(p, 32))}
-    <div class="project-copy"><div class="project-meta"><p class="category">${esc(p.category)}</p><span class="project-number">${String(i + 1).padStart(2, '0')}</span></div><div class="project-title">${projectIcon(p)}<h3 id="title-${esc(p.id)}">${esc(p.title)}</h3></div>
-      <p class="project-status"><span aria-hidden="true"></span>${esc(p.status)}</p>
-      <p class="tag">${md(p.oneLiner)}</p><ul class="chips">${p.highlights.map((s) => `<li>${esc(s)}</li>`).join('')}</ul>
-      <p class="project-decision"><strong>A Key Decision</strong>${esc(p.decision)}</p>
-      ${p.format ? `<p class="project-format">${esc(p.format)}</p>` : ''}
-      ${p.live || p.repo ? `<div class="actions">${p.live ? `<a class="button" href="${esc(p.live)}" aria-label="Open App: ${esc(p.title)}">Open App <span aria-hidden="true">&nbsp;↗</span></a>` : ''}${p.repo ? `<a class="source" href="${esc(p.repo)}" aria-label="View Source: ${esc(p.title)}">View Source <span aria-hidden="true">↗</span></a>` : ''}</div>` : ''}
-    </div>
-  </div>
-  <details class="case-study"><summary>Read Case Study<span class="sr-only">: ${esc(p.title)}</span></summary><div class="detail"><dl>
-    <dt>Problem</dt><dd>${md(p.problem)}</dd><dt>What I Built</dt><dd>${md(p.built)}</dd>
-    <dt>How It Works</dt><dd>${md(p.how)}</dd><dt>Where It Stands</dt><dd>${md(p.outcome)}</dd>
-    <dt>Evidence and Limits</dt><dd><ul>${p.honest.map((h) => `<li>${md(h)}</li>`).join('')}</ul></dd>
-    <dt>Product Stack</dt><dd>${p.stack.map(esc).join(' · ')}</dd>
-    <dt>Evidence As Of</dt><dd>${esc(p.evidenceAsOf || c.evidenceAsOf)}</dd>
-    ${f?.pushedAt ? `<dt>Repository Updated</dt><dd>${esc(String(f.pushedAt).slice(0, 10))} (recorded in the supplied facts snapshot)</dd>` : ''}
-  </dl>${p.caption || p.caveat ? `<p class="caveat">${md([p.caption, p.caveat].filter(Boolean).join(' '))}</p>` : ''}</div></details>
-</article>`;
-  }).join('\n');
-  const filters = `<div class="work-tools" hidden><div class="work-filters" role="group" aria-label="Filter Selected Work"><button type="button" data-work-filter="all" aria-pressed="true">All Work <span>${c.featured.length}</span></button>${groups.map((group) => `<button type="button" data-work-filter="${esc(group.id)}" aria-pressed="false">${esc(group.label)} <span>${c.featured.filter((project) => project.group === group.id).length}</span></button>`).join('')}</div><div class="work-browse"><p id="work-count" role="status" aria-live="polite">Showing All ${c.featured.length} Projects</p><form class="project-jump" id="project-jump-form"><label for="project-jump">Jump to Project</label><div class="project-jump-controls"><select id="project-jump"><option value="">Choose a Project</option>${groups.map((group) => `<optgroup label="${esc(group.label)}">${c.featured.filter((project) => project.group === group.id).map((project) => `<option value="${esc(project.id)}">${esc(project.title)}</option>`).join('')}</optgroup>`).join('')}</select><button type="submit" aria-label="Go to Selected Project">Go</button></div></form></div></div>`;
+<script>${themeInit}</script><link rel="stylesheet" href="${prefix}${styles}"><link rel="stylesheet" href="/assets/projects.css?v=${version('assets/projects.css')}"><script src="${prefix}${script}" defer></script>`;
+  if (c.featured.some(p => !/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(p.id)) || new Set(c.featured.map(p=>p.id)).size !== c.featured.length) throw new Error('Invalid project identities.');
+  const highlights = c.startHere.map(route => c.featured.find(p=>p.id===route.id));
+  if (highlights.length !== 3 || highlights.some(p=>!p) || new Set(highlights.map(p=>p.id)).size !== 3) throw new Error('Choose three distinct highlighted projects.');
+  const project = projectRenderer(c, here, version, repoFact);
+  const entries = c.featured.map(p=>({id:p.id,group:p.group,searchText:[p.title,p.oneLiner,p.category,p.status,...p.stack].join(' '),html:project.card(p)}));
+  const catalog = JSON.stringify({groups,projects:entries});
+  const catalogVersion = createHash('sha256').update(catalog).digest('hex').slice(0,12);
+  const cards = highlights.map(project.card).join('\n');
   const history = c.history.filter((era) => era.items.length).map((era) => `<details class="era"><summary><h3>${esc(era.era)}</h3><span class="count">${era.items.length} ${era.items.length === 1 ? 'Project' : 'Projects'}</span></summary><div class="era-body">${era.note ? `<p>${md(era.note)}</p>` : ''}<ul>${era.items.map((item) => `<li><a href="https://github.com/${esc(c.handle)}/${esc(item.repo)}">${esc(item.name || item.repo)} <span aria-hidden="true">↗</span></a><p>${md(item.line)}</p></li>`).join('')}</ul></div></details>`).join('\n');
   const contact = `<a class="button primary" href="mailto:${esc(c.links.email)}">Get in Touch <span aria-hidden="true">&nbsp;↗</span></a><a class="button" href="${esc(c.links.github)}">GitHub <span aria-hidden="true">&nbsp;↗</span></a>${c.links.linkedin ? `<a class="button" href="${esc(c.links.linkedin)}">LinkedIn</a>` : ''}`;
   const html = `<!doctype html>
@@ -65,13 +38,29 @@ export function render(c, here, repoFact = () => null) {
 <nav aria-label="Portfolio Sections"><a href="#work">Work</a><a href="#how">Approach</a><a href="#skills">Skills</a><a href="#history">History</a><a href="#contact">Contact</a></nav>
 <div class="theme-picker" role="group" aria-label="Color Theme"><button type="button" data-set-theme="light" aria-pressed="false">Light</button><button type="button" data-set-theme="dark" aria-pressed="false">Dark</button></div></div></header>
 <div class="hero-band"><div class="shell hero"><div><p class="eyebrow">${esc(c.positioning)}</p><h1>${esc(c.headline).replace('. ', '.<br>')}</h1><p class="bio">${md(c.bio)}</p><div class="actions"><a class="button primary" href="#work">Explore Selected Work <span aria-hidden="true">&nbsp;↓</span></a><a class="hero-contact" href="mailto:${esc(c.links.email)}">Get in Touch <span aria-hidden="true">↗</span></a></div></div>
-<aside class="intro-note" aria-label="Suggested Starting Points"><p class="small-label">Three Places to Start</p>${c.startHere.map((route, i) => `<a class="start-link" href="#${esc(route.id)}"><span class="start-index">0${i + 1}</span><span><small>${esc(route.label)}</small><strong class="start-project">${projectIcon(c.featured.find(p => p.id === route.id), 28)}<span>${esc(route.description)}</span></strong><span class="start-detail">${esc(route.detail)}</span></span><span class="start-arrow" aria-hidden="true">↗</span></a>`).join('')}</aside></div><div class="shell hero-foot"><span>Independent Projects by Xu Zhou (Lukas)</span><span>Mobile · Web · Desktop · Developer Tools</span></div></div>
-<main class="shell" id="main"><section class="section" id="work" aria-labelledby="work-heading"><div class="section-head"><div><p class="section-kicker">From Idea to Working Software</p><h2 id="work-heading">Selected Work</h2><p>${esc(c.workIntro)}</p></div><button class="button" id="expand-all" type="button" hidden>Expand All</button></div>${filters}<div class="products">${cards}</div><p class="evidence-date">Release states and evidence reviewed ${esc(c.updated)}. Screenshots are public previews; concept and workflow illustrations are labelled. Each case study records its limitations.</p></section>
+<aside class="intro-note" aria-label="Suggested Starting Points"><p class="small-label">Three Places to Start</p>${c.startHere.map((route, i) => `<a class="start-link" href="/projects/${esc(route.id)}/"><span class="start-index">0${i + 1}</span><span><small>${esc(route.label)}</small><strong class="start-project">${projectIcon(c.featured.find(p => p.id === route.id), 28)}<span>${esc(route.description)}</span></strong><span class="start-detail">${esc(route.detail)}</span></span><span class="start-arrow" aria-hidden="true">↗</span></a>`).join('')}</aside></div><div class="shell hero-foot"><span>Independent Projects by Xu Zhou (Lukas)</span><span>Mobile · Web · Desktop · Developer Tools</span></div></div>
+<main class="shell" id="main"><section class="section" id="work" aria-labelledby="work-heading"><div class="section-head"><div><p class="section-kicker">A Few Places to Start</p><h2 id="work-heading">Selected Work</h2><p>Three builds across mobile products, data, and AI workflows. Open a project for its decisions and evidence.</p></div></div><div class="project-grid highlights-grid">${cards}</div><div class="library-cta"><a class="button primary" href="/projects/">Explore All ${c.featured.length} Projects <span aria-hidden="true">↗</span></a><p>Consumer Apps · AI Tools · Knowledge &amp; Productivity</p></div></section>
+<script type="application/json" id="project-ids">${JSON.stringify(c.featured.map(p=>p.id))}</script>
 <section class="section" id="how" aria-labelledby="how-heading"><div class="section-head"><div><h2 id="how-heading">How I Build</h2><p>${esc(c.howIBuild.intro)}</p></div></div><div class="approach">${c.howIBuild.steps.map((step, i) => `<article><span class="step">0${i + 1}</span><h3>${esc(step.title)}</h3><p>${md(step.body)}</p></article>`).join('')}</div></section>
 <section class="section" id="skills" aria-labelledby="skills-heading"><div class="section-head"><div><h2 id="skills-heading">What I Bring</h2><p>Hands-on experience building with AI, a data science foundation, and product judgment.</p></div></div><div class="skills">${Object.entries(c.skills).map(([title, items]) => `<article><h3>${esc(title)}</h3><ul>${items.map((item) => `<li>${esc(item)}</li>`).join('')}</ul></article>`).join('')}</div><p class="stacks">${esc(c.stacks)}</p></section>
 <section class="section" id="history" aria-labelledby="history-heading"><div class="section-head"><div><h2 id="history-heading">Earlier Work</h2><p>The experiments and data projects behind how I think today. Browse by category.</p></div></div><div class="history">${history}</div></section>
 <section class="contact" id="contact" aria-labelledby="contact-heading"><div><p class="section-kicker">Continue the Conversation</p><h2 id="contact-heading">Let’s Build Something Useful</h2><p>${esc(c.contactIntro)}</p></div><div class="actions">${contact}</div></section></main>
 <footer class="shell"><a class="back-top" href="#top">Back to Top ↑</a><p>${esc(c.name)} · <a href="mailto:${esc(c.links.email)}">${esc(c.links.email)}</a></p><p>${md(c.footer)} · Updated ${esc(c.updated)}.</p></footer></body></html>\n`;
   const notFound = `<!doctype html><html lang="en"><head>${head(`Page Not Found — ${c.name}`, 'Return to the portfolio.', '/')}</head><body><main class="shell error-page"><p class="eyebrow">404</p><h1>Page Not Found</h1><p>That page does not exist.</p><div class="actions"><a class="button primary" href="${esc(c.siteUrl)}">Back to the Portfolio</a></div></main></body></html>\n`;
-  return { 'index.html': html.replace(/^[\t ]+$/gm, ''), '404.html': notFound, '.nojekyll': '', 'robots.txt': `User-agent: *\nAllow: /\nSitemap: ${c.siteUrl}sitemap.xml\n`, 'sitemap.xml': `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"><url><loc>${esc(c.siteUrl)}</loc><lastmod>${esc(c.updated)}</lastmod></url></urlset>\n` };
+  const output = { 'index.html': html.replace(/^[\t ]+$/gm, ''), '404.html': notFound, '.nojekyll': '', 'robots.txt': `User-agent: *\nAllow: /\nSitemap: ${c.siteUrl}sitemap.xml\n`, 'assets/project-catalog.json': catalog };
+  const page = (title, description, body, route, scripts='') => `<!doctype html><html lang="en"><head>${head(title, description)}<link rel="canonical" href="${esc(c.siteUrl+route)}"><meta property="og:title" content="${esc(title)}"><meta property="og:description" content="${esc(description)}">${scripts}</head><body id="top"><a class="skip" href="#main">Skip to Content</a><header class="site-header"><div class="shell topbar"><a class="brand" href="/">${esc(c.name)}</a><nav aria-label="Portfolio Sections"><a href="/projects/" aria-current="page">Work</a><a href="/#how">Approach</a><a href="/#skills">Skills</a><a href="/#contact">Contact</a></nav><div class="theme-picker" role="group" aria-label="Color Theme"><button type="button" data-set-theme="light" aria-pressed="false">Light</button><button type="button" data-set-theme="dark" aria-pressed="false">Dark</button></div></div></header><main class="shell collection-page" id="main">${body}</main><footer class="shell"><a href="/#contact">Get in Touch</a><p>${esc(c.name)} · Independent Projects</p></footer></body></html>\n`;
+  const routes = [''];
+  for (let number=1;number<=Math.max(1,Math.ceil(entries.length/PAGE_SIZE));number++) {
+    const route = number===1?'projects/':`projects/page/${number}/`;
+    routes.push(route);
+    const scripts = `<script type="module" src="/assets/library.js?v=${version('assets/library.js')}"></script>`;
+    output[route+'index.html']=page('All Projects — '+c.name,'Browse the full collection of products, AI tools, and knowledge systems.',renderLibrary(c,entries,number,catalogVersion,version('assets/project-library.mjs')),route,scripts);
+  }
+  for (const p of c.featured) {
+    const route = `projects/${p.id}/`;
+    routes.push(route);
+    output[route+'index.html']=page(p.title+' — '+c.name,p.oneLiner,project.detail(p),route);
+  }
+  output['sitemap.xml']=`<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">${routes.map(route=>`<url><loc>${esc(c.siteUrl+route)}</loc><lastmod>${esc(c.updated)}</lastmod></url>`).join('')}</urlset>\n`;
+  return output;
 }

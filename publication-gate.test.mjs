@@ -5,7 +5,7 @@ import os from 'node:os';
 import path from 'node:path';
 import { createHash } from 'node:crypto';
 import { execFileSync, spawnSync } from 'node:child_process';
-import { parsePatterns, parseNameReviews, assertCoverage, validateCandidate, publicFiles, stagedFiles } from './publication-gate.mjs';
+import { parsePatterns, parseNameReviews, assertCoverage, validateCandidate, publicFiles, stagedFiles, publishGenerated } from './publication-gate.mjs';
 
 const policy = {
   patterns: [/SYNTHETIC_PRIVATE_MARKER/i],
@@ -15,6 +15,11 @@ const policy = {
   },
 };
 const files = (extra = {}) => new Map(Object.entries({ 'assets/reviewed-images.json': '{}', 'index.html': '<h1>Public</h1>', ...extra }).map(([name, value]) => [name, Buffer.from(value)]));
+test('approved nested pages publish on a clean checkout without pre-created folders',()=>{
+  const dir=fs.mkdtempSync(path.join(os.tmpdir(),'portfolio-build-nested-'));
+  try { publishGenerated(dir,{'projects/example/index.html':'<h1>Reviewed Project</h1>'});assert.equal(fs.readFileSync(path.join(dir,'projects/example/index.html'),'utf8'),'<h1>Reviewed Project</h1>'); }
+  finally { removeFixture(dir); }
+});
 function removeFixture(dir) {
   const resolved = path.resolve(dir);
   assert.equal(path.dirname(resolved), path.resolve(os.tmpdir()));
@@ -121,7 +126,8 @@ test('candidate inventory includes untracked public files and excludes local ign
 test('real build with missing policy fails without replacing an existing page', () => {
   const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'portfolio-build-'));
   try {
-    for (const file of ['build.mjs', 'render.mjs', 'publication-gate.mjs']) fs.copyFileSync(new URL(file, import.meta.url), path.join(dir, file));
+    fs.mkdirSync(path.join(dir,'assets'));
+    for (const file of ['build.mjs', 'render.mjs', 'render-utils.mjs', 'render-projects.mjs', 'assets/project-library.mjs', 'publication-gate.mjs']) fs.copyFileSync(new URL(file, import.meta.url), path.join(dir, file));
     fs.writeFileSync(path.join(dir, 'index.html'), 'previous approved page');
     const run = spawnSync(process.execPath, ['build.mjs'], { cwd: dir, encoding: 'utf8' });
     assert.equal(run.status, 1);

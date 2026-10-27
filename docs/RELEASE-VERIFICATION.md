@@ -1,5 +1,19 @@
 # Release Verification
 
+## October 27, 2026: Curated Highlights and Project Library
+
+The owner selected a bounded three-project overview and explicitly retained a rich visual on every highlight, library card, and case study. The implementation adds a searchable, category-filtered library with six cards per page, static fallback pages, full case URLs, and contextual return links. See [Curated Highlights](CURATED-HIGHLIGHTS.md) for the accepted brief and maintenance method.
+
+- All 22 tests passed during implementation. They cover the pure collection engine, case/evidence rendering, the publication protections, and nested output creation. A 307-entry synthetic collection spans 52 pages without losing its last entry; filtering precedes pagination. Independent in-memory generation produced 307 cases and 52 library pages while the homepage stayed at three cards.
+- Independent code/state/output review found no release blocker. All 19 generated outputs matched the renderer, all 31 checked internal routes/assets returned 200, and versioned asset hashes matched. Future removal/rename cleanup is documented; the current generated inventory has no orphan pages.
+- Independent content/privacy review verified that all eleven cases retain their original evidence, limitations, release states, and dates. Three public app links and five public source links remain. All twelve reviewed image hashes and nine icon provenance hashes match; existing image bytes are unchanged.
+- The local preview rejects protected source/configuration routes and traversal attempts (404), malformed encoding (400), unsupported methods (405), and foreign Host values (403). It serves the new nested public pages through the existing launch configuration and port.
+- Browser checks covered search to a later-page project, opening its case and returning to the same filtered card, category focus retention, empty search and Clear, page-two reload, and old homepage category/project links. Desktop Selected Work measured 773px high; the 360px and 320px phone versions measured approximately 829px and 901px. No horizontal page overflow was observed. Dark theme persisted after reload, and the To-Do case displayed its larger labelled concept visual.
+- A local fault-injection preview returned 503 for the first catalog request. The browser retained six static cards and a Next link, displayed Retry Search, then successfully recovered search and found the final project after retry.
+- Updated the source map, design record, reproduction brief, workspace index, and canonical frontend preference. This verifies the portfolio browsing flow, not the underlying apps or native-device acceptance. Synthetic scaling is output/engine evidence, not a browser benchmark for hundreds of projects.
+
+Deployment verification is recorded below after publication.
+
 ## October 27, 2026: Original Project Icons
 
 The owner accepted the editorial build and requested each project's existing icon. Application commit `af674a78053e2098aab1095dd17e4e4b6093a3af` adds nine original product icons beside names, in the relevant previews, and in the suggested starting links. Two projects without dedicated artwork remain text-led. [Project Icon Sources](ICON-SOURCES.md) records the intake method and source inventory; `assets/icons/sources.json` preserves the source and imported hashes.

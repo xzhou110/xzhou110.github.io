@@ -109,6 +109,7 @@ export function publishGenerated(here, output) {
   // Called only after checking the complete in-memory candidate. No network image fetching during builds.
   for (const [name, text] of Object.entries(output)) {
     const target = path.join(here, name);
+    fs.mkdirSync(path.dirname(target), { recursive: true });
     fs.writeFileSync(`${target}.tmp`, text, 'utf8');
     fs.renameSync(`${target}.tmp`, target);
   }
