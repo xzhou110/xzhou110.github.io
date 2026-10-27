@@ -43,7 +43,7 @@ Lukas's public portfolio: selected consumer apps, AI workflows, local tools, dat
 - `/projects/` provides search, category filtering, result counts, and six cards per page. Six is a display batch, never a collection cap. Filtering runs across the full catalog before pagination. Query/category/page URLs survive reload and history; a case study's Back to All Projects link restores the collection context. Static `/projects/page/<n>/` pages and `/projects/<id>/` cases remain browseable without JavaScript. Legacy homepage project/filter links redirect to the new destinations.
 - The sticky section menu links Work, Approach, Skills, History, and Contact, with a measured header offset that keeps anchor targets visible on narrow screens. Back to Top follows the contact section.
 - Skills describe Lukas's capabilities; product stacks describe the software. Do not imply independent mastery of every framework used by coding agents.
-- Positioning is AI, Data Science & Product, chosen by the owner for the employer-facing portfolio. Use that order in the introduction, descriptions, and capability groups, with delivery skills following them. Keep purpose-based project categories separate. The short positioning label lives in the curated content file.
+- Positioning is AI, Data Science & Product, chosen by the owner for the employer-facing portfolio. The headline is From Problem to Product. Lead with useful tasks and specific product responsibilities; retain AI attribution and concrete verification. Keep purpose-based project categories separate from capability groups. Section introductions and contact copy live in the curated content file. See [Copy Guide](docs/COPY-GUIDE.md) for the accepted brief and claim boundaries.
 - Historical evidence has its own date. Updating the design does not refresh test counts, costs, or product claims.
 - Existing screenshots are reviewed public previews. Changed PNG bytes require a fresh visual privacy review and an updated `assets/reviewed-images.json` digest. Text scanning does not inspect pixels.
 - `gate.local.json` and `facts.local.json` are private, ignored files. Missing/invalid policy or missing scanner coverage blocks builds. Never commit either file or disable hooks.
@@ -77,6 +77,8 @@ The workspace index, launcher, collector registrations, repository-name exceptio
 
 ### Change Highlights
 
+- 2026-10-27: Owner accepted the Curated Highlights layout and requested stronger employer-facing wording. Refined the biography, project summaries, case explanations, capabilities, contact invitation, and metadata; retained the specific decisions, evidence, release states, and visuals.
+
 - 2026-10-27: Owner selected Curated Highlights and required a rich visual on every highlight and library card. Added a three-card homepage, searchable paginated library, and full static case studies; retained original icons, evidence, and legacy destinations. See [Curated Highlights](docs/CURATED-HIGHLIGHTS.md) for the method, scaling checks, and future removal workflow.
 
 - 2026-10-27: Added nine original project icons after source, image, and metadata review; retained the accepted layout. Recorded the source inventory and the owner's icon-reuse preference.
@@ -93,6 +95,7 @@ The workspace index, launcher, collector registrations, repository-name exceptio
 
 - [README](README.md) — source map and build requirements.
 - [Design](docs/DESIGN.md) — reusable design decisions and portfolio adaptations.
+- [Copy Guide](docs/COPY-GUIDE.md) — employer-facing voice, reproducible brief, and factual boundaries.
 - [Curated Highlights](docs/CURATED-HIGHLIGHTS.md) — accepted layout, visual requirements, source map, scaling, and maintenance.
 - [Publishing](docs/PUBLISHING.md) — maintain exact-content name reviews without weakening privacy checks.
 - [Release Verification](docs/RELEASE-VERIFICATION.md) — dated evidence for the deployed navigation release.

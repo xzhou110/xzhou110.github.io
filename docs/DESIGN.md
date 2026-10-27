@@ -35,6 +35,10 @@ The useful journey is: understand Lukas's focus, choose one of three relevant pr
 
 The owner accepted this build on October 27 and requested the projects' original icons. Use the configured product assets beside project names, in relevant starting links, and within applicable concept/workflow previews. Preserve their colors and proportions; keep text labels visible and icon alt text empty when the adjacent name already labels the project. Nine original marks are available; two unbranded tools remain text-led. See [Icon Sources](ICON-SOURCES.md) for source paths, exact hashes, intake review, and update procedure.
 
+## Employer-Facing Wording
+
+The owner accepted Curated Highlights and asked to present the work more effectively. From Problem to Product introduces the work; task-focused summaries explain each app, and View Case Study makes the next action clear. The biography and approach name Lukas's product responsibilities and AI's implementation role. Cases retain the specific decisions and verification. The contact section invites a discussion about opportunities relevant to a team's problems. See [Copy Guide](COPY-GUIDE.md) for the prompt, quality bar, and source fields.
+
 ## Content and Privacy
 
 No private operational status, dashboard content, invented traction, or inferred availability badges. Project evidence keeps its original date. Images remain reviewed previews, and estimates stay labelled. Only the visitor's theme preference is stored locally.

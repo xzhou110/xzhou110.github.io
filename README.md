@@ -4,7 +4,7 @@ Source of [xzhou110.github.io](https://xzhou110.github.io/): Selected Work, how 
 
 | File | Purpose |
 |---|---|
-| `content/portfolio.json` | Curated public wording and approved public links |
+| `content/portfolio.json` | Curated public wording, section introductions, metadata descriptions, and approved public links |
 | `render.mjs`, `render-projects.mjs`, `render-utils.mjs` | Static homepage, library pages, case studies, metadata, shared visual cards |
 | `assets/site.css`, `assets/projects.css` | Tokens, responsive visual cards, light/charcoal themes |
 | `assets/site.js` | Theme preference, section navigation, legacy destinations, contextual case return links |
@@ -30,4 +30,4 @@ Preview with `node serve.mjs 8141` or the existing `project-portfolio` launch co
 
 The homepage presents three visual highlights selected by `startHere` in the curated content. `/projects/` contains all eleven case studies, with search, categories, and six visual cards per page. Full cases have their own URLs and retain the original evidence, decisions, and limitations. Static pagination and case links also work without JavaScript. The homepage does not grow when the collection grows; six cards is a page size, not a project limit. See [Curated Highlights](docs/CURATED-HIGHLIGHTS.md) for the accepted brief, reproduction steps, and removal/rename workflow.
 
-See [Project Map](PROJECT.md), [Design](docs/DESIGN.md), [Publishing](docs/PUBLISHING.md), and [Release Verification](docs/RELEASE-VERIFICATION.md).
+See [Project Map](PROJECT.md), [Design](docs/DESIGN.md), [Copy Guide](docs/COPY-GUIDE.md), [Publishing](docs/PUBLISHING.md), and [Release Verification](docs/RELEASE-VERIFICATION.md).

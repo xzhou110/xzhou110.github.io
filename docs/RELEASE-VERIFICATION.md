@@ -1,5 +1,16 @@
 # Release Verification
 
+## October 27, 2026: Employer-Facing Wording
+
+The owner accepted the layout and requested more effective framing for future employers. The copy now leads with From Problem to Product, useful project tasks, explicit product responsibilities and AI assistance, and a clear invitation to discuss relevant opportunities. View Case Study labels the card action. [Copy Guide](COPY-GUIDE.md) records the brief, source fields, and claim boundaries.
+
+- Read back the changed source and rendered copy. Project identities/order, release states, evidence dates, specific decisions, limitation bullets, public destinations, and original image bytes remain unchanged. Earlier regression/topic-modeling descriptions now describe prediction and exploration without implying causality.
+- The existing work introduction was unused in the renderer; it now renders from the curated source. Skills, history, library, and contact introductions also come from that source, so wording changes reach their intended pages. Search/share descriptions and generated catalog/case pages were rebuilt.
+- Desktop inspection at 1280px and narrow-phone inspection at 320px found no page or card overflow. Read the new biography, project summaries, and To-Do case introduction in the browser. The full library retained six visual cards on its first page, and the longer case-study actions fit the narrow cards.
+- The full candidate publication gate passed with every protection enabled. Only affected existing exact-name reviews were renewed after semantic review. No new tests or QA sweep were added for this text-focused change; normal publication hooks still run the existing check.
+
+Deployment evidence is recorded after publication.
+
 ## October 27, 2026: Curated Highlights and Project Library
 
 The owner selected a bounded three-project overview and explicitly retained a rich visual on every highlight, library card, and case study. The implementation adds a searchable, category-filtered library with six cards per page, static fallback pages, full case URLs, and contextual return links. See [Curated Highlights](CURATED-HIGHLIGHTS.md) for the accepted brief and maintenance method.

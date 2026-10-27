@@ -5,7 +5,7 @@
   "siteUrl": "https://xzhou110.github.io/",
   "updated": "2026-10-27",
   "evidenceAsOf": "2026-10-01",
-  "headline": "Useful Products. Thoughtful Systems.",
+  "headline": "From Problem to Product.",
   "positioning": "AI, Data Science & Product",
   "workGroups": [
     {
@@ -21,8 +21,8 @@
       "label": "Knowledge & Productivity"
     }
   ],
-  "tagline": "Xu Zhou (Lukas) — AI, Data Science & Product. Explore mobile apps, data-driven tools, and AI workflows, with the decisions and evidence behind each build.",
-  "bio": "I’m Lukas. I build tools that help people make decisions and get things done. My work spans mobile apps, data models, and AI workflows, from shaping the problem to checking what actually ships.",
+  "tagline": "Xu Zhou (Lukas): AI, Data Science & Product. Independent apps and tools, with product decisions, implementation details, and verification.",
+  "bio": "I’m Lukas. I build apps and tools that help people plan their day, compare costs, and work with AI. I shape the product, direct AI-assisted development, and check the result in use.",
   "links": {
     "github": "https://github.com/xzhou110",
     "email": "xzhou110@gmail.com"
@@ -40,7 +40,7 @@
         "Optional Sync",
         "Home Screen Widget"
       ],
-      "oneLiner": "An iPhone app that brings today’s work, to-dos, habits, ideas, and a calendar into one calm daily workflow.",
+      "oneLiner": "An iPhone app for planning the day, managing tasks and habits, and capturing ideas, with offline use and optional account sync.",
       "decision": "Make the app useful offline; add account sync without making it a prerequisite.",
       "format": "iPhone App · Private Source",
       "screenshot": false,
@@ -54,7 +54,7 @@
           "Capture a New Idea"
         ]
       },
-      "problem": "Tasks, recurring habits, and ideas belong to the same day, but often live in separate tools. A useful daily app needs to make the next action clear without requiring account setup first.",
+      "problem": "Tasks, recurring habits, and ideas often live in separate tools. I wanted one daily view that makes the next action clear and works before an account is created.",
       "built": "An offline-first iPhone app with Today, To-Do, Habits, Ideas, and Calendar, optional account sync, and an interactive Home Screen widget. The work includes product design, data modeling, native interaction refinement, and release preparation.",
       "how": "A pure TypeScript engine sits behind a React Native interface. Local persistence works independently of the account layer; sync merges changes through a separate adapter. I direct product and design decisions, review AI-assisted implementation, and test the installed experience.",
       "outcome": "Installed through TestFlight and submitted for App Review. Review follow-up is in progress; there is no public App Store release to download yet.",
@@ -72,7 +72,7 @@
         "EAS"
       ],
       "icon": "assets/icons/xuseak-to-do.png",
-      "summary": "Tasks, habits, and ideas in one daily workflow."
+      "summary": "Plan the day with tasks, habits, and ideas."
     },
     {
       "id": "car-tco-compare",
@@ -88,7 +88,7 @@
       "problem": "Sticker price and monthly payments leave out much of the cost of owning a car. I wanted to compare different vehicles under the same holding period, mileage, and financing assumptions, and inspect what changes the ranking.",
       "built": "A car-ownership calculator with a seven-part cost model, side-by-side comparisons, cumulative cost charts, and a snapshot of real listings. A separate email-alert prototype ranks listings by estimated ownership cost.",
       "how": "The pure TypeScript calculation engine is separate from the React interface and reused in Car Shopping. Listing snapshots keep the comparator static. Supabase, Resend, and scheduled GitHub Actions support the email-alert prototype with double opt-in.",
-      "outcome": "The comparator is publicly available. The alert backend is a proof of concept; a commercial subscription service has not launched. This project demonstrates a complete path from a model to an interactive product and a supporting backend.",
+      "outcome": "The comparator is publicly available, and its calculation engine is also used in Car Shopping. The email-alert backend remains a proof of concept; a commercial subscription service has not launched.",
       "honest": [
         "Cost assumptions are illustrative segment-level estimates, not predictions of an individual buyer’s expenses. Listings are snapshots, not guaranteed current inventory.",
         "Engine tests cover calculations, depreciation, and vehicle resolution. The [model documentation](https://github.com/xzhou110/car-tco-compare/blob/main/docs/design/tco-model.md) makes the assumptions inspectable.",
@@ -125,7 +125,7 @@
         "Shared Contracts",
         "Review Gates"
       ],
-      "oneLiner": "A delivery workflow for AI agents: scope the problem, agree on interfaces, divide the work, and verify the integrated result.",
+      "oneLiner": "A reusable workflow for AI coding agents: define the problem, agree on interfaces, assign work, and verify the integrated result.",
       "format": "Private Tool · Case Study",
       "evidenceAsOf": "2026-10-27",
       "visual": {
@@ -141,8 +141,8 @@
         "caption": "Workflow illustration · human direction and review"
       },
       "problem": "Building with several AI agents creates coordination work: agreeing on interfaces, managing dependencies, resolving conflicting changes, and deciding whether the result actually meets the brief.",
-      "built": "A reusable build playbook with specialist roles, shared contracts, resumable runs, decision records, and acceptance criteria. Small changes use a smaller process; a full product build gets broader review.",
-      "how": "I define the outcome and consequential trade-offs. The workflow sequences dependencies, coordinates implementation areas, and checks the integrated result. Claude Code supports the bundled parallel workflow; other assistant environments use the role playbook within their available capabilities.",
+      "built": "A reusable build playbook with specialist roles, shared interface agreements, resumable runs, decision records, and acceptance criteria. The amount of coordination and review depends on the scope and risk of the change.",
+      "how": "I define the outcome and consequential trade-offs. The workflow orders dependent tasks, assigns implementation areas, and checks the integrated result. Claude Code supports the bundled parallel workflow; other assistant environments use the same roles within their available capabilities.",
       "outcome": "Used in Car Shopping and Apartment Shopping. Their public decision and review records show the process applied to real products. The workflow itself remains a private tool.",
       "honest": [
         "A clean-checkout run caught tests that passed only after a local build. The workflow now requires checking the tests before the build, so local leftovers cannot stand in for a working handoff.",
@@ -159,7 +159,7 @@
       "screenshot": false,
       "status": "Reusable Workflow",
       "decision": "Match the team and checks to the risk of the task.",
-      "summary": "A repeatable workflow for AI-assisted delivery."
+      "summary": "Coordinate AI coding agents from brief to release."
     },
     {
       "id": "dream-laws",
@@ -173,7 +173,7 @@
         "Simulation Tools",
         "Save Migration"
       ],
-      "oneLiner": "A mobile deckbuilder where each dream changes the rules of play, backed by a reproducible game engine and balance simulations.",
+      "oneLiner": "A mobile deckbuilder where each dream changes the rules of play, with repeatable simulations for checking the game engine and exploring balance.",
       "decision": "Use simulation to verify the rules; use playtesting to judge the experience.",
       "format": "Mobile Game · Private Source",
       "screenshot": false,
@@ -189,7 +189,7 @@
       },
       "problem": "A card game needs varied choices that remain understandable. Changing the rules adds variety, but makes progression, difficulty, and saved-state behavior harder to reason about.",
       "built": "A portrait card roguelike with encounters, deck-building decisions, branching progression, and persistent runs. Simulation tools exercise the game engine across repeatable seeds.",
-      "how": "A pure seeded engine separates game rules from the mobile interface. Replays and generated-map checks expose progression errors. Save migrations preserve ongoing runs as the rules change.",
+      "how": "Game rules run in a seeded engine separate from the mobile interface, so the same sequence can be replayed. Replays and generated-map checks expose progression errors. Save migrations preserve ongoing runs as the rules change.",
       "outcome": "A first iOS build has been uploaded to TestFlight. Newer chapter work is still in development. Store release, purchase completion, and broader human playtesting remain ahead.",
       "honest": [
         "Review caught older saves missing a newly guaranteed preparation stop before a boss. Migration tests now cover those paths without rewinding active battles or repeating rewards.",
@@ -204,7 +204,7 @@
         "EAS"
       ],
       "icon": "assets/icons/dream-laws.png",
-      "summary": "A deckbuilder with changing dream rules."
+      "summary": "Build a deck and adapt to changing game rules."
     },
     {
       "id": "local-app-kit",
@@ -218,7 +218,7 @@
         "Conflict Detection",
         "Real-Socket Tests"
       ],
-      "oneLiner": "A shared TypeScript runtime for local apps: safe file writes, localhost request guards, live updates, and service recovery.",
+      "oneLiner": "A shared TypeScript runtime for local apps that centralizes file writes, conflict checks, request validation, live updates, and service recovery.",
       "decision": "Extract repeated infrastructure only after multiple apps need it.",
       "format": "Developer Library",
       "screenshot": false,
@@ -241,9 +241,9 @@
         ],
         "caption": "Architecture illustration · no runtime data"
       },
-      "problem": "Several local apps needed the same file safety, request validation, and recovery behavior. Maintaining separate copies made a fix easy to miss in one consumer.",
+      "problem": "Several local apps needed the same file storage, request validation, and recovery behavior. With separate implementations, a fix in one app could leave the same issue unresolved in another.",
       "built": "A small, versioned library for atomic JSON writes with ETags, a guarded static server, server-sent events, and single-server locking, with no runtime dependencies.",
-      "how": "Shared mechanisms sit behind explicit interfaces while each app keeps its own domain logic. Real-socket parity tests check that extracting the shared implementation preserves consumer behavior.",
+      "how": "Each app keeps its own product logic while using explicit interfaces to the shared storage and server library. Tests send requests through actual HTTP sockets to check that extracting the library preserves how the apps behave.",
       "outcome": "Version 0.1.0 is released and used by AI Usage Tracker. Other planned consumers have not yet migrated; this is an incremental extraction.",
       "honest": [
         "[Parity tests](https://github.com/xzhou110/local-app-kit/blob/main/parity/consumers.test.ts) check consumer behavior through actual HTTP sockets.",
@@ -258,7 +258,7 @@
         "Server-Sent Events"
       ],
       "repo": "https://github.com/xzhou110/local-app-kit",
-      "summary": "Shared foundations for reliable local apps."
+      "summary": "Reusable storage and server tools for local apps."
     },
     {
       "id": "creator-advisors",
@@ -272,7 +272,7 @@
         "Computed Timestamps",
         "Local Reader"
       ],
-      "oneLiner": "A source-cited library that turns long-form creator videos into connected ideas you can read and trace back to the original.",
+      "oneLiner": "A private reader that organizes ideas from long-form videos into topic pages, with quotations linked to their source timestamps.",
       "decision": "Compute quotation locations from the source instead of trusting generated timestamps.",
       "format": "Local Knowledge App · Private Source",
       "screenshot": false,
@@ -288,8 +288,8 @@
         "caption": "Workflow illustration · no source excerpts or personal notes"
       },
       "problem": "Useful ideas are scattered across long videos. Summaries are easier to skim, but can lose context or point to a timestamp that does not support the claim.",
-      "built": "A transcript-to-knowledge pipeline with source-linked topic pages and a desktop and browser reader. Transcription adapters feed one pipeline, and quotation matching produces the citation locations.",
-      "how": "AI assists organization and synthesis. Deterministic import checks require quoted wording to match the transcript and compute timestamps from those matches. The reader keeps sources accessible beside the interpretation.",
+      "built": "A pipeline that turns transcripts into source-linked topic pages, with a desktop and browser reader. Different transcription adapters feed the same pipeline; matching quoted wording to the transcript produces the citation locations.",
+      "how": "AI assists with organization and synthesis. Import checks require quoted wording to match the transcript and calculate timestamps from those matches. The reader keeps the source accessible beside the interpretation.",
       "outcome": "Implemented for personal use with multiple creator libraries. This case study describes the workflow without publishing the private library, transcripts, or source code.",
       "honest": [
         "An import dry run caught altered capitalization in quoted wording and required correction before import. Source checking constrains the AI output.",
@@ -304,7 +304,7 @@
         "Markdown"
       ],
       "icon": "assets/icons/creator-advisors.svg",
-      "summary": "Connected ideas with traceable source citations."
+      "summary": "Explore ideas from videos with source citations."
     },
     {
       "id": "car-shopping",
@@ -316,11 +316,11 @@
         "Cost Ranking",
         "Google Sheets Sync"
       ],
-      "oneLiner": "A used-car shortlist that raises risk flags, tracks features honestly, and ranks candidates by estimated cost of ownership instead of sticker price.",
-      "problem": "Shopping for a used hybrid SUV with a deadline, I had listings scattered across five sites with inconsistent wording. Sticker price is a poor way to rank near-identical cars: the cheaper one can depreciate faster, carry rental-fleet mileage, or hide an accident.",
+      "oneLiner": "A used-car shortlist for comparing features, investigating risk flags, and ranking candidates by estimated ownership cost.",
+      "problem": "During my search for a used hybrid SUV, listings were scattered across five sites and described features inconsistently. I needed to compare ownership costs, track missing information, and keep accident or rental-fleet concerns visible while working toward a deadline.",
       "built": "A used-car shortlist with feature tracking, risk flags, estimated ownership costs, comparison, and Google Sheets export. Listings are captured with an assistant into a typed seed catalog; the app does not scrape listing sites.",
       "how": "A pure domain engine handles the risk rules, ranking, and export. The ownership-cost engine is reused from Car TCO Compare. Browser storage holds the working shortlist, and an Apps Script endpoint supports Sheets export.",
-      "outcome": "Built for my own car search and available as a public, single-user web app. It shows how a broad cost model can become a focused decision workflow.",
+      "outcome": "Built for my own car search and available as a public, single-user web app. It applies the calculation engine from Car TCO Compare to a working shortlist.",
       "honest": [
         "Review found an unused URL-import feature could replace saved work. I removed it; [regression tests](https://github.com/xzhou110/car-shopping/blob/main/app/src/state/useGarage.test.ts) verify that crafted URLs cannot change saved data.",
         "The public [decision record](https://github.com/xzhou110/car-shopping/blob/main/DECISIONS.md) explains the architecture and trade-offs.",
@@ -344,7 +344,7 @@
       "evidenceAsOf": "2026-10-27",
       "decision": "Treat an unknown vehicle feature as unknown, not as absent.",
       "icon": "assets/icons/car-shopping.svg",
-      "summary": "Compare used cars, costs, and risk flags."
+      "summary": "Compare used cars by cost, features, and risk flags."
     },
     {
       "id": "apartment-shopping",
@@ -356,11 +356,11 @@
         "Lease Fit",
         "Status Tracking"
       ],
-      "oneLiner": "A rental shortlist that brings lease fit, distance, risk flags, and search progress into one place, from first look to final decision.",
-      "problem": "Hunting a short-term Bay Area lease across Zillow, Craigslist, Apartments.com and building sites, browser tabs and spreadsheets lost context: no photos, no distance to what mattered, no record of what had been contacted, toured or ruled out.",
+      "oneLiner": "A rental shortlist for comparing lease fit, distance, and risk flags while tracking contacts, tours, and decisions.",
+      "problem": "During my search for a short-term Bay Area lease, listings were spread across Zillow, Craigslist, Apartments.com, and building websites. Tabs and spreadsheets made it difficult to keep photos, distances, and the history of contacts, tours, and rejected options together.",
       "built": "A rental shortlist with lease fit, availability, market comparisons, risk flags, search status, and side-by-side comparison. Offline location lookup makes distance comparisons possible without a geocoding request for every listing.",
-      "how": "The pure engine handles ranking, geocoding, filters, and export with an injectable clock. A seed catalog and browser-stored overlay use stable identifiers so catalog updates do not erase notes.",
-      "outcome": "Built for my own rental search and publicly available as a single-user app. It reuses a proven comparison workflow while adapting the data model to a different decision.",
+      "how": "A separate engine handles ranking, location lookup, filters, and export. Its clock can be controlled in tests. Stable listing identifiers connect the catalog to notes stored in the browser, so catalog updates preserve the user’s notes.",
+      "outcome": "Built for my own rental search and publicly available as a single-user app. I adapted an existing comparison workflow and its data model to the needs of a rental search.",
       "honest": [
         "Distance is straight-line, not driving or transit time. Market comparisons are estimates.",
         "Listings are curated with assistant support. Scam and income-restriction flags are recorded at capture time, not detected by an in-app AI service.",
@@ -384,7 +384,7 @@
       "evidenceAsOf": "2026-10-27",
       "decision": "Keep personal notes intact when the listing catalog changes.",
       "icon": "assets/icons/apartment-shopping.svg",
-      "summary": "Organize and compare a rental shortlist."
+      "summary": "Compare rentals and track the search."
     },
     {
       "id": "ai-usage-tracker",
@@ -396,7 +396,7 @@
         "Quota Windows",
         "Explicit Freshness"
       ],
-      "oneLiner": "A local Windows dashboard for AI subscription usage and reset times, designed to make remaining allowance, stale readings, and connection status clear at a glance.",
+      "oneLiner": "A local Windows dashboard for AI usage limits and reset times, with stale readings and incomplete connections clearly marked.",
       "format": "Local App · Case Study",
       "evidenceAsOf": "2026-10-27",
       "visual": {
@@ -420,7 +420,7 @@
       },
       "problem": "Working across AI tools means checking separate usage limits, reset windows, and dashboards. A missing or stale reading can easily look like available capacity unless the interface makes uncertainty explicit.",
       "built": "A Windows sidebar and browser dashboard with separate quota windows, reset countdowns, usage history, connection details, and settings. The desktop launcher starts the local service and restores the existing app when opened again.",
-      "how": "Provider adapters normalize observations into a common model while preserving source timestamps and units. A local server stores usage on the device, and the Electron shell hosts the same interface as the browser. Codex readings use its installed account interface; the other provider connections are still being validated. Unknown and expired values remain explicit.",
+      "how": "Provider adapters put readings into a common model while retaining their original timestamps and units. Usage data stays on the device. The Electron app and browser share one interface. Codex readings use its installed account interface; the other provider connections are still being validated. Unknown and expired values remain explicit.",
       "outcome": "The Windows and browser app is usable, with Codex readings reconciled against their provider source. Claude and Cursor live reconciliation remain pending. Public source is available; account data stays local.",
       "honest": [
         "Codex has a verified live reading. Claude and Cursor are incomplete integrations, not confirmed live connections.",
@@ -441,7 +441,7 @@
       "decision": "Keep a missing or stale reading visibly different from available quota.",
       "repo": "https://github.com/xzhou110/ai-usage-tracker",
       "icon": "assets/icons/ai-usage-tracker.svg",
-      "summary": "See AI allowances and connection freshness."
+      "summary": "Track AI usage limits and when they reset."
     },
     {
       "id": "project-workspace",
@@ -453,7 +453,7 @@
         "Shared Desktop UI",
         "Service Recovery"
       ],
-      "oneLiner": "One local hub for project progress, scheduled work, app launch, and the next thing that needs attention.",
+      "oneLiner": "A local hub for tracking project progress, checking scheduled work, launching apps, and finding what needs attention.",
       "format": "Private Local App · Case Study",
       "evidenceAsOf": "2026-10-27",
       "visual": {
@@ -477,7 +477,7 @@
       },
       "problem": "As personal projects grew, the context needed to resume work was scattered across folders, repositories, notes, and schedules. Finding what was unfinished or needed attention became a task of its own.",
       "built": "A project hub that connects purpose, status, next steps, app launch, scheduled work, and history. A Windows desktop window and browser use the same local interface and service.",
-      "how": "A deterministic collector reads an explicit personal-project allowlist and builds one shared snapshot from project documentation, version-control metadata, site checks, and schedules. The interface reads that snapshot. A coordinated local service supports refresh, recovery, and desktop launch; opening the installed app again restores the existing window.",
+      "how": "A collector reads an explicit list of personal projects and builds one shared snapshot from project documentation, version-control metadata, site checks, and schedules. The desktop and browser views read that same snapshot. A local service handles refresh and recovery; reopening the installed app restores its existing window.",
       "outcome": "Available as a local browser and Windows app with Start and Desktop launchers. The design establishes a consistent visual language across related tools while keeping project facts close to their source. The public case study uses a capability illustration instead of a real workspace screenshot.",
       "honest": [
         "Testing the actual desktop launch action caught an outdated configuration reader that ordinary checks had missed. The callers now share one reader with regression coverage.",
@@ -496,7 +496,7 @@
       "status": "Private Desktop App",
       "decision": "Keep one shared snapshot behind the desktop and browser views.",
       "icon": "assets/icons/project-workspace.svg",
-      "summary": "One place for projects, schedules, and next steps."
+      "summary": "Track project progress and find the next step."
     },
     {
       "id": "knowledge-learning-system",
@@ -508,7 +508,7 @@
         "Bilingual Synthesis",
         "Review and Practice"
       ],
-      "oneLiner": "A bilingual library that connects captured sources, living topic pages, reviewed takeaways, and language practice.",
+      "oneLiner": "A bilingual knowledge library with source-linked topic pages, reviewed takeaways, and language practice.",
       "format": "Private Content · Case Study",
       "evidenceAsOf": "2026-10-27",
       "visual": {
@@ -523,8 +523,8 @@
         "caption": "Workflow illustration · no personal notes or source excerpts"
       },
       "problem": "Capturing useful ideas is easier than turning them into a coherent body of knowledge. Notes accumulate across sources, while related ideas, important highlights, and material worth practicing stay disconnected.",
-      "built": "A source-ingestion pipeline and reader with bilingual topic pages, themed sections, highlighted passages, dated digests, and language practice decks. Review flows let the owner internalize external material, approve assistant proposals by topic, and undo an import.",
-      "how": "Configured OneNote sources are exported locally and mirrored into structured text. An assistant workflow incrementally folds captures into living topic pages, preserving source relationships and review state. A shared reader presents the material locally and as an encrypted hosted copy; publishing checks screen content before sync.",
+      "built": "A source-import pipeline and reader with bilingual topic pages, themed sections, highlighted passages, dated digests, and language practice decks. Review flows let me internalize external material, approve assistant proposals by topic, and undo an import.",
+      "how": "Configured OneNote sources are exported locally and mirrored into structured text. An assistant workflow updates topic pages incrementally while preserving source relationships and review state. The same reader supports local access and an encrypted hosted copy. Publication checks screen content before it is synced.",
       "outcome": "The reader and learning workflows are implemented for personal use, with a local editing path and an encrypted reading copy. This portfolio describes the system and its design decisions without exposing the notebook, personal topics, study material, or access details.",
       "honest": [
         "AI-assisted synthesis is an explicit workflow; organizing a source does not establish that its claims are correct.",
@@ -544,46 +544,46 @@
       "status": "Private Learning System",
       "decision": "Keep source relationships and review state alongside the synthesis.",
       "icon": "assets/icons/knowledge-learning-system.svg",
-      "summary": "Connect captured sources with learning and practice."
+      "summary": "Organize captured sources for review and practice."
     }
   ],
   "howIBuild": {
-    "intro": "I use AI agents to help implement and review. I own the problem framing, product choices, and the decision about what is ready to ship.",
+    "intro": "I use AI agents for implementation and review. I’m responsible for the product direction, design choices, and release decisions.",
     "steps": [
       {
-        "title": "Start with the Decision",
-        "body": "Identify who needs help and what they need to do. Make the assumptions, data limits, and smallest useful workflow explicit."
+        "title": "Define the Problem",
+        "body": "Start with the person using the product and the decision they need to make. Identify the assumptions, data limits, and smallest useful workflow."
       },
       {
         "title": "Build for Change",
-        "body": "Keep domain rules separate from the interface and services. Write down trade-offs, preserve saved work, and reuse code when real repetition justifies it."
+        "body": "Keep product rules separate from the interface and services. Record trade-offs, protect saved work, and reuse code when the same need appears across apps."
       },
       {
-        "title": "Look for What Breaks",
-        "body": "Use tests, independent review, and the installed or deployed app. In Car Shopping, review caught an unsafe URL import; I removed it and kept a regression test."
+        "title": "Test the Result",
+        "body": "Check the result through tests, independent review, and the installed or deployed app. In Car Shopping, review caught an unsafe URL import; I removed it and kept a regression test."
       }
     ]
   },
   "skills": {
     "AI Workflows": [
-      "Scope and direct specialized agents",
-      "Design contracts, source checks, and review gates",
+      "Scope tasks and direct specialized agents",
+      "Define interfaces and check generated work against sources",
       "Turn verified lessons into reusable workflows"
     ],
     "Data Science": [
       "Python, pandas, scikit-learn, and XGBoost",
-      "Prediction, clustering, and topic modeling",
-      "Make model assumptions and uncertainty visible"
+      "Predictive modeling, clustering, and topic modeling",
+      "Explain model assumptions and uncertainty"
     ],
     "Product Judgment": [
-      "Frame useful problems and prioritize the first journey",
-      "Translate complex data into comparisons and next actions",
-      "Balance UX, privacy, operating cost, and release risk"
+      "Define the problem and prioritize a useful first workflow",
+      "Turn complex information into comparisons and next steps",
+      "Weigh usability, privacy, cost, and release risk"
     ],
     "End-to-End Delivery": [
       "Mobile, web, and local desktop products",
-      "Separate tested rules from storage and UI",
-      "Verify releases and document unfinished acceptance"
+      "Separate product rules from storage and the interface",
+      "Check releases and make remaining limitations clear"
     ]
   },
   "history": [
@@ -596,7 +596,7 @@
     {
       "era": "AI Agents and LLM Apps",
       "years": "",
-      "note": "Learning in public: experiments, not products.",
+      "note": "Experiments in machine learning and early AI applications.",
       "items": [
         {
           "repo": "ai-agent-project",
@@ -629,7 +629,7 @@
     {
       "era": "Data Science",
       "years": "",
-      "note": "Earlier notebooks exploring prediction and the patterns behind real decisions.",
+      "note": "Notebook projects in predictive modeling, clustering, and text analysis.",
       "items": [
         {
           "repo": "lending_club_loans_default_prediction",
@@ -639,7 +639,7 @@
         {
           "repo": "amazon_echo_customer_review_insights",
           "name": "Customer Review Insights",
-          "line": "Clustering and LDA topic modeling of about 10K Amazon Echo reviews to find what drives positive and negative experiences."
+          "line": "Clustering and LDA topic modeling of about 10K Amazon Echo reviews to explore themes in positive and negative experiences."
         },
         {
           "repo": "airbnb_host_income_enhancement",
@@ -649,7 +649,7 @@
         {
           "repo": "ratemyprofessorsdotcom_rating_prediction",
           "name": "Professor Rating Prediction",
-          "line": "Scraped RateMyProfessors for three universities and fit a regression on what drives professor ratings."
+          "line": "Scraped RateMyProfessors for three universities and fit a regression model to predict professor ratings."
         }
       ]
     }
@@ -671,27 +671,31 @@
     "shotHeight": 800,
     "shotBudgetMs": 8000
   },
-  "stacks": "Project stacks describe the software used in each build. The case studies explain my decisions, AI’s role, and the checks behind the result.",
-  "workIntro": "Three highlighted builds introduce the work. Explore the full project library for more products, tools, and case studies.",
-  "contactIntro": "Interested in working together? I’d welcome a conversation about AI, data science, or product work. Pick a project and I can walk you through the decisions behind it.",
+  "stacks": "The case studies show how I apply these skills, including the checks that caught problems and the limits of each result.",
+  "workIntro": "Three projects that show how I approach product design, data modeling, and AI-assisted development.",
+  "contactIntro": "I’m interested in opportunities across AI, data science, and product development. If the work here is relevant to your team, I’d be glad to discuss the problems you’re solving.",
   "startHere": [
     {
       "id": "xuseak-to-do",
-      "label": "Product From End to End",
+      "label": "Mobile Product Development",
       "description": "XuSeak To-Do",
-      "detail": "Mobile UX, offline data, and release work"
+      "detail": "Daily planning, offline use, and App Review preparation"
     },
     {
       "id": "car-tco-compare",
-      "label": "Data Into Decisions",
+      "label": "Data Modeling for Decisions",
       "description": "Car TCO Compare",
-      "detail": "A transparent model people can explore"
+      "detail": "Ownership costs with assumptions you can change"
     },
     {
       "id": "multi-agent-build-orchestrator",
-      "label": "Building with AI",
+      "label": "AI Workflow Design",
       "description": "Multi-Agent Build Orchestrator",
-      "detail": "Clear contracts and evidence before release"
+      "detail": "Agent coordination and review before release"
     }
-  ]
+  ],
+  "skillsIntro": "I connect product decisions with data analysis and practical software delivery.",
+  "historyIntro": "Earlier work in machine learning, data analysis, and AI applications.",
+  "libraryIntro": "Consumer apps, AI tools, and knowledge systems. Each case includes the problem, my approach, and the checks behind it.",
+  "contactHeading": "Let’s Work Together"
 }
