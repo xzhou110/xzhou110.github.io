@@ -12,7 +12,9 @@ The owner selected a bounded three-project overview and explicitly retained a ri
 - A local fault-injection preview returned 503 for the first catalog request. The browser retained six static cards and a Next link, displayed Retry Search, then successfully recovered search and found the final project after retry.
 - Updated the source map, design record, reproduction brief, workspace index, and canonical frontend preference. This verifies the portfolio browsing flow, not the underlying apps or native-device acceptance. Synthetic scaling is output/engine evidence, not a browser benchmark for hundreds of projects.
 
-Deployment verification is recorded below after publication.
+Application commit `5e0cecc72d69f90173c414171a6e8e6672a50bd6` passed the full candidate gate, exact staged-tree check, and all 22 tests. A clean temporary clone with the owner's ignored policy reproduced the committed output with no working-tree changes; the temporary policy copy was removed. Normal pre-push hooks reran the tests and gate successfully.
+
+GitHub Pages reported that exact application commit built successfully. All 40 checked public routes and assets returned 200 and matched the local release bytes exactly, including the homepage, library pages, every case, scripts, styles, original icons, screenshots, and legacy/privacy/support routes. The live browser showed three visual highlights and successfully exercised library search, case navigation, and return to the matching filtered card. Captured live browser warning/error logs were empty. This documentation-only follow-up records those observed deployment results.
 
 ## October 27, 2026: Original Project Icons
 
