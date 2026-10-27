@@ -9,7 +9,7 @@ The owner accepted the layout and requested more effective framing for future em
 - Desktop inspection at 1280px and narrow-phone inspection at 320px found no page or card overflow. Read the new biography, project summaries, and To-Do case introduction in the browser. The full library retained six visual cards on its first page, and the longer case-study actions fit the narrow cards.
 - The full candidate publication gate passed with every protection enabled. Only affected existing exact-name reviews were renewed after semantic review. No new tests or QA sweep were added for this text-focused change; normal publication hooks still run the existing check.
 
-Deployment evidence is recorded after publication.
+Application commit `b0e9348014d33e83c10855c684619133ad93b53b` passed the exact staged-tree publication check. The normal pre-push hook passed all 22 existing tests and the full candidate gate. GitHub Pages reported that exact commit built successfully. All 40 checked public routes and assets returned 200 and matched the reviewed local bytes, including the revised homepage, catalog, and case pages. A live browser reload showed the new headline, biography, summaries, skills, and contact text; the desktop preview was captured and browser warning/error logs were empty. This documentation-only follow-up records the observed results.
 
 ## October 27, 2026: Curated Highlights and Project Library
 
