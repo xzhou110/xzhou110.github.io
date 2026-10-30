@@ -77,6 +77,8 @@ The workspace index, launcher, collector registrations, repository-name exceptio
 
 ### Change Highlights
 
+- 2026-10-30: Dream Laws privacy policy, App Updates: the update check's random installation token is named (owner's "Yes, add it"); effective date October 30, 2026. The build first stopped with no finding: an orphaned `serve.mjs` from a closed session held the root `index.html` open through a stalled response, so the gate's rename over it failed with EPERM, which the build's catch reports only as "Build stopped". Removing the held generated copy let the build write a fresh one; the orphan was left for the owner. The trap and the holder-finding script are in agent-skills (`rules/machine-windows.md`, `scripts/who-holds-file.ps1`). Editing this file needs its name review refreshed (see [Publishing](docs/PUBLISHING.md)); done for this revision.
+
 - 2026-10-27: Owner accepted the Curated Highlights layout and requested stronger employer-facing wording. Refined the biography, project summaries, case explanations, capabilities, contact invitation, and metadata; retained the specific decisions, evidence, release states, and visuals.
 
 - 2026-10-27: Owner selected Curated Highlights and required a rich visual on every highlight and library card. Added a three-card homepage, searchable paginated library, and full static case studies; retained original icons, evidence, and legacy destinations. See [Curated Highlights](docs/CURATED-HIGHLIGHTS.md) for the method, scaling checks, and future removal workflow.
