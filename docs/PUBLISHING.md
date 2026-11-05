@@ -14,7 +14,7 @@ An owner may authorize a case-study name that an older private-name rule still b
 
 1. Read the changed public text and verify the owner's authorization still covers the name and context. A matching title alone does not approve the surrounding content.
 2. Resolve the actual candidate. For generated pages, use the current `render()` output, including current asset versions; do not review stale HTML on disk. Source and generated files each require their own record.
-3. Refresh only the affected file/name record after review. Retain all original patterns and unrelated records. Do not bulk-refresh hashes as a way to clear a hold.
+3. Refresh only the affected file/name record after review. Retain all original patterns and unrelated records. Do not bulk-refresh hashes as a way to clear a hold. `node scripts/refresh-name-reviews.mjs <file...>` does exactly this for the files named, against the actual candidate (render output for generated pages), and reports every other record without touching it; the owner runs it, since the policy file is a security control an assistant stops at (2026-11-05).
 4. Run the full candidate gate, stage the final files, and run `node build.mjs --check-staged`. Any intervening content change requires review again.
 5. Commit and push normally. Confirm the deployment commit and compare the affected live assets with the approved output.
 

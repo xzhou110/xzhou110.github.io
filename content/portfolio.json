@@ -33,8 +33,8 @@
       "group": "consumer",
       "title": "XuSeak To-Do",
       "category": "Mobile Product & Offline Data",
-      "status": "TestFlight · App Review in Progress",
-      "evidenceAsOf": "2026-10-27",
+      "status": "On the App Store · 1.0 Released 2026-11-05",
+      "evidenceAsOf": "2026-11-05",
       "highlights": [
         "Offline First",
         "Optional Sync",
@@ -43,6 +43,7 @@
       "oneLiner": "An iPhone app for planning the day, managing tasks and habits, and capturing ideas, with offline use and optional account sync.",
       "decision": "Make the app useful offline; add account sync without making it a prerequisite.",
       "format": "iPhone App · Private Source",
+      "live": "https://apps.apple.com/us/app/xuseak-to-do/id6825624634",
       "screenshot": false,
       "visual": {
         "kind": "product",
@@ -57,10 +58,10 @@
       "problem": "Tasks, recurring habits, and ideas often live in separate tools. I wanted one daily view that makes the next action clear and works before an account is created.",
       "built": "An offline-first iPhone app with Today, To-Do, Habits, Ideas, and Calendar, optional account sync, and an interactive Home Screen widget. The work includes product design, data modeling, native interaction refinement, and release preparation.",
       "how": "A pure TypeScript engine sits behind a React Native interface. Local persistence works independently of the account layer; sync merges changes through a separate adapter. I direct product and design decisions, review AI-assisted implementation, and test the installed experience.",
-      "outcome": "Installed through TestFlight and submitted for App Review. Review follow-up is in progress; there is no public App Store release to download yet.",
+      "outcome": "Released on the App Store on November 5, 2026 (version 1.0, build 13) after App Review. Over-the-air updates and a 1.1 build with a Habits widget follow.",
       "honest": [
         "Independent review caught second-device default preferences blocking sync and stale writes replacing newer changes. Per-key merging and regression tests now cover those cases.",
-        "Automated checks are separate from physical-device acceptance. Two-device sync and account-deletion acceptance remain open.",
+        "Automated checks are separate from physical-device acceptance. Sync was accepted between the App Store copy and a development build on one phone; account-deletion acceptance remains open.",
         "The preview uses fictional tasks. No account data, personal task list, or private source is included."
       ],
       "stack": [
@@ -679,7 +680,7 @@
       "id": "xuseak-to-do",
       "label": "Mobile Product Development",
       "description": "XuSeak To-Do",
-      "detail": "Daily planning, offline use, and App Review preparation"
+      "detail": "Daily planning, offline use, and an App Store release"
     },
     {
       "id": "car-tco-compare",
