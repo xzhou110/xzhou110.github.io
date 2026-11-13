@@ -56,3 +56,13 @@ if(caseBack&&new URL(location.href).searchParams.get('collection')==='1'){
   const url=new URL(location.href);url.pathname='/projects/';url.searchParams.delete('collection');url.hash=document.querySelector('.case-page').dataset.project;
   caseBack.href=url;caseBack.textContent='← Back to All Projects';
 }
+// Get in Touch: the owner's address is never in a page as text or as a mailto link. Its parts ride on the link as
+// data, and an email is opened only when someone clicks. Without this script the link goes where its href says.
+document.addEventListener('click',(event)=>{
+  const link=event.target.closest?.('[data-mail-user]');
+  if(!link)return;
+  const {mailUser,mailTag,mailDomain}=link.dataset;
+  if(!mailUser||!mailDomain)return;
+  event.preventDefault();
+  location.href='mailto:'+mailUser+(mailTag?'+'+mailTag:'')+'@'+mailDomain;
+});

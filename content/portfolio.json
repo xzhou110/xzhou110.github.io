@@ -25,7 +25,8 @@
   "bio": "I’m Lukas. I build apps and tools that help people plan their day, compare costs, and work with AI. I shape the product, direct AI-assisted development, and check the result in use.",
   "links": {
     "github": "https://github.com/xzhou110",
-    "email": "xzhou110@gmail.com"
+    "linkedin": "https://www.linkedin.com/in/xzhou110/",
+    "mail": { "user": "xzhou110", "tag": "portfolio", "domain": "gmail.com" }
   },
   "featured": [
     {

@@ -76,3 +76,20 @@ test('dates and unfinished provider integrations remain explicit', () => {
   assert.match(html, /incomplete integrations/);
   assert.match(html, /no account or usage data/);
 });
+
+test('the owner\'s email address is never written into a page; Get in Touch carries its parts for a click', () => {
+  const pages = Object.entries(output).filter(([name]) => name.endsWith('.html'));
+  assert(pages.length > 10);
+  for (const [name, page] of pages) {
+    assert.doesNotMatch(page, /mailto:/i, name);
+    assert.doesNotMatch(page, /[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[a-z]{2,}/, name);
+  }
+  const mail = content.links.mail;
+  assert.equal(mail.tag, 'portfolio');
+  const attrs = 'data-mail-user="' + mail.user + '" data-mail-tag="portfolio" data-mail-domain="' + mail.domain + '"';
+  assert.equal(html.split(attrs).length - 1, 2);
+  assert.equal(detail('xuseak-to-do').split(attrs).length - 1, 1);
+  assert.match(html, /<footer class="shell">[^]*?<a href="https:\/\/www\.linkedin\.com\/in\/[^"]+">LinkedIn<\/a>/);
+  const script = fs.readFileSync(new URL('assets/site.js', import.meta.url), 'utf8');
+  assert.match(script, /data-mail-user/);
+});

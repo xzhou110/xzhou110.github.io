@@ -1,6 +1,6 @@
 import fs from 'node:fs';
 import path from 'node:path';
-import { esc, md } from './render-utils.mjs';
+import { esc, md, touchAttrs } from './render-utils.mjs';
 import { PAGE_SIZE, selectProjects } from './assets/project-library.mjs';
 
 function illustration(visual, icon) {
@@ -33,7 +33,7 @@ export function projectRenderer(c, here, version, repoFact) {
     const fact = repoFact(p.id);
     return `<div class="detail"><dl><dt>Problem</dt><dd>${md(p.problem)}</dd><dt>What I Built</dt><dd>${md(p.built)}</dd><dt>How It Works</dt><dd>${md(p.how)}</dd><dt>Where It Stands</dt><dd>${md(p.outcome)}</dd><dt>Evidence and Limits</dt><dd><ul>${p.honest.map(h => `<li>${md(h)}</li>`).join('')}</ul></dd><dt>Product Stack</dt><dd>${p.stack.map(esc).join(' · ')}</dd><dt>Evidence As Of</dt><dd>${esc(p.evidenceAsOf || c.evidenceAsOf)}</dd>${fact?.pushedAt ? `<dt>Repository Updated</dt><dd>${esc(String(fact.pushedAt).slice(0, 10))} (recorded in the supplied facts snapshot)</dd>` : ''}</dl>${p.caption || p.caveat ? `<p class="caveat">${md([p.caption,p.caveat].filter(Boolean).join(' '))}</p>` : ''}</div>`;
   };
-  const detail = (p) => `<a class="back-link" id="case-back" href="/#work">← Back to Selected Work</a><article class="case-page" data-project="${esc(p.id)}"><div class="case-hero"><div><p class="section-kicker">${esc(p.category)}</p><div class="case-title">${icon(p,48)}<h1>${esc(p.title)}</h1></div><p class="project-status">${esc(p.status)}</p><p class="case-intro">${md(p.oneLiner)}</p>${p.format?`<p class="project-format">${esc(p.format)}</p>`:''}<div class="actions">${p.live?`<a class="button primary" href="${esc(p.live)}" aria-label="Open App: ${esc(p.title)}">Open App ↗</a>`:''}${p.repo?`<a class="button" href="${esc(p.repo)}" aria-label="View Source: ${esc(p.title)}">View Source ↗</a>`:''}</div></div>${preview(p)}</div><p class="case-decision"><strong>Key Decision</strong>${esc(p.decision)}</p><h2>The Case Study</h2>${evidence(p)}</article><div class="actions"><a class="button" href="/projects/">Explore All ${c.featured.length} Projects</a><a class="button primary" href="mailto:${esc(c.links.email)}">Get in Touch ↗</a></div>`;
+  const detail = (p) => `<a class="back-link" id="case-back" href="/#work">← Back to Selected Work</a><article class="case-page" data-project="${esc(p.id)}"><div class="case-hero"><div><p class="section-kicker">${esc(p.category)}</p><div class="case-title">${icon(p,48)}<h1>${esc(p.title)}</h1></div><p class="project-status">${esc(p.status)}</p><p class="case-intro">${md(p.oneLiner)}</p>${p.format?`<p class="project-format">${esc(p.format)}</p>`:''}<div class="actions">${p.live?`<a class="button primary" href="${esc(p.live)}" aria-label="Open App: ${esc(p.title)}">Open App ↗</a>`:''}${p.repo?`<a class="button" href="${esc(p.repo)}" aria-label="View Source: ${esc(p.title)}">View Source ↗</a>`:''}</div></div>${preview(p)}</div><p class="case-decision"><strong>Key Decision</strong>${esc(p.decision)}</p><h2>The Case Study</h2>${evidence(p)}</article><div class="actions"><a class="button" href="/projects/">Explore All ${c.featured.length} Projects</a><a class="button primary" ${touchAttrs(c.links)}>Get in Touch ↗</a></div>`;
   return { card, detail };
 }
 
