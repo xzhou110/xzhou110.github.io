@@ -8,6 +8,16 @@ The gate checks all candidate public files, including source, documentation, unt
 
 Text scanning cannot inspect image pixels. Changed PNGs need visual privacy review and an updated digest in `assets/reviewed-images.json`. Unknown binaries remain blocked.
 
+## Retake a Screenshot
+
+The build never fetches screenshots. When a public app changes, retake its preview by hand with the headless Chrome command the first build used (from `build.mjs` in commit `ff247cf`), so size and framing match the other previews: 1280 by 800, the viewport is the image, scrollbars hidden. Run Google Chrome's own `chrome.exe` (in its Program Files folder) and write to a temporary folder first, with a throwaway profile:
+
+```sh
+chrome.exe --headless=new --disable-gpu --no-first-run --no-default-browser-check --user-data-dir=<temp>/portfolio-chrome-profile --hide-scrollbars --window-size=1280,800 --virtual-time-budget=8000 --screenshot=<temp>/<id>.png <live app URL>
+```
+
+Look at the image beside the one it replaces (no personal data, only the app's own demo content, nothing the case no longer claims), copy it to `assets/shots/<id>.png`, put its SHA-256 in `assets/reviewed-images.json`, and show the owner both images before publishing. First used this way on 2026-11-12 for Car TCO Compare.
+
 ## Maintain a Public Name Review
 
 An owner may authorize a case-study name that an older private-name rule still blocks. Keep the rule. A local `nameReviews` entry contains `file`, `name`, and `sha256`, and applies only to that literal in that file's exact reviewed UTF-8 text, with CRLF normalized to LF.

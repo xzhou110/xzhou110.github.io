@@ -5,7 +5,7 @@ summary: Public employer-facing portfolio with three visual highlights, an eleve
 status: live
 live: https://xzhou110.github.io/
 repo: https://github.com/xzhou110/xzhou110.github.io
-updated: 2026-10-27
+updated: 2026-11-12
 started: 2026-10-01
 category: products
 phase: polishing
@@ -76,6 +76,8 @@ The workspace project index, shared launch configuration, and personal project r
 The workspace index, launcher, collector registrations, repository-name exception, support/privacy page paths, and legacy redirect were checked during the October 27 refresh. The index description now reflects the bounded homepage and full library. The ignored launcher uses this project's `serve.mjs` on the existing port so nested cases and static library pages are served; it exposes only public output and assets. Generated workspace snapshots remain the collector's output.
 
 ### Change Highlights
+
+- 2026-11-12: Car TCO Compare case brought in line with the app after its real listings and email-alert prototype were paused over the data provider's terms (that project's ADR-003). Category, What I Built, How It Works, Where It Stands, the first limit, the caption and the evidence date changed; everything else was re-checked and kept. The screenshot was retaken from the live app (method in [Publishing](docs/PUBLISHING.md)), visually reviewed and its digest updated. Owner approved the text and image before publication; the four affected name reviews were refreshed by the owner.
 
 - 2026-10-30: Dream Laws privacy policy, App Updates: the update check's random installation token is named (owner's "Yes, add it"); effective date October 30, 2026. The build first stopped with no finding: an orphaned `serve.mjs` from a closed session held the root `index.html` open through a stalled response, so the gate's rename over it failed with EPERM, which the build's catch reports only as "Build stopped". Removing the held generated copy let the build write a fresh one; the orphan was left for the owner. The trap and the holder-finding script are in agent-skills (`rules/machine-windows.md`, `scripts/who-holds-file.ps1`). Editing this file needs its name review refreshed (see [Publishing](docs/PUBLISHING.md)); done for this revision.
 

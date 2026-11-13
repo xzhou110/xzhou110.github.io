@@ -79,23 +79,23 @@
       "id": "car-tco-compare",
       "group": "consumer",
       "title": "Car TCO Compare",
-      "category": "Cost Modeling & Email Alerts",
+      "category": "Cost Modeling & Data Visualization",
       "highlights": [
         "Editable Cost Model",
-        "Real Listings",
+        "Shareable Comparisons",
         "Email Backend"
       ],
       "oneLiner": "Compare the estimated cost of owning up to six cars, with assumptions you can change and a breakdown you can inspect.",
       "problem": "Sticker price and monthly payments leave out much of the cost of owning a car. I wanted to compare different vehicles under the same holding period, mileage, and financing assumptions, and inspect what changes the ranking.",
-      "built": "A car-ownership calculator with a seven-part cost model, side-by-side comparisons, cumulative cost charts, and a snapshot of real listings. A separate email-alert prototype ranks listings by estimated ownership cost.",
-      "how": "The pure TypeScript calculation engine is separate from the React interface and reused in Car Shopping. Listing snapshots keep the comparator static. Supabase, Resend, and scheduled GitHub Actions support the email-alert prototype with double opt-in.",
-      "outcome": "The comparator is publicly available, and its calculation engine is also used in Car Shopping. The email-alert backend remains a proof of concept; a commercial subscription service has not launched.",
+      "built": "A car-ownership calculator with a seven-part cost model, side-by-side comparisons, and cumulative cost charts. Cars are entered by hand or loaded from presets and saved cars. A separate email-alert prototype ranked real listings by estimated ownership cost.",
+      "how": "The pure TypeScript calculation engine is separate from the React interface and reused in Car Shopping. The comparator runs entirely in the browser; inputs save locally and in a shareable link. Supabase, Resend, and scheduled GitHub Actions supported the email-alert prototype with double opt-in.",
+      "outcome": "The comparator is publicly available, and its calculation engine is also used in Car Shopping. On November 12, 2026, I paused the real listings and the email-alert prototype to stay within the data provider’s terms. The code is kept, so both can return under a license that allows public use. A commercial subscription service has not launched.",
       "honest": [
-        "Cost assumptions are illustrative segment-level estimates, not predictions of an individual buyer’s expenses. Listings are snapshots, not guaranteed current inventory.",
+        "Cost assumptions are illustrative segment-level estimates, not predictions of an individual buyer’s expenses.",
         "Engine tests cover calculations, depreciation, and vehicle resolution. The [model documentation](https://github.com/xzhou110/car-tco-compare/blob/main/docs/design/tco-model.md) makes the assumptions inspectable.",
         "The alerts prototype has a public [review record](https://github.com/xzhou110/car-tco-compare/blob/main/rav4-alert/review-findings.md). Historical checks are not a promise of current service reliability."
       ],
-      "caption": "Figures shown are illustrative estimates; the app states its cost assumptions are illustrative. Listings: Auto.dev snapshot.",
+      "caption": "Figures shown are illustrative estimates; the app states its cost assumptions are illustrative.",
       "caveat": "Source is public under the PolyForm Noncommercial license.",
       "stack": [
         "React",
@@ -111,7 +111,7 @@
       "repo": "https://github.com/xzhou110/car-tco-compare",
       "screenshot": true,
       "status": "Live Web App",
-      "evidenceAsOf": "2026-10-27",
+      "evidenceAsOf": "2026-11-12",
       "decision": "Make the assumptions editable so the ranking can be challenged.",
       "icon": "assets/icons/car-tco-compare.svg",
       "summary": "Compare cars by estimated cost of ownership."
