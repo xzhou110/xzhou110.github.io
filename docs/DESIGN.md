@@ -6,7 +6,8 @@ The owner's approved preferences provide a reusable visual language: calm light 
 
 ## Public Audience Adaptation
 
-- The header wordmark uses the full curated name, Xu Zhou (Lukas), matching the page identity and linking back to the top. It is separate from the browser favicon. Avoid an unexplained nickname-only brand or decorative trailing punctuation.
+- The header wordmark uses the curated name, Xu (Lukas), matching the page identity and linking back to the top; the owner's full name is not shown (owner, 2026-11-21). Avoid a nickname alone without the name, and decorative trailing punctuation.
+- The browser-tab icon is the owner's X on a Sunrise Copper square, the XuSeak short mark as on the owner's other sites, each with its square in a colour that means the site; this one inspiring and professional (owner, 2026-11-21). It is separate from the wordmark. Sizes, source and the drawing command: [PROJECT.md](../PROJECT.md), Key Things to Know.
 - Lead with the value Lukas brings, followed immediately by shipped work.
 - Keep a rich visual preview, purpose, original icon where available, and release state on each card. Full capabilities, decisions, evidence, and available live/source links live on a dedicated case-study page.
 - Selected Work can include public apps and private/local tooling. Use a labelled workflow or capability illustration where a real screenshot would expose private content. Omit unavailable app/source links; every card still opens a full case study. Status is stated without inventing a public demo or complete integration.

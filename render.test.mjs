@@ -108,3 +108,27 @@ test('every page leads back to xuseak.com from its header and its footer', () =>
     assert(header.indexOf('</nav>') < header.indexOf(wayBack), `${name}: the way back follows the site's own links`);
   }
 });
+// The owner's public name here is "Xu (Lukas)", never the full name (owner, 2026-11-21), and every page's tab icon is
+// the X on a Sunrise Copper square in its three sizes, each file a reviewed image of exactly that size.
+test('every page names the owner Xu (Lukas) and carries the X tab icon', () => {
+  const pages = Object.entries(output).filter(([name]) => name.endsWith('.html'));
+  assert(pages.length > 10);
+  assert.equal(content.name, 'Xu (Lukas)');
+  const reviewed = JSON.parse(fs.readFileSync(new URL('assets/reviewed-images.json', import.meta.url), 'utf8'));
+  for (const size of [32, 64, 180]) {
+    const file = `assets/tab-icon-${size}.png`;
+    const png = fs.readFileSync(new URL(file, import.meta.url));
+    assert.equal(png.readUInt32BE(16), size, `${file} is ${size} wide`);
+    assert.equal(png.readUInt32BE(20), size, `${file} is ${size} tall`);
+    assert(reviewed[file], `${file} has a visual review`);
+  }
+  for (const [name, page] of pages) {
+    assert.doesNotMatch(page, /Xu Zhou/, name);
+    assert.doesNotMatch(page, /favicon\.svg/, name);
+    assert.match(page, /<link rel="icon" type="image\/png" sizes="32x32" href="\/assets\/tab-icon-32\.png\?v=[0-9a-f]{12}">/, name);
+    assert.match(page, /<link rel="icon" type="image\/png" sizes="64x64" href="\/assets\/tab-icon-64\.png\?v=[0-9a-f]{12}">/, name);
+    assert.match(page, /<link rel="apple-touch-icon" sizes="180x180" href="\/assets\/tab-icon-180\.png\?v=[0-9a-f]{12}">/, name);
+  }
+  const home = /<header class="site-header">[^]*?<\/header>/.exec(html)?.[0] ?? '';
+  assert.match(home, /<a class="brand" href="#top" aria-label="Xu \(Lukas\), Back to Top">Xu \(Lukas\)<\/a>/);
+});

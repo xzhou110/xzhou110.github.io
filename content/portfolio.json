@@ -1,6 +1,6 @@
 {
   "_about": "Curated, employer-facing content for xzhou110.github.io. Everything here is public by intent. Optional public repository dates come from an explicitly supplied facts snapshot. Named private-tool case studies require owner authorization; their source repositories, runtime data, prompts, and account details are never imported. Facts only: no invented user counts, revenue, or impact claims; estimates stay labelled.",
-  "name": "Xu Zhou (Lukas)",
+  "name": "Xu (Lukas)",
   "handle": "xzhou110",
   "siteUrl": "https://xzhou110.github.io/",
   "updated": "2026-10-27",
@@ -21,7 +21,7 @@
       "label": "Knowledge & Productivity"
     }
   ],
-  "tagline": "Xu Zhou (Lukas): AI, Data Science & Product. Independent apps and tools, with product decisions, implementation details, and verification.",
+  "tagline": "Xu (Lukas): AI, Data Science & Product. Independent apps and tools, with product decisions, implementation details, and verification.",
   "bio": "I’m Lukas. I build apps and tools that help people plan their day, compare costs, and work with AI. I shape the product, direct AI-assisted development, and check the result in use.",
   "links": {
     "github": "https://github.com/xzhou110",
