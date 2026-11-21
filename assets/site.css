@@ -41,6 +41,11 @@ h3 { font-size: 22px; letter-spacing: -.015em; margin-bottom: 10px; }
 .topbar nav { display: flex; gap: 24px; flex-wrap: wrap; }
 .topbar nav a { color: var(--muted); font-size: 14px; font-weight: 600; text-decoration: none; padding-block: 10px; }
 .topbar nav a:hover, .topbar nav a[aria-current] { color: var(--accent-ink); text-decoration: underline; }
+/* The way back to xuseak.com (wayBack in render-utils.mjs): after the sections, behind a thin rule, in smaller,
+   quieter text, the same label and place as on every XuSeak site. On a phone it takes a short line of its own. */
+.topbar-end { display: flex; align-items: center; gap: 20px; flex-shrink: 0; }
+.topbar-end .family-link { color: var(--muted); font-size: 13px; font-weight: 600; text-decoration: none; white-space: nowrap; padding: 10px 0 10px 20px; border-left: 1px solid var(--line-strong); }
+.topbar-end .family-link:hover { color: var(--accent-ink); text-decoration: underline; }
 .theme-picker { border: 1px solid var(--line-strong); border-radius: 999px; padding: 3px; display: flex; gap: 2px; flex-shrink: 0; }
 .theme-picker button { border: 0; background: transparent; color: var(--muted); border-radius: 999px; padding: 7px 12px; font-size: 13px; font-weight: 600; min-height: 36px; }
 .theme-picker button[aria-pressed="true"] { color: var(--accent-ink); background: var(--accent-soft); }
@@ -220,6 +225,8 @@ footer p + p { margin-top: 8px; }
   .brand { font-size: 16px; }
   .topbar nav { justify-content: space-between; gap: 8px 12px; }
   .topbar nav a { font-size: 13px; }
+  .topbar-end { display: contents; }
+  .topbar-end .family-link { order: 4; display: flex; align-items: center; min-height: 40px; padding: 0; border-left: 0; }
   .work-filters { gap: 8px; }
   .work-filters button { font-size: 13px; padding-inline: 12px; }
   .project-jump, .project-jump select { width: 100%; }

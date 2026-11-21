@@ -93,3 +93,18 @@ test('the owner\'s email address is never written into a page; Get in Touch carr
   const script = fs.readFileSync(new URL('assets/site.js', import.meta.url), 'utf8');
   assert.match(script, /data-mail-user/);
 });
+// xuseak.com links to this portfolio, so every generated page links back (owner, 2026-11-21, the two-way rule):
+// All XuSeak Sites in the header and in the footer, and the 404 page, which has no header, in its footer.
+test('every page leads back to xuseak.com from its header and its footer', () => {
+  const pages = Object.entries(output).filter(([name]) => name.endsWith('.html'));
+  assert(pages.length > 10);
+  const wayBack = '<a class="family-link" href="https://xuseak.com/">All XuSeak Sites</a>';
+  for (const [name, page] of pages) {
+    const header = /<header class="site-header">[^]*?<\/header>/.exec(page)?.[0];
+    const footer = /<footer\b[^]*?<\/footer>/.exec(page)?.[0] ?? '';
+    assert(footer.includes(wayBack), `${name}: the footer leads back`);
+    if (name === '404.html') continue;
+    assert(header?.includes(wayBack), `${name}: the header leads back`);
+    assert(header.indexOf('</nav>') < header.indexOf(wayBack), `${name}: the way back follows the site's own links`);
+  }
+});

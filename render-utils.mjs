@@ -4,6 +4,12 @@ export const md = (s) => esc(s).replace(/\*\*(.+?)\*\*/g, '<b>$1</b>').replace(/
 // mailto link (owner, 2026-11-12). The link itself goes to LinkedIn, or to the home page's contact section, and the
 // three parts of the address ride along as data; assets/site.js puts them together and opens an email only when
 // someone clicks. links.mail is { user, tag, domain }; the tag says which site the message came from.
+// The way back to xuseak.com, the owner's directory of every XuSeak site. xuseak.com links here, so every page here
+// links back, in its header and its footer (owner, 2026-11-21: "from xuseak.com can go here, and here can go back to
+// xuseak.com"). The label and the place are the ones Codex set for every XuSeak site, so a visitor learns one way
+// back: after the site's own links, behind a thin rule, in smaller, quieter text.
+export const XUSEAK_HOME = 'https://xuseak.com/';
+export const wayBack = (cls = 'family-link') => `<a class="${cls}" href="${XUSEAK_HOME}">All XuSeak Sites</a>`;
 export const touchAttrs = (links) => {
   const mail = links.mail;
   return `href="${esc(links.linkedin || '/#contact')}"${mail ? ` data-mail-user="${esc(mail.user)}" data-mail-tag="${esc(mail.tag)}" data-mail-domain="${esc(mail.domain)}"` : ''}`;
